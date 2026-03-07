@@ -1,7 +1,12 @@
 /** @format */
 
-import React from "react";
+import { useState, useEffect } from "react";
+import Back from "../../component/Back";
 
 export default function page() {
-  return <div>page</div>;
+  return (
+    <div className='forgotPassword'>
+      <Back />
+    </div>
+  );
 }
