@@ -1,0 +1,9 @@
+/** @format */
+
+.backLink {
+  display: flex;
+  gap: 30px;
+  font-size: 18px;
+  align-items: center;
+  margin-bottom: 1.3%;
+}
