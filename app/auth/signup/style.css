@@ -1,0 +1,167 @@
+/* main page */
+.signup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* secondContainer
+* ======================================================
+*/
+
+.signup .secondContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    background-image: var(--gradient);
+    overflow: hidden;
+    position: relative;
+    width: 60%;
+    height: 90%;
+    border-radius: 20px;
+    padding: 60px;
+    color: white;
+    text-align: center;
+}
+
+.signup .secondContainer .writeUp{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+.signup .secondContainer *{
+    position: relative;
+    z-index: 1;
+}
+
+.signup .secondContainer h1{
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.signup .secondContainer p{
+    font-size: 18px;
+    font-weight: 200;
+    width: 80%;
+}
+
+.signup .secondContainer .image{
+   margin-top: 10%;
+}
+
+.signup .secondContainer .image img{
+    width: 90%;
+    height: auto;
+}
+
+/* login form
+* ======================================================
+*/
+
+.loginInput{
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-evenly;
+}
+
+.loginInput .titleAndDetails{
+    margin: 5% 0;
+}
+
+
+.loginInput .titleAndDetails .logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.loginInput .titleAndDetails .logo h1{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.loginInput .titleAndDetails h2{
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.loginInput .titleAndDetails p{
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+form .input{
+    position: relative;
+    margin-bottom: 25px;
+}
+
+form .input input{
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: 1px solid var(--border);
+    background-color: var(--subcolor);
+    border-radius: 10px;
+    outline: none;  
+}
+
+form .inputField label{
+    color: var(--foreground);
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+
+form .input input:focus{
+    border-color: 1px solid var(--foreground);
+}
+
+form .input svg{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    fill: var(--foreground);
+}
+
+form .input .seePassword{
+    /* right: 10px; */
+    position: absolute;
+    left: 92%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    fill: var(--foreground);
+}
+
+.forgottenPassword{
+    display: flex;
+    justify-content: flex-end;
+    color: #241E77;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+button{
+    background: var(--gradient);
+    color: white;
+    padding: 15px 60px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 300;
+}

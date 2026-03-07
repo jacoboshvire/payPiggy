@@ -1,0 +1,416 @@
+.landing{
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+.landing .firstcard{
+    background-color: #241E77;
+    background-image: linear-gradient(45deg, #4337DD,  #241E77);
+    margin-top: 3%;
+    padding: 40px;
+    border-radius: 20px;
+    color: white;
+    overflow: hidden;
+    height: 650px;
+}
+
+.landing .firstcard h1{
+    font-size: 20px;
+    font-weight: 900;
+    width: 70%;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logoAndLink{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    font-weight: 300;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.auth{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-weight: 300;
+}
+
+.createAccount{
+    background-color: white;
+    color: #241E77;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.createAccount:hover{
+    color: white;
+}
+
+.createAccount a{
+    position: relative;
+    z-index: 1;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 5% 0;
+    position: relative;
+    height: 60%;
+}
+.content .writeup{
+    max-width: 500px;
+}
+
+.content .writeup h1{
+    font-size: 40px;
+    font-weight: 900;
+    margin: 4% 0;
+}
+
+.content .writeup p{
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 4%;
+}
+
+.login{
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+
+.links div{
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    transform-origin: center;
+}
+.links div:hover{
+    background-color: #000000;
+    color: white;
+    transform: scale(1.1);
+}
+
+.login:hover{
+    background-color: #000000;
+    color: white;
+    transform: scale(1.1);
+}
+
+.createAccount div{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #000000;
+    bottom: -5px;
+    left: 0px;
+    transition: all 0.5s ease;
+}
+
+.createAccount:hover div{
+    height: 150%;
+    bottom: 0;
+    animation: border 1s forwards ease-in-out ;
+}
+
+@keyframes border {
+    0%{
+        border-radius: 30% 30% 0% 0%;
+    }
+    50%{
+        border-radius: 30% 30% 0% 0%;
+        transform: scale(1.2);
+    }
+    100%{
+        border-radius: 0% 0% 0% 0% ;
+        transform: scale(1);
+    }
+}
+
+.content .image{
+    position: absolute;
+    right: 0;
+    /* bottom: -100%; */
+    transform: translateY(20%);
+}
+
+.secondcontainer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+}
+
+.secondcontainer .writeup{
+    max-width: 500px;
+    display: flex;
+    gap: 50px;
+    align-items: flex-end;
+    padding-left: 20px;
+}
+
+.secondcontainer .writeup h1{
+    font-size: 32px;
+    font-weight: 900;
+    margin: 2% 0;
+}
+
+.secondcontainer .writeup p{
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 5%;
+}
+
+.topicContainer{
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    padding-left: 20px;
+}
+
+.topicContainer .text h1{
+    font-size: 32px;
+    font-weight: 900;
+}
+
+
+.button{
+    background-color: var(--foreground);
+    color: var(--background);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+    transform-origin: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+
+
+.button a{
+    position: relative;
+    z-index: 1;
+}
+
+.button:hover{
+    color: white;
+    transform: scale(1.1);
+}
+
+.button div{
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #4337DD;
+    bottom: -5px;
+    left: 0px;
+    transition: all 0.5s ease;
+}
+
+.button:hover div{
+    height: 150%;
+    bottom: 0;
+    animation: border 1s forwards ease-in-out ;
+}
+
+.thirdContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 20px;
+    margin: 5% 0;
+}
+
+.thirdContainer .card{
+    background-color: var(--subcolor);
+    border: 1px solid var(--border);
+    padding: 40px;
+    border-radius: 20px;
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.5s ease;
+}
+
+.thirdContainer .card .image{
+    background-color: #241E77;
+    background-image: linear-gradient(45deg, #4337DD,  #241E77);
+    padding: 40px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.5s ease;
+}
+
+.aboutContainer{
+    margin: 3% 0;
+}
+
+.aboutContainer p{
+    font-size: 18px;
+    font-weight: 200;
+    max-width: 50%;
+    margin-bottom: 2%;
+}
+
+.lastContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 100px;
+    background-color: var(--subcolor);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    margin: 5% 0;
+}
+
+.lastContainer h1{
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.lastContainer p{
+    font-size: 18px;
+    font-weight: 200;
+    max-width: 600px;
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    padding-bottom: 20%;
+    color: var(--background);
+    background-color: var(--foreground);
+    background-image: var(--linear);
+}
+
+.mainFooter{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 1300px;
+}
+
+.mainFooter .logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.mainFooter .logo h1{
+    font-size: 34px;
+    font-weight: 900;
+}
+
+.mainFooter .navs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mainFooter .navs .title{
+    font-size: 34px;
+    font-weight: 900;
+    margin-bottom: 10%;
+}
+
+.mainFooter .socails .title{
+    font-size: 34px;
+    font-weight: 900;
+    margin-bottom: 10%;
+}
+
+.mainFooter .socails .media{
+    display: flex;
+    gap: 20px;
+}
+
+.mainFooter .creator{
+    font-size: 24px;
+    font-weight: 200;
+    max-width: 20%;
+}
+
+footer svg{
+    fill: var(--background);
+}
+
+.scrollBtu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scrollBtu .btu{
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+    background-color: var(--subcolor);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+.scrollBtu .btu span{
+    width: 10px;
+    height: 10px;
+    background-color: var(--border);
+    border-radius: 20px;
+    animation: scroll 1s infinite ease-in-out;
+    transition: all 0.5s ease;
+}
+
+.scrollBtu .btu .visible {
+   width: 30px; 
+   background-color: #241E77;
+}

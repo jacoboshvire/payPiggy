@@ -1,0 +1,56 @@
+.verification{
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.verification .main{
+    width: 100%;
+}
+
+.verification svg{
+    fill: var(--foreground);
+}
+
+.writeUp .backLink{
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+}
+
+.logoAndDetails .logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 2% 0;
+}
+
+.logoAndDetails .logo h1{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logoAndDetails p{
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 2%;
+}
+
+.OTP .otpInput{
+    display: flex;
+    gap: 30px;
+}
+
+.OTP .otpInput input{
+    border: 1px solid var(--border);
+    width: 60px;
+    height: 60px;
+    background-color: var(--subcolor);
+    border-radius: 60px;
+    font-size: 1.2em;
+    text-align: center;
+}
