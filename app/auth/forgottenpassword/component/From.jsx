@@ -102,8 +102,8 @@ export default function From() {
 
             <input
               type={changeType1 ? "text" : "password"}
-              id="password"
-              name="password"
+              id="confrim_password"
+              name="confrimPassword"
               placeholder="*******"
               required
             />
