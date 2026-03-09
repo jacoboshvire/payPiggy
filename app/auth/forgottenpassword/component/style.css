@@ -8,6 +8,10 @@
 }
 
 /* input style */
+form {
+  width: 100%;
+  background-color: antiquewhite;
+}
 
 form .input {
   position: relative;
