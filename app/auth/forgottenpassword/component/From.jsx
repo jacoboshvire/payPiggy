@@ -18,7 +18,9 @@ export default function From() {
     <div className="form">
       <form>
         <div className="inputField">
-          <label htmlFor="password">Enter new password</label>
+          <label htmlFor="password">
+            Enter new password <br />
+          </label>
           <div className="input">
             <svg
               width="24"
@@ -88,7 +90,10 @@ export default function From() {
           </div>
         </div>
         <div className="inputField">
-          <label htmlFor="password">Confrim new password</label>
+          <label htmlFor="password">
+            Confrim new password <br />
+          </label>
+          <br />
           <div className="input">
             <svg
               width="24"
