@@ -1,4 +1,4 @@
-/** @format */
+/* back link style */
 
 .backLink {
   display: flex;
@@ -11,3 +11,5 @@
 .backLink svg {
   fill: var(--foreground);
 }
+
+/* Logo style */
