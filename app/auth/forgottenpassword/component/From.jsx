@@ -10,8 +10,8 @@ export default function From() {
   const changeTypeFun = () => {
     setChangeType((changeType) => !changeType);
   };
-  const changeTypeFun = () => {
-    setChangeType((changeType) => !changeType);
+  const changeTypeFun2 = () => {
+    setChangeType1((changeType1) => !changeType1);
   };
   return (
     <div className="from">
@@ -116,7 +116,7 @@ export default function From() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="seePassword"
-                onClick={changeTypeFun}
+                onClick={changeTypeFun2}
               >
                 <path
                   fillRule="evenodd"
@@ -137,7 +137,7 @@ export default function From() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="seePassword"
-                onClick={changeTypeFun}
+                onClick={changeTypeFun2}
               >
                 <path
                   fillRule="evenodd"
