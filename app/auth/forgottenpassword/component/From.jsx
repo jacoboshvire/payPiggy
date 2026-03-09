@@ -101,14 +101,14 @@ export default function From() {
             </svg>
 
             <input
-              type={changeType ? "text" : "password"}
+              type={changeType1 ? "text" : "password"}
               id="password"
               name="password"
               placeholder="*******"
               required
             />
 
-            {changeType ? (
+            {changeType1 ? (
               <svg
                 width="24"
                 height="24"
