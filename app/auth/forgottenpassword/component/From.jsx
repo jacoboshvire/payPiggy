@@ -114,7 +114,7 @@ export default function From() {
               type={changeType1 ? "text" : "password"}
               id="password"
               name="password"
-              placeholder="*******"
+              placeholder={changeType1 ? "Confrim new password" : "*******"}
               required
             />
 
