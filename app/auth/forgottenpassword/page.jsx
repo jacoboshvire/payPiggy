@@ -1,4 +1,4 @@
-/** @format */
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -10,9 +10,11 @@ import "./component/style.css"
 export default function page() {
   return (
     <div className='forgotPassword'>
+      <div className="forgotPassword_container">
       <Back />
       <From />
       <Detail />
+      </div>
     </div>
   );
 }
