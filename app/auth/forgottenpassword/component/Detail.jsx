@@ -1,5 +1,6 @@
 /** @format */
 
+"use client";
 import { useState, useEffect } from "react";
 import "./style.css";
 
