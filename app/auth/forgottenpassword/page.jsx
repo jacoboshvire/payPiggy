@@ -11,8 +11,8 @@ export default function page() {
     <div className="forgotPassword">
       <div className="forgotPassword_container">
         <Back />
-        <From />
         <Detail />
+        <From />
       </div>
     </div>
   );
