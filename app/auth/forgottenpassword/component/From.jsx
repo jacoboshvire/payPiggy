@@ -10,6 +10,10 @@ export default function From() {
   const changeTypeFun = () => {
     setChangeType((changeType) => !changeType);
   };
+
+  const changeTypeFun2 = () => {
+    setChangeType1((changeType1) => !changeType1);
+  };
   return (
     <div className="from">
       <form>
@@ -101,14 +105,14 @@ export default function From() {
             </svg>
 
             <input
-              type={changeType ? "text" : "password"}
+              type={changeType1 ? "text" : "password"}
               id="password"
               name="password"
               placeholder="*******"
               required
             />
 
-            {changeType ? (
+            {changeType1 ? (
               <svg
                 width="24"
                 height="24"
