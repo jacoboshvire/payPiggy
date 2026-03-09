@@ -84,7 +84,7 @@ export default function From() {
           </div>
         </div>
         <div className="inputField">
-          <label htmlFor="password">Enter new password</label>
+          <label htmlFor="password">Confrim new password</label>
           <div className="input">
             <svg
               width="24"
