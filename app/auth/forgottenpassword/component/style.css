@@ -1,4 +1,6 @@
 .forgotPassword{
     width: 100%;
-    max-width: 1300px;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-content: center;
 }
