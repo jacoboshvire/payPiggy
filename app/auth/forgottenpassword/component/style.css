@@ -8,7 +8,7 @@
 }
 
 /* input style */
-form {
+form && .form {
   width: 100%;
   background-color: antiquewhite;
 }
