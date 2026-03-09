@@ -14,7 +14,7 @@ export default function From() {
     <div className="from">
       <form>
         <div className="inputField">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Enter new password</label>
           <div className="input">
             <svg
               width="24"
