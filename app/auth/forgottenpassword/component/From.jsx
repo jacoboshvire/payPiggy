@@ -21,6 +21,7 @@ export default function From() {
           <label htmlFor="password">
             Enter new password <br />
           </label>
+          <br />
           <div className="input">
             <svg
               width="24"
