@@ -9,6 +9,9 @@ export default function Detail() {
   return (
     <div className="details">
       <Logo />
+      <div className="details_paragraph">
+        <p>Reset Your Password</p>
+      </div>
     </div>
   );
 }
