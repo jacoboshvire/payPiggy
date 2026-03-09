@@ -76,4 +76,6 @@ button {
   cursor: pointer;
   font-size: 16px;
   font-weight: 300;
+  display: flex;
+  gap: 30px;
 }
