@@ -41,7 +41,7 @@ export default function From() {
               type={changeType ? "text" : "password"}
               id="password"
               name="password"
-              placeholder="*******"
+              placeholder={changeType ? "Enter new password" : "*******"}
               required
             />
 
