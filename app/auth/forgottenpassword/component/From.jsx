@@ -7,6 +7,9 @@ export default function From() {
   const [changeType, setChangeType] = useState(false);
   const [changeType1, setChangeType1] = useState(false);
 
+  const changeTypeFun = () => {
+    setChangeType((changeType) => !changeType);
+  };
   return (
     <div className="from">
       <form></form>
