@@ -15,7 +15,7 @@ export default function From() {
     setChangeType1((changeType1) => !changeType1);
   };
   return (
-    <div className="from">
+    <div className="form">
       <form>
         <div className="inputField">
           <label htmlFor="password">Enter new password</label>
