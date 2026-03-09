@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import "./style.css";
 
 export default function From() {
+  const [changeType, setChangeType] = useState(false);
   return (
     <div className="from">
       <form>
