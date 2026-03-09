@@ -79,3 +79,10 @@ button {
   display: flex;
   gap: 30px;
 }
+
+/* Details.jsx paragraph style */
+
+.details_paragraph {
+  margin: 2.6% 0;
+  font-size: 18px;
+}
