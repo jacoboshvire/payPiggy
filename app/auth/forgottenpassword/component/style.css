@@ -7,9 +7,13 @@
   height: 100vh;
 }
 
+.forgotPassword_container {
+  width: 100%;
+}
+
 /* input style */
 .from {
-  width: 100%;
+  width: 50%;
   background-color: antiquewhite;
 }
 
