@@ -12,7 +12,7 @@
 }
 
 /* input style */
-.from {
+.form {
   width: 50%;
   background-color: antiquewhite;
 }
@@ -23,7 +23,7 @@ form .input {
 }
 
 form .input input {
-  width: 50%;
+  width: 100%;
   padding: 15px 15px 15px 50px;
   border: 1px solid var(--border);
   background-color: var(--subcolor);
