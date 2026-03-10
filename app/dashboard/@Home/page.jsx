@@ -4,6 +4,7 @@
 import React from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import "./style.css";
+import Card from "./component/Card";
 
 export default function page() {
   const pathname = usePathname();
