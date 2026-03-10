@@ -41,7 +41,9 @@ export default function Nav() {
             </defs>
           </svg>
         </div>
-        <div className="bashboard_navbar_link"></div>
+        <div className="bashboard_navbar_link">
+          <Link href="#">home</Link>
+        </div>
       </nav>
     </div>
   );
