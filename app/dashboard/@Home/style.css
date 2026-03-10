@@ -17,6 +17,7 @@
 
 .Home_welcomeMsg_profile {
   overflow: hidden;
-  width: 24px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
 }
