@@ -57,6 +57,7 @@ export default function Nav() {
                 fill="black"
               />
             </svg>
+            <p>Home</p>
           </Link>
         </div>
       </nav>
