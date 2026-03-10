@@ -24,7 +24,7 @@
   align-items: center;
   font-size: 20px;
   font-weight: 300;
-  padding: 30px 0;
+  padding: 20px 0;
   transition: 500ms ease-in-out;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .bashboard_navbar nav a:hover {
-  padding: 30px 30px;
+  padding: 20px 30px;
   background-color: var(--subcolor);
   border: 1px solid var(--border);
   border-radius: 10px;
