@@ -2,7 +2,7 @@
   width: 30%;
   border-right: 1px solid var(--border);
   height: 100vh;
-  position: fixed;
+  background-color: var(--background);
 }
 
 .bashboard_navbar nav a svg {
