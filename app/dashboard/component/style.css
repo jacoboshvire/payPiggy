@@ -46,6 +46,7 @@
   background-color: var(--subcolor);
   border: 1px solid var(--border);
   border-radius: 10px;
+  color: #241e77;
 }
 .bashboard_navbar nav .bashboard_navbar_links .active svg {
   fill: #241e77;
