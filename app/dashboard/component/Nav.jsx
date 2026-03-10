@@ -108,6 +108,7 @@ export default function Nav() {
             </svg>
             <p>Wallet</p>
           </Link>
+          {/* payment===== */}
         </div>
       </nav>
     </div>
