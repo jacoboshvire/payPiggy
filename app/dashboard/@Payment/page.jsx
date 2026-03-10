@@ -8,8 +8,8 @@ export default function page() {
 
   return (
     <>
-      {pathname === "/dashboard" && searchParams.get(payment) === "true" && (
-        <div>page</div>
+      {pathname === "/dashboard" && searchParams.get("payment") === "true" && (
+        <div>payment</div>
       )}
     </>
   );
