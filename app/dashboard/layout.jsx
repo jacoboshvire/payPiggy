@@ -8,6 +8,8 @@ export default function layout({ Account, Home, Payment, Wallet }) {
     <div className="bashboard">
       <Nav />
       {Home && Home}
+      {Payment && Payment}
+      {Wallet && Wallet}
     </div>
   );
 }
