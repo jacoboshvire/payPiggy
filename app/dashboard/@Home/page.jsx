@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 import React from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
@@ -8,7 +10,7 @@ export default function page() {
   return (
     <>
       {pathname === "/dashboard" && searchParams.toString() === "" && (
-        <div>page</div>
+        <div className='dashboard_home'>page</div>
       )}
     </>
   );
