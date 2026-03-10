@@ -16,7 +16,9 @@ export default function page() {
     <>
       {pathname === "/dashboard" && searchParams.toString() === "" && (
         <div className='dashboard_home'>
+          <WelcomeMsg />
           <Card />
+          <Transaction />
         </div>
       )}
     </>
