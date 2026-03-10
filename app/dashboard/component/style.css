@@ -37,4 +37,6 @@
 .bashboard_navbar nav a:hover {
   padding: 30px 30px;
   background-color: var(--subcolor);
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
