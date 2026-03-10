@@ -64,7 +64,7 @@ export default function Nav() {
           </Link>
           {/* accounts======= */}
           <Link
-            href="#"
+            href="/dashboard?account=true"
             className={
               pathanme === "/dashboard" && searchParams.get("account") === true
                 ? "active"
