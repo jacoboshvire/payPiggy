@@ -11,7 +11,9 @@ import "./style.css";
 export default function Nav() {
   return (
     <div className="bashboard_navbar">
-      <nav></nav>
+      <nav>
+        <div className="bashboard_navbar_logo"></div>
+      </nav>
     </div>
   );
 }
