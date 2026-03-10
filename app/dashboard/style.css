@@ -1,7 +1,9 @@
+/** @format */
+
 .bashboard {
   width: 100%;
   max-width: 1000px;
-  margin-left: 5%;
+  margin: 0 auto;
   display: flex;
   gap: 30px;
 }
