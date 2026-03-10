@@ -4,11 +4,10 @@
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
-  display: flex;
-  gap: 50px;
 }
 
 .bashboard_container {
   width: 69.2307%;
   background-color: antiquewhite;
+  display: flex;
 }
