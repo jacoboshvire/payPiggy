@@ -18,6 +18,13 @@
   gap: 20px;
 }
 
+.bashboard_navbar nav .bashboard_navbar_links a {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  font-size: 18px;
+}
+
 .bashboard_navbar nav a svg {
   fill: var(--foreground);
 }
