@@ -7,7 +7,10 @@ import { useRouter } from "next/navigation";
 export default function WelcomeMsg() {
   const router = useRouter();
   return (
-    <div className='home_welcomeMsg'>
+    <div
+      className='home_welcomeMsg'
+      onClick={() => router.push("/dashboard?account=true")}
+    >
       <Image
         src={
           "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1767871145/nxn2zpymtgyxybpjhqqg.jpg"
