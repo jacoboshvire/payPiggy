@@ -10,7 +10,7 @@ export default function page() {
   return (
     <>
       {pathname === "/dashboard" && searchParams.toString() === "" && (
-        <div className='dashboard_home'>page</div>
+        <div className='dashboard_home'></div>
       )}
     </>
   );
