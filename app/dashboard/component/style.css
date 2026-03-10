@@ -1,2 +1,3 @@
 .bashboard_navbar svg {
+  fill: var(--foreground);
 }
