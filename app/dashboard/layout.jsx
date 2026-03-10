@@ -7,6 +7,7 @@ export default function layout({ Account, Home, Payment, Wallet }) {
   return (
     <div className="bashboard">
       <Nav />
+      {Home && Home}
     </div>
   );
 }
