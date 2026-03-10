@@ -82,7 +82,7 @@ export default function Nav() {
               />
             </svg>
 
-            <p>Home</p>
+            <p>Account</p>
           </Link>
           {/* wallet======== */}
           <Link href="#">
@@ -107,7 +107,7 @@ export default function Nav() {
               />
             </svg>
 
-            <p>Home</p>
+            <p>Wallet</p>
           </Link>
         </div>
       </nav>
