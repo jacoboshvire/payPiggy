@@ -93,7 +93,14 @@ export default function Nav() {
             <p>Account</p>
           </Link>
           {/* wallet======== */}
-          <Link href="#">
+          <Link
+            href="/dashboard?wallet=true"
+            className={
+              pathanme === "/dashboard" && searchParams.get("wallet")
+                ? "active"
+                : ""
+            }
+          >
             <svg
               width="32"
               height="32"
@@ -115,7 +122,14 @@ export default function Nav() {
             <p>Wallet</p>
           </Link>
           {/* payment===== */}
-          <Link href="#">
+          <Link
+            href="/dashboard?payment=true"
+            className={
+              pathanme === "/dashboard" && searchParams.get("paymnet")
+                ? "active"
+                : ""
+            }
+          >
             <svg
               width="32"
               height="32"
