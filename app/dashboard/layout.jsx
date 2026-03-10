@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
+import Nav from "./component/Nav";
 
 export default function layout({ Account, Home, Payment, Wallet }) {
   return (
-    <div>
-      {Home}
-      {Account}
+    <div className="bashboard">
+      <Nav />
     </div>
   );
 }
