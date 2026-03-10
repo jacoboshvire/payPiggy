@@ -41,7 +41,7 @@
   border-radius: 10px;
 }
 
-.bashboard_navbar nav .active {
+.bashboard_navbar nav .bashboard_navbar_links .active {
   padding: 20px 30px;
   background-color: var(--subcolor);
   border: 1px solid var(--border);
