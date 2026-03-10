@@ -25,10 +25,15 @@
   font-size: 20px;
   font-weight: 300;
   padding: 30px 0;
+  transition: 500ms ease-in-out;
 }
 
 .bashboard_navbar nav a svg {
   fill: var(--foreground);
   width: 24px;
   height: 24px;
+}
+
+.bashboard_navbar nav a:hover {
+  padding: 30px 30px;
 }
