@@ -12,6 +12,11 @@
   gap: 20px;
 }
 
+.bashboard_navbar nav .bashboard_navbar_link {
+  display: flex;
+  float: auto;
+}
+
 .bashboard_navbar nav a svg {
   fill: var(--foreground);
 }
