@@ -1,7 +1,7 @@
 .bashboard {
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
+  margin-left: 5%;
   display: flex;
   gap: 30px;
 }
