@@ -19,6 +19,7 @@ export default function page() {
           <WelcomeMsg />
           <Card />
           <Transaction />
+          <PaymentHistory />
         </div>
       )}
     </>
