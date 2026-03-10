@@ -11,6 +11,7 @@ import Link from "next/link";
 import "./style.css";
 
 export default function Nav() {
+  const pathanme = usePathname();
   return (
     <div className="bashboard_navbar">
       <nav>
