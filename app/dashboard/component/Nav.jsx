@@ -125,7 +125,7 @@ export default function Nav() {
           <Link
             href="/dashboard?payment=true"
             className={
-              pathanme === "/dashboard" && searchParams.get("paymnet")
+              pathanme === "/dashboard" && searchParams.get("payment")
                 ? "active"
                 : ""
             }
