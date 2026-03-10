@@ -8,7 +8,7 @@ export default function WelcomeMsg() {
   const router = useRouter();
   return (
     <div
-      className='home_welcomeMsg'
+      className='Home_welcomeMsg'
       onClick={() => router.push("/dashboard?account=true")}
     >
       <Image
