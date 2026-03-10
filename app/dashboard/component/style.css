@@ -22,11 +22,13 @@
   display: flex;
   gap: 30px;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   padding: 30px 0;
 }
 
 .bashboard_navbar nav a svg {
   fill: var(--foreground);
+  width: 24px;
+  height: 24px;
 }
