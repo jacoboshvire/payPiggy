@@ -6,6 +6,12 @@
   padding: 5% 2%;
 }
 
+.bashboard_navbar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .bashboard_navbar nav a svg {
   fill: var(--foreground);
 }
