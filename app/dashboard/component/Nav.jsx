@@ -1,17 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import {
-  useRouter,
-  useParams,
-  usePathname,
-  useSearchParams,
-} from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 import Link from "next/link";
 import "./style.css";
 
 export default function Nav() {
   const pathanme = usePathname();
+  const searchParams = useSearchParams();
   return (
     <div className="bashboard_navbar">
       <nav>
@@ -43,7 +39,14 @@ export default function Nav() {
           </svg>
         </div>
         <div className="bashboard_navbar_links">
-          <Link href="#">
+          <Link
+            href="/dashboard"
+            className={
+              pathanme === "/dashboard" && searchParams.toString() === ""
+                ? "active"
+                : ""
+            }
+          >
             <svg
               width="32"
               height="32"
