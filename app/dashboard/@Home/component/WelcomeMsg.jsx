@@ -11,14 +11,16 @@ export default function WelcomeMsg() {
       className='Home_welcomeMsg'
       onClick={() => router.push("/dashboard?account=true")}
     >
-      <Image
-        src={
-          "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1767871145/nxn2zpymtgyxybpjhqqg.jpg"
-        }
-        alt='profile'
-        height={50}
-        width={50}
-      />
+      <div className='Home_welcomeMsg_profile'>
+        <Image
+          src={
+            "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1767871145/nxn2zpymtgyxybpjhqqg.jpg"
+          }
+          alt='profile'
+          height={50}
+          width={50}
+        />
+      </div>
       <p>Hi Govin</p>
     </div>
   );
