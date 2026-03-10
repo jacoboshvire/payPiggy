@@ -15,5 +15,8 @@
   width: fit-content;
 }
 
-.Home_welcomeMsg_profile{|
+.Home_welcomeMsg_profile {
+  overflow: hidden;
+  width: 24px;
+  height: 34px;
 }
