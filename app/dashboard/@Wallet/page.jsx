@@ -1,5 +1,16 @@
+"use client";
 import React from "react";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 export default function page() {
-  return <div>wallet</div>;
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  return (
+    <>
+      {pathname === "/dashboard" && searchParams.get("wallet") === "true" && (
+        <div>Wallet</div>
+      )}
+    </>
+  );
 }
