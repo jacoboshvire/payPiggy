@@ -1,8 +1,10 @@
+/** @format */
+
 .bashboard_navbar {
   width: 35%;
   border-right: 1px solid var(--border);
   height: 100vh;
-  background-color: var(--background);
+  /* background-color: var(--background); */
   padding: 5% 2%;
 }
 
