@@ -10,6 +10,7 @@ export default function layout({ Account, Home, Payment, Wallet }) {
       {Home && Home}
       {Payment && Payment}
       {Wallet && Wallet}
+      {Account && Account}
     </div>
   );
 }
