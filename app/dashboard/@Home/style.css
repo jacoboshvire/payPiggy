@@ -6,3 +6,9 @@
 }
 
 /* Home welcome message======= */
+
+.Home_welcomeMsg {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
