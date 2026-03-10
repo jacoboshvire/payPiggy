@@ -5,6 +5,9 @@ import React from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import "./style.css";
 import Card from "./component/Card";
+import PaymentHistory from "./component/PaymentHistory";
+import WelcomeMsg from "./component/WelcomeMsg";
+import Transaction from "./component/Transaction";
 
 export default function page() {
   const pathname = usePathname();
@@ -12,7 +15,9 @@ export default function page() {
   return (
     <>
       {pathname === "/dashboard" && searchParams.toString() === "" && (
-        <div className='dashboard_home'></div>
+        <div className='dashboard_home'>
+          <Card />
+        </div>
       )}
     </>
   );
