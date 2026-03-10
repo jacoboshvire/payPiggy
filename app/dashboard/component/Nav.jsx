@@ -63,7 +63,14 @@ export default function Nav() {
             <p>Home</p>
           </Link>
           {/* accounts======= */}
-          <Link href="#">
+          <Link
+            href="#"
+            className={
+              pathanme === "/dashboard" && searchParams.get("account") === true
+                ? "active"
+                : ""
+            }
+          >
             <svg
               width="32"
               height="32"
