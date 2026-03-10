@@ -9,5 +9,9 @@ import {
 import "./style.css";
 
 export default function Nav() {
-  return <div>Nav</div>;
+  return (
+    <div className="bashboard_navbar">
+      <nav></nav>
+    </div>
+  );
 }
