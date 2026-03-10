@@ -14,8 +14,8 @@ export default function Nav() {
       <nav>
         <div className="bashboard_navbar_logo">
           <svg
-            width={32 / 1.5}
-            height={20 / 1.5}
+            width={24}
+            height={20}
             viewBox="0 0 36 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
