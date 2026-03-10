@@ -14,7 +14,8 @@
 
 .bashboard_navbar nav .bashboard_navbar_link {
   display: flex;
-  float: auto;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .bashboard_navbar nav a svg {
