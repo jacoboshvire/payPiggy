@@ -16,6 +16,7 @@ export default function WelcomeMsg() {
         height={50}
         width={50}
       />
+      <p>Hi Govin</p>
     </div>
   );
 }
