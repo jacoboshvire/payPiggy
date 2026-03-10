@@ -39,6 +39,7 @@ export default function Nav() {
             </defs>
           </svg>
         </div>
+        <div className="bashboard_navbar_link"></div>
       </nav>
     </div>
   );
