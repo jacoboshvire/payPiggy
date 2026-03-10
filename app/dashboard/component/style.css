@@ -1,3 +1,8 @@
+.bashboard_navbar {
+  width: 30%;
+  border-right: 1px solid var(--border);
+}
+
 .bashboard_navbar nav a svg {
   fill: var(--foreground);
 }
