@@ -4,7 +4,7 @@ export default function layout({ Account, Home, Payment, Wallet }) {
   return (
     <div>
       {Home}
-      {<Accoun></Accoun>}
+      {Account}
     </div>
   );
 }
