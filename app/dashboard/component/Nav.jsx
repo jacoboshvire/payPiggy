@@ -6,6 +6,8 @@ import {
   usePathname,
   useSearchParams,
 } from "next/navigation";
+
+import Link from "next/link";
 import "./style.css";
 
 export default function Nav() {
