@@ -36,8 +36,8 @@ export default function PaymentHistory() {
                   <Image
                     src={data.profile}
                     alt={data.name}
-                    height={100}
-                    width={100}
+                    height={50}
+                    width={50}
                   />
                 </div>
                 <div className='paymentHistory_item_name'>
@@ -47,6 +47,10 @@ export default function PaymentHistory() {
               {/* transaction status */}
               <div className='paymentHistory_item_status'>
                 <p>{data.status}</p>
+              </div>
+              {/*transaction amount*/}
+              <div className='paymentHistory_item_amount'>
+                <p>{data.amount}</p>
               </div>
             </div>
           );
