@@ -131,3 +131,9 @@
   font-size: 18px;
   font-weight: 800;
 }
+
+.paymentHistory_lists {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
