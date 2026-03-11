@@ -75,6 +75,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  height: 100px;
-  width: 100px;
+  height: 300px;
+  width: 300px;
+  opacity: 0.9;
 }
