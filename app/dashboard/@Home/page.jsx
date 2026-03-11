@@ -7,7 +7,7 @@ import "./style.css";
 import Card from "../component/Card";
 import PaymentHistory from "../component/PaymentHistory";
 import WelcomeMsg from "./component/WelcomeMsg";
-import Transaction from "../component/Transaction";
+import Transaction from "./component/Transaction";
 
 export default function page() {
   const pathname = usePathname();
