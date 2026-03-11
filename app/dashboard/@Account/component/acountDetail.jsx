@@ -3,6 +3,7 @@
 import React from "react";
 import LinkArray from "./LinkArray";
 import Link from "next/link";
+import "../style.css";
 
 export default function AccountDetail() {
   return (
