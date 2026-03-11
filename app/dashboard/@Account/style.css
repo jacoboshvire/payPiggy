@@ -61,4 +61,11 @@
 .Account_Detail_link a {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.Account_Detail_link .Account_Detail_LinkDetails {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
