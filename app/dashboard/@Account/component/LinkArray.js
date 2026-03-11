@@ -1,6 +1,6 @@
 /** @format */
 
-export default LinkArray[
+export default LinkArray()[
   ({
     linkName: "Personal Details",
     linksvg: (
