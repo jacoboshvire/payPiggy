@@ -45,6 +45,8 @@
   gap: 20px;
 }
 
-.Home_transaction_Icon {
+.Home_transaction_icon {
   padding: 20px;
+  background-color: var(--subcolor);
+  border: 1px solid var(--borber);
 }
