@@ -96,6 +96,8 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  font-size: 40px;
+  z-index: 2;
 }
 
 .card img {
