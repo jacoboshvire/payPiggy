@@ -10,8 +10,8 @@ export default function AccountLink() {
         <Image
           src='https://res.cloudinary.com/dr0yyqvj6/image/upload/v1767871145/nxn2zpymtgyxybpjhqqg.jpg'
           alt='profile'
-          height={100}
-          width={100}
+          height={300}
+          width={300}
         />
       </div>
       <h1>Govind Rashna</h1>
