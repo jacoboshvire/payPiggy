@@ -52,6 +52,9 @@
 
 .Account_Detail_link {
   display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 18px;
 }
 
 .Account_Detail_link a {
