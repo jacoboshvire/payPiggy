@@ -5,9 +5,11 @@ import LinkArray from "./LinkArray";
 
 export default function AccountDetail() {
   return (
-    <div>
+    <div className="Account_Detail">
       {LinkArray.map((link, index) => {
-        return <p key={index}>{link.linkName}</p>;
+        return (
+
+        );
       })}
     </div>
   );
