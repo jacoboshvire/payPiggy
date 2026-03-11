@@ -104,11 +104,16 @@
   font-weight: 900;
 }
 
+.card .balance svg {
+  width: 40px;
+  height: 40px;
+}
+
 .card img {
   position: absolute;
   right: 0;
   bottom: 0;
   height: 300px;
   width: 300px;
-  opacity: 0.9;
+  opacity: 0.5;
 }
