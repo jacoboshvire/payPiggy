@@ -17,6 +17,7 @@ export default function PaymentHistory() {
       profile:
         "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1765672997/i92u2nhuybbyr2rinfog.jpg",
       type: "sent",
+      amount: "900",
     },
   ];
   return <div>PaymentHistory</div>;
