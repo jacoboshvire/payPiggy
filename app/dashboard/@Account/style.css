@@ -17,3 +17,10 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.Account_Link_Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
