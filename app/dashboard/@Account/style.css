@@ -27,3 +27,8 @@
   height: 200px;
   border-radius: 100px;
 }
+
+.Account_Link_image img {
+  width: 200px;
+  height: auto;
+}
