@@ -32,3 +32,8 @@
   width: 150px;
   height: auto;
 }
+
+.Account_Link h1 {
+  font-weight: 900;
+  font-size: 40px;
+}
