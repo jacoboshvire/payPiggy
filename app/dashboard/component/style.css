@@ -142,6 +142,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 5% 0;
 }
 
 .paymentHistory_item_nameAndImage {
@@ -155,6 +156,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 25px;
   width: 50px;
   height: 50px;
 }
