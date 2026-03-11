@@ -71,6 +71,10 @@
   position: relative;
 }
 
+.card .card_details {
+  height: 100%;
+}
+
 .card img {
   position: absolute;
   right: 0;
