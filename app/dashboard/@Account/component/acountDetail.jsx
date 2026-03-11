@@ -7,7 +7,7 @@ export default function AcountDetail() {
   return (
     <div>
       {LinkArray.map((link, index) => {
-        return <p>{link.linkname}</p>;
+        return <p key={index}>{link.linkname}</p>;
       })}
     </div>
   );
