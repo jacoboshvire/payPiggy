@@ -65,14 +65,16 @@
   padding: 40px;
   height: 300px;
   border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   position: relative;
 }
 
-.card .card_details {
+.card .card_detail {
   height: 100%;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
 }
 
 .card img {
