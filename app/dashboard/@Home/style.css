@@ -1,8 +1,9 @@
 /** @format */
 
 .dashboard_home {
-  width: 60%;
+  width: 65%;
   padding: 5% 0;
+  padding-right: 5%;
   height: 100vh;
   overflow: hidden;
   overflow-y: scroll;
