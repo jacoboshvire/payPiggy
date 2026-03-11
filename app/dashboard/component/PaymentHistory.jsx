@@ -12,6 +12,12 @@ export default function PaymentHistory() {
       type: "sent",
       amount: "45",
     },
+    {
+      name: "Ross Getmoney",
+      profile:
+        "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1765672997/i92u2nhuybbyr2rinfog.jpg",
+      type: "sent",
+    },
   ];
   return <div>PaymentHistory</div>;
 }
