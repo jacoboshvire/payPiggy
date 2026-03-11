@@ -51,3 +51,7 @@
   border: 1px solid var(--border);
   border-radius: 40px;
 }
+
+.Home_transaction_linkName {
+  font-size: 18px;
+}
