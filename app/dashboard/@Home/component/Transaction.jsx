@@ -6,6 +6,7 @@ import "../style.css";
 export default function Transaction() {
   return (
     <div className='Home_transaction'>
+      {/* add */}
       <div className='Home_transaction_btu'>
         <div className='Home_transaction_icon'>
           <svg
