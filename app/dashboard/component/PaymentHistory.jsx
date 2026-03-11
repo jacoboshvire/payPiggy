@@ -1,8 +1,17 @@
 /** @format */
 "use client";
+import { type } from "os";
 import { useState, useEffect } from "react";
 
 export default function PaymentHistory() {
-  const paymentDate = [{}];
+  const paymentDate = [
+    {
+      name: "samuel Ateeq",
+      profile:
+        "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1768045411/odljnvt8thtadwd27i5m.png",
+      type: "sent",
+      amount: "45",
+    },
+  ];
   return <div>PaymentHistory</div>;
 }
