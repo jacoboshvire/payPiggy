@@ -63,9 +63,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 30px 0;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   border-bottom: 1px solid var(--border);
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 }
 
 .Account_Detail_link .Account_Detail_LinkDetails {
