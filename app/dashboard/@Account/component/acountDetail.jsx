@@ -7,6 +7,7 @@ import Link from "next/link";
 export default function AccountDetail() {
   return (
     <div className='Account_Detail'>
+      <div className='Account_Detail_title'></div>
       {LinkArray.map((link, index) => {
         return (
           <Link href={link.link} key={index}>
