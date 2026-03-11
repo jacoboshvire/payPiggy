@@ -37,3 +37,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.Home_transaction_Btu {
+  display: flex;
+  flex-direction: column;
+}
