@@ -44,6 +44,10 @@ export default function PaymentHistory() {
                   <p>{data.name}</p>
                 </div>
               </div>
+              {/* transaction status */}
+              <div className='paymentHistory_item_status'>
+                <p>{data.status}</p>
+              </div>
             </div>
           );
         })}
