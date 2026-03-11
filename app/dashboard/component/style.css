@@ -125,3 +125,9 @@
   margin-top: 5%;
   width: 100%;
 }
+
+.paymentHistory_title {
+  margin-bottom: 5%;
+  font-size: 18px;
+  font-weight: 800;
+}
