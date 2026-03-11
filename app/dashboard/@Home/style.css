@@ -52,6 +52,10 @@
   border-radius: 40px;
 }
 
+.Home_transaction_icon svg {
+  fill: var(--foreground);
+}
+
 .Home_transaction_linkName {
   font-size: 18px;
   font-weight: 300;
