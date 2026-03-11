@@ -6,7 +6,9 @@ import LinkArray from "./LinkArray";
 export default function AcountDetail() {
   return (
     <div>
-      <LinkArray />
+      {LinkArray.map((link, index) => {
+        return <p>{link.name}</p>;
+      })}
     </div>
   );
 }
