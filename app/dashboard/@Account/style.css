@@ -55,6 +55,7 @@
   flex-direction: column;
   gap: 30px;
   font-size: 18px;
+  font-weight: 300;
 }
 
 .Account_Detail_link a {
