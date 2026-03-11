@@ -38,6 +38,9 @@ export default function PaymentHistory() {
                   width={100}
                 />
               </div>
+              <div className='paymentHistory_item_name'>
+                <p>{data.name}</p>
+              </div>
             </div>
           );
         })}
