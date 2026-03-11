@@ -137,3 +137,9 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.paymentHistory_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
