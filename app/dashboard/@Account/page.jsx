@@ -17,6 +17,8 @@ export default function page() {
       {pathname === "/dashboard" && searchParams.get("account") === "true" && (
         <div className='bashboard_account'>
           <Back />
+          <AccountLink />
+          <AcountDetail />
         </div>
       )}
     </>
