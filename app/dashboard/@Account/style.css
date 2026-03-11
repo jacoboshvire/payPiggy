@@ -50,6 +50,11 @@
   font-weight: 800;
 }
 
+.Account_Detail_link {
+  display: flex;
+}
+
 .Account_Detail_link a {
   display: flex;
+  justify-content: space-between;
 }
