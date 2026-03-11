@@ -1,6 +1,6 @@
 /** @format */
 
-export default LinkArray()[
+const LinkArray = [
   ({
     linkName: "Personal Details",
     linksvg: (
@@ -64,5 +64,7 @@ export default LinkArray()[
       </svg>
     ),
     link: "#",
-  })
+  }),
 ];
+
+export default LinkArray;
