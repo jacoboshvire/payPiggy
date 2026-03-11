@@ -64,4 +64,7 @@
   margin: 5% 0;
   padding: 40px;
   height: 300px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 }
