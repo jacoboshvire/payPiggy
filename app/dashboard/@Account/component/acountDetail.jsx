@@ -1,13 +1,13 @@
 /** @format */
 
 import React from "react";
-import LinkArray from "./LinkArray";
+import { LinkArray } from "./LinkArray";
 
 export default function AcountDetail() {
   return (
     <div>
       {LinkArray.map((link, index) => {
-        return <p>{link.name}</p>;
+        return <p>{link.linkname}</p>;
       })}
     </div>
   );
