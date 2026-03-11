@@ -162,3 +162,7 @@
   width: 50px;
   height: 50px;
 }
+
+.paymentHistory_item_amount {
+  font-weight: 500;
+}
