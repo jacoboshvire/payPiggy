@@ -20,5 +20,11 @@ export default function PaymentHistory() {
       amount: "900",
     },
   ];
-  return <div>PaymentHistory</div>;
+  return (
+    <div className='paymentHistory'>
+      <div className='paymentHistory_title'>
+        <h1>Payment History</h1>
+      </div>
+    </div>
+  );
 }
