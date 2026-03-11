@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import { LinkArray } from "./LinkArray";
+import LinkArray from "./LinkArray";
 
 export default function AcountDetail() {
   return (
