@@ -62,7 +62,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .Account_Detail_link .Account_Detail_LinkDetails {
