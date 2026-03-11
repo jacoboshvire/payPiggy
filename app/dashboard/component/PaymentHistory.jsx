@@ -50,7 +50,7 @@ export default function PaymentHistory() {
               </div>
               {/*transaction amount*/}
               <div className='paymentHistory_item_amount'>
-                <p>{data.amount}</p>
+                <p>￡{data.amount}</p>
               </div>
             </div>
           );
