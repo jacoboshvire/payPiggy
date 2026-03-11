@@ -62,7 +62,9 @@ export default function AccountDetail() {
                 />
               </svg>
             </div>
-            <div className='Account_Detail_linkName'>Logout</div>
+            <div className='Account_Detail_logoutBtu'>
+              <p>Logout</p>
+            </div>
           </div>
         </Link>
         <Link href='#'>
