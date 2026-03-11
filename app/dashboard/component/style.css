@@ -143,3 +143,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.paymentHistory_item_nameAndImage {
+  display: flex;
+}
