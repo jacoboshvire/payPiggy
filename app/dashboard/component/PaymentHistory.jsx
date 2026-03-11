@@ -30,16 +30,18 @@ export default function PaymentHistory() {
         {paymentDate.map((data, index) => {
           return (
             <div className='paymentHistory_item' key={index}>
-              <div className='paymentHistory_item_image'>
-                <Image
-                  src={data.profile}
-                  alt={data.name}
-                  height={100}
-                  width={100}
-                />
-              </div>
-              <div className='paymentHistory_item_name'>
-                <p>{data.name}</p>
+              <div className='paymentHistory_item_nameAndImage'>
+                <div className='paymentHistory_item_image'>
+                  <Image
+                    src={data.profile}
+                    alt={data.name}
+                    height={100}
+                    width={100}
+                  />
+                </div>
+                <div className='paymentHistory_item_name'>
+                  <p>{data.name}</p>
+                </div>
               </div>
             </div>
           );
