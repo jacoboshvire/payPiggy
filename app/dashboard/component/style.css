@@ -146,4 +146,6 @@
 
 .paymentHistory_item_nameAndImage {
   display: flex;
+  align-items: center;
+  gap: 20px;
 }
