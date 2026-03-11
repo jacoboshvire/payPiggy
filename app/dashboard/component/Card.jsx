@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Card from "../../../../public/Group.svg";
+import Card from "../../../public/Group.svg";
 
 export default function vault() {
   const [seeBalance, setSeeBalance] = useState(false);
