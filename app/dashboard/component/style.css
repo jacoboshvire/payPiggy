@@ -175,3 +175,7 @@
 .paymentHistory_item_amount {
   font-weight: 600;
 }
+
+.paymentHistory_item_status {
+  color: var(--border);
+}
