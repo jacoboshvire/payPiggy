@@ -107,6 +107,7 @@
 .card .balance svg {
   width: 40px;
   height: 40px;
+  cursor: pointer;
 }
 
 .card img {
@@ -115,5 +116,5 @@
   bottom: 0;
   height: 300px;
   width: 300px;
-  opacity: 0.5;
+  opacity: 0.6;
 }
