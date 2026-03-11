@@ -77,12 +77,13 @@
 }
 
 .card .card_detail .card_detail_addMoney .cardDetail {
-  background-color: rgba(218, 218, 218, 0.525);
+  background-color: rgba(218, 218, 218, 0.243);
   display: flex;
   align-items: center;
   padding: 10px;
   border-radius: 10px;
   gap: 30px;
+  font-size: 18px;
 }
 
 .card img {

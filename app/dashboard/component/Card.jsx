@@ -15,7 +15,7 @@ export default function vault() {
       <div className='card_detail'>
         <div className='card_detail_addMoney'>
           <div className='cardDetail'>
-            <p>Detail</p>
+            <p>Card Detail</p>
             <svg
               width='36'
               height='24'
