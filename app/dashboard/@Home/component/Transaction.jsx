@@ -65,7 +65,7 @@ export default function Transaction() {
             />
           </svg>
         </div>
-        <div className='Home_transacton_linkName'>Move</div>
+        <div className='Home_transacton_linkName'>Pay</div>
       </div>
     </div>
   );
