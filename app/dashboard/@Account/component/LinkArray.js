@@ -1,7 +1,5 @@
 /** @format */
 
-import { link } from "fs";
-
 export default LinkArray[
   ({
     linkName: "Personal Details",
