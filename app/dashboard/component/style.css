@@ -151,6 +151,9 @@
 
 .paymentHistory_item:hover {
   padding: 5% 5%;
+  background-color: var(--subcolor);
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
 
 .paymentHistory_item_nameAndImage {
