@@ -12,6 +12,7 @@ export default function AccountLink() {
         height={100}
         width={100}
       />
+      <h1>Govind Rashna</h1>
     </div>
   );
 }
