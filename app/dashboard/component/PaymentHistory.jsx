@@ -2,6 +2,7 @@
 "use client";
 import { type } from "os";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function PaymentHistory() {
   const paymentDate = [
@@ -27,7 +28,11 @@ export default function PaymentHistory() {
       </div>
       <div className='paymentHistory_lists'>
         {paymentDate.map((data, index) => {
-          return <div className='paymentHistory_item' key={index}></div>;
+          return (
+            <div className='paymentHistory_item' key={index}>
+              <div className='paymentHistory_item_image'>Image</div>
+            </div>
+          );
         })}
       </div>
     </div>
