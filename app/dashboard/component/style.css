@@ -144,6 +144,7 @@
   justify-content: space-between;
   padding: 5% 0;
   border-bottom: 1px solid var(--border);
+  font-size: 18px;
 }
 
 .paymentHistory_item_nameAndImage {
