@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
-
-
-
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --subcolor: #F0F0F0;
-  --border: #E0E0E0;
+  --subcolor: #f0f0f0;
+  --border: #e0e0e0;
   --linear: linear-gradient(180deg, #1a1a1a 0%, #3d3d3d 100%);
-  --gradient: linear-gradient(45deg, #4337DD,  #241E77);
+  --gradient: linear-gradient(45deg, #4337dd, #241e77);
+  --lighttext: #606060;
 }
 
 @theme inline {
@@ -26,12 +26,13 @@
     --foreground: #ededed;
     --subcolor: #1a1a1a;
     --border: #333333;
-    --linear: linear-gradient(180deg, #F0F0F0 0%, #bebebe 100%);
-    --gradient: linear-gradient(45deg, #4337DD,  #241E77);
+    --linear: linear-gradient(180deg, #f0f0f0 0%, #bebebe 100%);
+    --gradient: linear-gradient(45deg, #4337dd, #241e77);
+    --lighttext: #606060;
   }
 }
 
-*{
+* {
   font-family: "Poppins", sans-serif;
   padding: 0;
   margin: 0;
