@@ -27,7 +27,11 @@ export default function PaymentHistory() {
       </div>
       <div className='paymentHistory_lists'>
         {paymentDate.map((data, index) => {
-          return <div className='paymentHistory_item' key={index}></div>;
+          return (
+            <div className='paymentHistory_item' key={index}>
+              <p>{data.name}</p>
+            </div>
+          );
         })}
       </div>
     </div>
