@@ -73,3 +73,7 @@
   align-items: center;
   gap: 30px;
 }
+
+.Account_Detail_logoutBtu {
+  color: #e60101;
+}
