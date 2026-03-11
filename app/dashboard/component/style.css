@@ -145,6 +145,7 @@
   padding: 5% 0;
   border-bottom: 1px solid var(--border);
   font-size: 18px;
+  cursor: pointer;
 }
 
 .paymentHistory_item_nameAndImage {
@@ -164,5 +165,5 @@
 }
 
 .paymentHistory_item_amount {
-  font-weight: 500;
+  font-weight: 600;
 }
