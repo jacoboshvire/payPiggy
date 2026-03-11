@@ -41,4 +41,6 @@
 .Home_transaction_Btu {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
