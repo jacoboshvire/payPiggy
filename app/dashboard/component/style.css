@@ -59,4 +59,6 @@
 .card {
   background-color: #241e77;
   background: scroll var(--gradient);
+  color: #ffffff;
+  overflow: hidden;
 }
