@@ -92,6 +92,12 @@
   font-size: 18px;
 }
 
+.card .balance {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 .card img {
   position: absolute;
   right: 0;
