@@ -60,6 +60,14 @@ export default function AccountDetail() {
           <div className='Account_Detail_linkName'>Logout</div>
         </div>
       </Link>
+      <Link href='#'>
+        <div className='Account_Detail_LinkDetails'>
+          <div className='Account_Detail_svg'>🥲</div>
+          <div className='Account_Detail_linkName'>
+            <p>Delete Account</p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }
