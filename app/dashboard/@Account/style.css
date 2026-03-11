@@ -8,3 +8,9 @@
   overflow: hidden;
   overflow-y: scroll;
 }
+
+/* account details which was mistaken as Link* */
+
+.Account_Link {
+  margin: 5% 0;
+}
