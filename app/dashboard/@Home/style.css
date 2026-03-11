@@ -3,6 +3,9 @@
 .dashboard_home {
   width: 60%;
   padding: 5% 0;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 /* Home welcome message======= */
