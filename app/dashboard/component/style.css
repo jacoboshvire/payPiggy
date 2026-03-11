@@ -61,4 +61,6 @@
   background: scroll var(--gradient);
   color: #ffffff;
   overflow: hidden;
+  margin: 5% 0;
+  padding: 4%;
 }
