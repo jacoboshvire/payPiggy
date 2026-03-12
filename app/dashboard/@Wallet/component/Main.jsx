@@ -43,7 +43,12 @@ export default function Main() {
         {openCard && <Card />}
       </div>
       <div className='wallet_card'>
-        <div className='wallet_card_title' onClick={toggleVaultFun}>
+        <div
+          className={
+            !openCard ? "wallet_card_title" : "wallet_card_title add_on"
+          }
+          onClick={toggleVaultFun}
+        >
           <h2>Vault</h2>
           <svg
             width='24'
