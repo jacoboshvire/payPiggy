@@ -29,8 +29,8 @@ export default function Main() {
             />
           </svg>
         </div>
+        <Card />
       </div>
-      <Card />
       <Vault />
     </div>
   );
