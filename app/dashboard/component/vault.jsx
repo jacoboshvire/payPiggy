@@ -13,76 +13,78 @@ export default function vault() {
   };
   return (
     <div className='card'>
-      <div className='card_detail_addMoney'>
-        <div className='cardDetail'>
-          <p>Detail</p>
-          <svg
-            width='36'
-            height='24'
-            viewBox='0 0 36 24'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <rect
-              x='1.54285'
-              y='7.37146'
-              width='32.4'
-              height='14.9143'
-              fill='white'
-            />
-            <line
-              x1='0.600037'
-              y1='6.40002'
-              x2='35.4'
-              y2='6.40002'
-              stroke='white'
-              strokeWidth='4'
-            />
-            <line
-              x1='7'
-              y1='16.2001'
-              x2='14.6'
-              y2='16.2001'
-              stroke='#3C3C3C'
-              strokeWidth='6'
-              strokeLinecap='round'
-            />
-            <line
-              x1='28.2'
-              y1='16.2001'
-              x2='29'
-              y2='16.2001'
-              stroke='#3C3C3C'
-              strokeWidth='6'
-              strokeLinecap='round'
-            />
-            <rect
-              x='2'
-              y='2'
-              width='32'
-              height='20'
-              rx='4'
-              stroke='white'
-              strokeWidth='4'
-            />
-          </svg>
-        </div>
-        <div className='cardDetail'>
-          <p>Add</p>
-          <svg
-            width='24'
-            height='24'
-            viewBox='0 0 24 24'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              fillRule='evenodd'
-              clipzule='evenodd'
-              d='M15.5777 12.7499H12.7497V15.5739C12.7497 15.9879 12.4137 16.3239 11.9997 16.3239C11.5857 16.3239 11.2497 15.9879 11.2497 15.5739V12.7499H8.4217C8.0077 12.7499 7.6717 12.4139 7.6717 11.9999C7.6717 11.5859 8.0077 11.2499 8.4217 11.2499H11.2497V8.42594C11.2497 8.01194 11.5857 7.67594 11.9997 7.67594C12.4137 7.67594 12.7497 8.01194 12.7497 8.42594V11.2499H15.5777C15.9917 11.2499 16.3277 11.5859 16.3277 11.9999C16.3277 12.4139 15.9917 12.7499 15.5777 12.7499ZM11.9997 1.76294C4.4407 1.76294 1.7627 4.44094 1.7627 11.9999C1.7627 19.5589 4.4407 22.2369 11.9997 22.2369C19.5577 22.2369 22.2367 19.5589 22.2367 11.9999C22.2367 4.44094 19.5577 1.76294 11.9997 1.76294Z'
-              fill='white'
-            />
-          </svg>
+      <div className='card_detail'>
+        <div className='card_detail_addMoney'>
+          <div className='cardDetail'>
+            <p>Detail</p>
+            <svg
+              width='36'
+              height='24'
+              viewBox='0 0 36 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <rect
+                x='1.54285'
+                y='7.37146'
+                width='32.4'
+                height='14.9143'
+                fill='white'
+              />
+              <line
+                x1='0.600037'
+                y1='6.40002'
+                x2='35.4'
+                y2='6.40002'
+                stroke='white'
+                strokeWidth='4'
+              />
+              <line
+                x1='7'
+                y1='16.2001'
+                x2='14.6'
+                y2='16.2001'
+                stroke='#3C3C3C'
+                strokeWidth='6'
+                strokeLinecap='round'
+              />
+              <line
+                x1='28.2'
+                y1='16.2001'
+                x2='29'
+                y2='16.2001'
+                stroke='#3C3C3C'
+                strokeWidth='6'
+                strokeLinecap='round'
+              />
+              <rect
+                x='2'
+                y='2'
+                width='32'
+                height='20'
+                rx='4'
+                stroke='white'
+                strokeWidth='4'
+              />
+            </svg>
+          </div>
+          <div className='cardDetail'>
+            <p>Add</p>
+            <svg
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                clipzule='evenodd'
+                d='M15.5777 12.7499H12.7497V15.5739C12.7497 15.9879 12.4137 16.3239 11.9997 16.3239C11.5857 16.3239 11.2497 15.9879 11.2497 15.5739V12.7499H8.4217C8.0077 12.7499 7.6717 12.4139 7.6717 11.9999C7.6717 11.5859 8.0077 11.2499 8.4217 11.2499H11.2497V8.42594C11.2497 8.01194 11.5857 7.67594 11.9997 7.67594C12.4137 7.67594 12.7497 8.01194 12.7497 8.42594V11.2499H15.5777C15.9917 11.2499 16.3277 11.5859 16.3277 11.9999C16.3277 12.4139 15.9917 12.7499 15.5777 12.7499ZM11.9997 1.76294C4.4407 1.76294 1.7627 4.44094 1.7627 11.9999C1.7627 19.5589 4.4407 22.2369 11.9997 22.2369C19.5577 22.2369 22.2367 19.5589 22.2367 11.9999C22.2367 4.44094 19.5577 1.76294 11.9997 1.76294Z'
+                fill='white'
+              />
+            </svg>
+          </div>
         </div>
       </div>
       <div className='balance'>
