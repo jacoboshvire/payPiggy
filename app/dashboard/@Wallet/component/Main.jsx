@@ -45,7 +45,7 @@ export default function Main() {
       <div className='wallet_card'>
         <div
           className={
-            !openCard ? "wallet_card_title" : "wallet_card_title add_on"
+            !openVault ? "wallet_card_title" : "wallet_card_title add_on"
           }
           onClick={toggleVaultFun}
         >
