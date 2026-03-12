@@ -17,8 +17,8 @@ export default function page() {
       {pathname === "/dashboard" && searchParams.get("wallet") === "true" && (
         <div className='bashboard_wallet'>
           <Back />
-          <Main />
           <Title />
+          <Main />
         </div>
       )}
     </>
