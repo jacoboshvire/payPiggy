@@ -48,6 +48,7 @@
   background-color: var(--subcolor);
   padding: 20px;
   border-radius: 20px;
+  border: 1px solid var(--border);
 }
 
 .wallet_card_title svg {
