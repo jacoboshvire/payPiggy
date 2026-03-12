@@ -1,0 +1,10 @@
+/** @format */
+
+.bashboard_wallet {
+  width: 65%;
+  padding: 5% 0;
+  padding-right: 2%;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: scroll;
+}
