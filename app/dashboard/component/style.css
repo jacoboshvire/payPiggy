@@ -66,6 +66,7 @@
   height: 300px;
   border-radius: 20px;
   position: relative;
+  animation: popupCard 0.5s ease-out;
 }
 
 .card .card_detail {
