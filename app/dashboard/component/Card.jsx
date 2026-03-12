@@ -1,5 +1,5 @@
 /** @format */
-
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Card from "../../../public/Group.svg";
@@ -14,7 +14,7 @@ export default function vault() {
   return (
     <m.div
       className='card'
-      initial={{ opacity: 0, scale: 0.5 }}
+      initial={{ opacity: 1, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
         type: "spring",
