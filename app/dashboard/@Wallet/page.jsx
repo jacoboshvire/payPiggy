@@ -1,7 +1,10 @@
+/** @format */
+
 "use client";
 import React from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import Back from "../../component/Back";
+import "./style.css";
 
 export default function page() {
   const pathname = usePathname();
@@ -10,7 +13,7 @@ export default function page() {
   return (
     <>
       {pathname === "/dashboard" && searchParams.get("wallet") === "true" && (
-        <div className="bashboard_wallet">
+        <div className='bashboard_wallet'>
           <Back />
         </div>
       )}
