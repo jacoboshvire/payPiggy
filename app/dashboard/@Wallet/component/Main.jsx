@@ -13,7 +13,7 @@ export default function Main() {
   return (
     <div className='wallet_main'>
       <div className='wallet_card'>
-        <div className='wallet_card_title'>
+        <div className='wallet_card_title' onClick={toggleFun}>
           <h2>Standard</h2>
           <svg
             width='24'
