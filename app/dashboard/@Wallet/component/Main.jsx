@@ -12,9 +12,9 @@ export default function Main() {
   };
 
   const [openVault, setOpenVault] = useState(false);
-  //   const toggleVaultFun = () => {
-  //     setOpenVault((openVault) => !openVault);
-  //   };
+  const toggleVaultFun = () => {
+    setOpenVault((openVault) => !openVault);
+  };
   return (
     <div className='wallet_main'>
       <div className='wallet_card'>
@@ -37,7 +37,7 @@ export default function Main() {
         {openCard && <Card />}
       </div>
       <div className='wallet_card'>
-        <div className='wallet_card_title' onClick={setOpenVault(true)}>
+        <div className='wallet_card_title' onClick={toggleVaultFun}>
           <h2>Vault</h2>
           <svg
             width='24'
