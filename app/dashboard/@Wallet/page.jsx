@@ -4,6 +4,8 @@
 import React from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import Back from "../../component/Back";
+import Main from "./component/Main";
+import Title from "./component/Title";
 import "./style.css";
 
 export default function page() {
@@ -15,6 +17,8 @@ export default function page() {
       {pathname === "/dashboard" && searchParams.get("wallet") === "true" && (
         <div className='bashboard_wallet'>
           <Back />
+          <Main />
+          <Title />
         </div>
       )}
     </>
