@@ -10,6 +10,8 @@ export default function Main() {
   const toggleFun = () => {
     setOpenCard((openCard) => !openCard);
   };
+
+  const [openVault, setOpenVault] = useState(false);
   return (
     <div className='wallet_main'>
       <div className='wallet_card'>
