@@ -12,7 +12,12 @@ export default function vault() {
     setSeeBalance((seeBalance) => !seeBalance);
   };
   return (
-    <m.div className='card' initial={{ opacity: 0, scale: 0.8 }}>
+    <m.div
+      className='card'
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1, transition: { duration: 1 } }}
+      viewport={true}
+    >
       <div className='card_detail'>
         <div className='card_detail_addMoney'>
           <div className='cardDetail'>
