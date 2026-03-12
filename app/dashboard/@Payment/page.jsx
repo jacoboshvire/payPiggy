@@ -1,7 +1,10 @@
+/** @format */
+
 "use client";
 import React from "react";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Back from "../../component/Back";
+import PaymentHistory from "../component/PaymentHistory";
 
 export default function page() {
   const pathname = usePathname();
@@ -10,8 +13,9 @@ export default function page() {
   return (
     <>
       {pathname === "/dashboard" && searchParams.get("payment") === "true" && (
-        <div className="dashboard_payment">
+        <div className='dashboard_payment'>
           <Back />
+          <PaymentHistory />
         </div>
       )}
     </>
