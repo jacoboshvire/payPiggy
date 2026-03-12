@@ -6,6 +6,10 @@ import Card from "../../component/Card";
 
 export default function Main() {
   const [openCard, setOpenCard] = useState(false);
+
+  const toggleFun = () => {
+    setOpenCard((openCard) => !openCard);
+  };
   return (
     <div className='wallet_main'>
       <Card />
