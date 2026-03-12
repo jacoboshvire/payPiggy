@@ -28,6 +28,7 @@
 .wallet_card_title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 24px;
   font-weight: 300;
   cursor: pointer;
@@ -44,6 +45,7 @@
 
 .add_on {
   font-weight: 600;
+  background-color: var(--subcolor);
 }
 
 .wallet_card_title svg {
