@@ -12,7 +12,7 @@ export default function vault() {
     setSeeBalance((seeBalance) => !seeBalance);
   };
   return (
-    <div className='card'>
+    <m.div className='card' initial={{ opacity: 0, scale: 0.8 }}>
       <div className='card_detail'>
         <div className='card_detail_addMoney'>
           <div className='cardDetail'>
@@ -123,6 +123,6 @@ export default function vault() {
       <div className='mainImage'>
         <Image src={Card} alt='card' width={400} height={400} />
       </div>
-    </div>
+    </m.div>
   );
 }
