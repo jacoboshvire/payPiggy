@@ -5,6 +5,7 @@ import React from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Back from "../../component/Back";
 import PaymentHistory from "../component/PaymentHistory";
+import "./style.css";
 
 export default function page() {
   const pathname = usePathname();
