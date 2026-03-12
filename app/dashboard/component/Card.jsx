@@ -1,5 +1,5 @@
 /** @format */
-"use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Card from "../../../public/Group.svg";
@@ -12,18 +12,7 @@ export default function vault() {
     setSeeBalance((seeBalance) => !seeBalance);
   };
   return (
-    <m.div
-      className='card'
-      initial={{ opacity: 1, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-        duration: 0.6,
-      }}
-      viewport={true}
-    >
+    <div className='card'>
       <div className='card_detail'>
         <div className='card_detail_addMoney'>
           <div className='cardDetail'>
@@ -134,6 +123,6 @@ export default function vault() {
       <div className='mainImage'>
         <Image src={Card} alt='card' width={400} height={400} />
       </div>
-    </m.div>
+    </div>
   );
 }
