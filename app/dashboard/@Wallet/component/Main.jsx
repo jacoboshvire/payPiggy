@@ -18,7 +18,12 @@ export default function Main() {
   return (
     <div className='wallet_main'>
       <div className='wallet_card'>
-        <div className='wallet_card_title' onClick={toggleFun}>
+        <div
+          className={
+            !openCard ? "wallet_card_title" : "wallet_card_title add_on"
+          }
+          onClick={toggleFun}
+        >
           <h2>Standard</h2>
           <svg
             width='24'
