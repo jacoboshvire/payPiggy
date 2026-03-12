@@ -37,7 +37,10 @@ export default function Main() {
         {openCard && <Card />}
       </div>
       <div className='wallet_card'>
-        <div className='wallet_card_title'>
+        <div
+          className='wallet_card_title'
+          onClick={setOpenVault((openVault) => !openVault)}
+        >
           <h2>Vault</h2>
           <svg
             width='24'
