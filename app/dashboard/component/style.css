@@ -69,6 +69,17 @@
   animation: popupCard 0.5s ease-out;
 }
 
+@keyframes popupCard {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .card .card_detail {
   height: 100%;
   width: fit-content;
