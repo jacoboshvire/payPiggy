@@ -28,6 +28,8 @@
 .wallet_card_title {
   display: flex;
   justify-content: space-between;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .wallet_card_title svg {
