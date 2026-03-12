@@ -1,6 +1,6 @@
 /** @format */
-
-import React from "react";
+"use client";
+import { useState, useEffect } from "react";
 
 export default function Main() {
   return <div>Main</div>;
