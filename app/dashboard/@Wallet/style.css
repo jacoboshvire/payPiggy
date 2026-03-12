@@ -38,6 +38,10 @@
   font-weight: 600;
 }
 
+.wallet_card_title:hover svg {
+  transform: rotate(180deg);
+}
+
 .add_on {
   font-weight: 600;
 }
