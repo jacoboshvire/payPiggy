@@ -38,6 +38,10 @@
   font-weight: 600;
 }
 
+.add_on {
+  font-weight: 600;
+}
+
 .wallet_card_title svg {
   fill: var(--foreground);
   transform-origin: center;
