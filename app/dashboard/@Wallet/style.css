@@ -46,6 +46,8 @@
 .add_on {
   font-weight: 600;
   background-color: var(--subcolor);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .wallet_card_title svg {
