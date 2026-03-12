@@ -18,3 +18,9 @@
 }
 
 /*wallet main*/
+
+.wallet_main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
