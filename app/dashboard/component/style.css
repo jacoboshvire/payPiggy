@@ -76,7 +76,7 @@
   justify-content: space-between;
 }
 
-.card .card_detail .card_detail_addMoney {
+.card .card_detail_addMoney {
   display: flex;
   align-items: center;
   gap: 30px;
