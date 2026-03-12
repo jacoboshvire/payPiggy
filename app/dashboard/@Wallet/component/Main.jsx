@@ -53,7 +53,7 @@ export default function Main() {
             />
           </svg>
         </div>
-        <Vault />
+        {openVault && <Vault />}
       </div>
     </div>
   );
