@@ -30,6 +30,7 @@
   justify-content: space-between;
   font-size: 18px;
   font-weight: 300;
+  cursor: pointer;
 }
 
 .wallet_card_title svg {
