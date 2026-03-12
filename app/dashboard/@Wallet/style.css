@@ -35,4 +35,10 @@
 
 .wallet_card_title svg {
   fill: var(--foreground);
+  transform-origin: center;
+  transition: 500ms ease-in-out;
+}
+
+.wallet_icon {
+  transform: rotate(180deg);
 }
