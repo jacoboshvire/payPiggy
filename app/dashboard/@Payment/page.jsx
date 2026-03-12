@@ -17,6 +17,7 @@ export default function page() {
       {pathname === "/dashboard" && searchParams.get("payment") === "true" && (
         <div className='dashboard_payment'>
           <Back />
+          <Title />
           <PaymentHistory />
         </div>
       )}
