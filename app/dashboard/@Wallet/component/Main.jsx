@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Vault from "../../component/vault";
 import Card from "../../component/Card";
-import { m } from "framer-motion";
 
 export default function Main() {
   const [openCard, setOpenCard] = useState(true);
