@@ -5,5 +5,9 @@ import Vault from "../../component/vault";
 import Card from "../../component/Card";
 
 export default function Main() {
-  return <div>Main</div>;
+  return (
+    <div className='wallet_main'>
+      <Card />
+    </div>
+  );
 }
