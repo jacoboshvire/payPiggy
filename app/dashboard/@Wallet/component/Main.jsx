@@ -29,7 +29,7 @@ export default function Main() {
             />
           </svg>
         </div>
-        <Card />
+        {openCard && <Card />}
       </div>
       <div className='wallet_card'>
         <div className='wallet_card_title'>
