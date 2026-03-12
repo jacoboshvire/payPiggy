@@ -8,6 +8,7 @@ export default function Main() {
   return (
     <div className='wallet_main'>
       <Card />
+      <Vault />
     </div>
   );
 }
