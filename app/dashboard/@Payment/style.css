@@ -8,3 +8,10 @@
   overflow: hidden;
   overflow-y: scroll;
 }
+
+/* payment title */
+
+.payment_title {
+  font-weight: 900;
+  font-size: 35px;
+}
