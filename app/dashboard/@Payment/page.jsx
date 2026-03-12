@@ -6,6 +6,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import Back from "../../component/Back";
 import PaymentHistory from "../component/PaymentHistory";
 import Title from "./component/Title";
+import Payment from "./component/Payment";
 import "./style.css";
 
 export default function page() {
@@ -18,6 +19,7 @@ export default function page() {
         <div className='dashboard_payment'>
           <Back />
           <Title />
+          <Payment />
           <PaymentHistory />
         </div>
       )}
