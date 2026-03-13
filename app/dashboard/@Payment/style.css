@@ -29,6 +29,7 @@
   background-color: var(--subcolor);
   overflow: hidden;
   overflow-y: scroll;
+  padding: 30px;
 }
 
 .err {
