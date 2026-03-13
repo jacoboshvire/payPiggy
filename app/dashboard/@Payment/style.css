@@ -96,4 +96,5 @@
 .payment_form_input input {
   padding: 20px;
   background-color: var(--darkcolor);
+  border: 1px solid var(--border);
 }
