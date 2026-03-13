@@ -86,6 +86,11 @@ export default function Payment() {
             className={checkEmail ? "err" : ""}
           />
         </div>
+        <div className='payment_form_btu'>
+          <button>
+            <p>Send</p>
+          </button>
+        </div>
       </form>
     </div>
   );
