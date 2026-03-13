@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 
 export default function Payment() {
+  const [checkEmail, setCheckEmail] = useState(false);
   const handleEmail = () => {
     const value = e.target.value;
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    if (!isEmail) return;
+    if (!isEmail) {
+    }
   };
   return (
     <div className='payment_form'>
