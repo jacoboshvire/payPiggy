@@ -72,6 +72,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex: 60% 50%;
-  background-color: rgb(92, 92, 92);
+  flex: 60% 20%;
+
+  gap: 20px;
 }
