@@ -97,4 +97,5 @@
   padding: 20px;
   background-color: var(--darkcolor);
   border: 1px solid var(--border);
+  border-radius: 10px;
 }
