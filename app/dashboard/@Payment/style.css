@@ -72,11 +72,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex: 60% 20%;
-
   gap: 20px;
 }
 
-.payment_input_column .payment_input {
+.payment_input_column .payment_form_input {
   background-color: rgb(92, 92, 92);
 }
