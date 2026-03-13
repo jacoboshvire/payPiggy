@@ -76,7 +76,7 @@
 }
 
 .payment_input_column:nth-child(1) .payment_form_input:first-child {
-  flex: 2;
+  width: 70%;
 }
 
 .payment_input_column:nth-child(1) .payment_form_input:last-child {
