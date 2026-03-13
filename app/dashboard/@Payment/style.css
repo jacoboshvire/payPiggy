@@ -66,6 +66,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   height: 400px;
+  padding-bottom: 150px;
 }
 
 .payment_input_column {
@@ -73,7 +74,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding-bottom: 200px;
 }
 
 .payment_input_column:nth-child(1) .payment_form_input:first-child {
