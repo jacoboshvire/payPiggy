@@ -16,3 +16,7 @@
   font-size: 35px;
   margin: 5% 0;
 }
+
+.err {
+  border: 1px solid red;
+}
