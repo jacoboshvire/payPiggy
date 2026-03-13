@@ -6,17 +6,19 @@ export default function Payment() {
   return (
     <div className='payment_form'>
       <form>
-        <div className='payment_form_input'>
-          <label htmlFor='account_no_input'>
-            <p>Account number</p>
-          </label>
-          <input type='text' name='accountNumber' id='account_no_input' />
-        </div>
-        <div className='payment_form_input'>
-          <label htmlFor='sort_code'>
-            <p>Sort code</p>
-          </label>
-          <input type='text' name='sortCode' id='sort_code' />
+        <div className='payment_input_column'>
+          <div className='payment_form_input'>
+            <label htmlFor='account_no_input'>
+              <p>Account number</p>
+            </label>
+            <input type='text' name='accountNumber' id='account_no_input' />
+          </div>
+          <div className='payment_form_input'>
+            <label htmlFor='sort_code'>
+              <p>Sort code</p>
+            </label>
+            <input type='text' name='sortCode' id='sort_code' />
+          </div>
         </div>
       </form>
     </div>
