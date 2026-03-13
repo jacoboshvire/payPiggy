@@ -23,7 +23,7 @@
 
 /* payment from and input styling */
 
-.payment_form {
+.payment_form form {
   width: 100%;
   height: 350px;
   background-color: var(--subcolor);
