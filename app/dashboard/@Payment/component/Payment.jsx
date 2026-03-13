@@ -10,7 +10,7 @@ export default function Payment() {
           <label htmlFor=''>
             <p>Account number</p>
           </label>
-          <input type='text' />
+          <input type='text' name='account name' />
         </div>
       </form>
     </div>
