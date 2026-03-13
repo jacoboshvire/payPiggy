@@ -14,9 +14,9 @@ export default function Payment() {
         </div>
         <div className='payment_form_input'>
           <label htmlFor='sort_code'>
-            <p>Account number</p>
+            <p>Sort code</p>
           </label>
-          <input type='text' name='accountNumber' id='sort_code' />
+          <input type='text' name='sortCode' id='sort_code' />
         </div>
       </form>
     </div>
