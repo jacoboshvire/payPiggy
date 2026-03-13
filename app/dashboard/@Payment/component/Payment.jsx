@@ -27,11 +27,16 @@ export default function Payment() {
             <label htmlFor='account_no_input'>
               <p>Frist name</p>
             </label>
-            <input type='text' name='accountNumber' id='first_name' />
+            <input
+              type='text'
+              name='accountNumber'
+              id='first_name'
+              placeholder='Jack'
+            />
           </div>
           <div className='payment_form_input'>
             <label htmlFor='sort_code'>
-              <p>Sort code</p>
+              <p>Last name</p>
             </label>
             <input type='text' name='sortCode' id='sort_code' />
           </div>
