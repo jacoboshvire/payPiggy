@@ -20,3 +20,9 @@
 .err {
   border: 1px solid red;
 }
+
+/* payment from and input styling */
+
+.payment_form {
+  width: 100%;
+}
