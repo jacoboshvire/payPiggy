@@ -75,13 +75,13 @@
   gap: 20px;
 }
 
-.payment_input_column:nth-child(1) .payment_form_input:first-child {
-  width: 60%;
+/* .payment_input_column:nth-child(1) .payment_form_input:first-child {
+  flex: 2;
 }
 
 .payment_input_column:nth-child(1) .payment_form_input:last-child {
-  width: 30%;
-}
+  flex: 1;
+} */
 
 .payment_input_column .payment_form_input {
   width: 50%;
