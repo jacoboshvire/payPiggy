@@ -7,10 +7,10 @@ export default function Payment() {
     <div className='payment_form'>
       <form>
         <div className='payment_form_input'>
-          <label htmlFor=''>
+          <label htmlFor='account_no_input'>
             <p>Account number</p>
           </label>
-          <input type='text' name='account name' />
+          <input type='text' name='accountNumber' id='account_no_input' />
         </div>
       </form>
     </div>
