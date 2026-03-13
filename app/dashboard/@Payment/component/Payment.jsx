@@ -60,14 +60,14 @@ export default function Payment() {
           <p>Optional</p>
         </div>
         <div className='payment_form_input'>
-          <label htmlFor='last_name'>
+          <label htmlFor='email'>
             <p>Email</p>
           </label>
           <input
             type='text'
-            name='LastName'
-            id='last_name'
-            placeholder='Stone'
+            name='email'
+            id='email'
+            placeholder='name@exampl.com'
           />
         </div>
       </form>
