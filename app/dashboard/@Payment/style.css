@@ -76,3 +76,7 @@
 
   gap: 20px;
 }
+
+.payment_input_column .payment_input {
+  background-color: rgb(92, 92, 92);
+}
