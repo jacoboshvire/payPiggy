@@ -1,7 +1,7 @@
 /** @format */
 
 "use client";
-import React from "react";
+import { Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Back from "../../component/Back";
 import PaymentHistory from "../component/PaymentHistory";
