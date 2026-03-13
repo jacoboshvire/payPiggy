@@ -8,6 +8,7 @@ export default function Payment() {
     const value = e.target.value;
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     if (!isEmail) {
+      setCheckEmail(true);
     }
   };
   return (
