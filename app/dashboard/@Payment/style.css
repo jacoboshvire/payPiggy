@@ -68,6 +68,9 @@
   overflow-y: auto;
   height: 400px;
   padding-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .payment_input_column {
