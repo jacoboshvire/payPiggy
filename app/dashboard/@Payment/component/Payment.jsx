@@ -66,10 +66,10 @@ export default function Payment() {
             </div>
           </div>
 
-          <div className='payment_optional'>
-            <p>Optional</p>
-          </div>
           <div className='payment_form_input'>
+            <div className='payment_optional'>
+              <p>Optional</p>
+            </div>
             {checkEmail && (
               <div className='payment_errorMsg'>
                 <p>Please enter a correct email</p>
