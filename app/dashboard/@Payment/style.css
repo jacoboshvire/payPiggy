@@ -65,6 +65,7 @@
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  height: 150vh;
 }
 
 .payment_input_column {
