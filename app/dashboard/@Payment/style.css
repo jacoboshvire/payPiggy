@@ -38,3 +38,8 @@
 .err {
   color: red;
 }
+
+.payment_form_btu {
+  width: 100%;
+  padding: 50px;
+}
