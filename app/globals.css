@@ -11,6 +11,7 @@
   --linear: linear-gradient(180deg, #1a1a1a 0%, #3d3d3d 100%);
   --gradient: linear-gradient(45deg, #4337dd, #241e77);
   --lighttext: #606060;
+  --darkcolor: #e6e6e6;
 }
 
 @theme inline {
@@ -29,6 +30,7 @@
     --linear: linear-gradient(180deg, #f0f0f0 0%, #bebebe 100%);
     --gradient: linear-gradient(45deg, #4337dd, #241e77);
     --lighttext: #d2d2d2;
+    --darkcolor: #e6e6e6;
   }
 }
 
