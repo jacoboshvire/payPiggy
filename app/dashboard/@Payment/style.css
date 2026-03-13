@@ -25,14 +25,13 @@
 
 .payment_form {
   width: 100%;
-  /* height: 350px; */
   background-color: var(--subcolor);
   border: 1px solid var(--border);
   border-radius: 20px;
-  overflow: hidden;
+  overflow-x: hidden; /* ✅ Clip horizontal overflow */
+  overflow-y: scroll; /* ✅ Scroll vertical overflow */
   padding: 30px;
   position: relative;
-  overflow-y: scroll;
 }
 
 .err {
