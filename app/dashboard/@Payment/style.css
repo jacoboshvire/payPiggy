@@ -52,7 +52,9 @@
 }
 
 .payment_form button {
-  padding: 20px 30px;
+  padding: 20px 50px;
+  background: var(--gradient);
+  display: flex;
 }
 
 .payment_form_container {
