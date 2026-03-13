@@ -67,3 +67,7 @@
   overflow: hidden;
   overflow-y: scroll;
 }
+
+.payment_input_column {
+  display: flex;
+}
