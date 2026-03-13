@@ -44,5 +44,5 @@
   padding: 50px;
   background-color: var(--subcolor);
   border-top: var(--border);
-  position: absolute;
+  position: fixed;
 }
