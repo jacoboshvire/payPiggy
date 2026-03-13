@@ -18,7 +18,12 @@ export default function Payment() {
             <label htmlFor='sort_code'>
               <p>Sort code</p>
             </label>
-            <input type='text' name='sortCode' id='sort_code' />
+            <input
+              type='text'
+              name='sortCode'
+              id='sort_code'
+              placeholder='##-##-##'
+            />
           </div>
         </div>
         {/* Payment input for personal details */}
