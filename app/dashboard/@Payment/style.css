@@ -100,3 +100,7 @@
   border-radius: 10px;
   width: 100%;
 }
+
+.payment_optional {
+  border-bottom: 1px solid var(--border);
+}
