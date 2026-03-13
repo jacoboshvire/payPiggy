@@ -17,7 +17,7 @@
   margin: 5% 0;
 }
 
-.err {
+.payment_form_input .err {
   border: 1px solid #e60101;
 }
 
