@@ -73,6 +73,7 @@ export default function Payment() {
             name='email'
             id='email'
             placeholder='name@exampl.com'
+            onChange={handleEmail}
           />
         </div>
       </form>
