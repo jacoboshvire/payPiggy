@@ -48,6 +48,11 @@
   right: 0;
   display: flex;
   justify-content: right;
+  align-items: center;
+}
+
+.payment_form button {
+  padding: 20px 30px;
 }
 
 .payment_form_container {
