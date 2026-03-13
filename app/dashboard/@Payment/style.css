@@ -33,6 +33,10 @@
   position: relative;
 }
 
+form {
+  overflow: hidden;
+}
+
 .err {
   color: red;
 }
