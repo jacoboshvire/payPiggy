@@ -36,7 +36,9 @@
 .payment_form form {
   display: flex;
   flex-direction: column;
+  gap: 50px;
 }
+
 .payment_form_btu {
   width: 100%;
   padding: 20px;
