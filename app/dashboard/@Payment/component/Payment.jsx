@@ -14,6 +14,11 @@ export default function Payment() {
 
   return (
     <div className='payment_form'>
+      {checkEmail && (
+        <div className='payment_errorMsg'>
+          <p>Please enter a correct email</p>
+        </div>
+      )}
       <form>
         <div className='payment_input_column'>
           <div className='payment_form_input'>
