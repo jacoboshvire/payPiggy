@@ -19,7 +19,9 @@ export default function page() {
         <div className='dashboard_payment'>
           <Back />
           <Title />
-          <Payment />
+          <Suspense fallback='loading'>
+            <Payment />
+          </Suspense>
           <PaymentHistory />
         </div>
       )}
