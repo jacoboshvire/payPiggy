@@ -33,8 +33,11 @@
   padding: 30px;
   position: relative;
 }
-
-. .payment_form_btu {
+.payment_form form {
+  display: flex;
+  flex-direction: column;
+}
+.payment_form_btu {
   width: 100%;
   padding: 20px;
   background-color: var(--subcolor);
