@@ -87,3 +87,7 @@
   width: 50%;
   margin-bottom: 2%;
 }
+
+label p {
+  margin-bottom: 3%;
+}
