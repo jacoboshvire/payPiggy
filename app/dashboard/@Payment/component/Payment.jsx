@@ -6,7 +6,7 @@ export default function Payment() {
   const handleEmail = () => {
     const value = e.target.value;
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    if (value) return;
+    if (!isEmail) return;
   };
   return (
     <div className='payment_form'>
