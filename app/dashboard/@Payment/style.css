@@ -42,4 +42,7 @@
 .payment_form_btu {
   width: 100%;
   padding: 50px;
+  background-color: var(--subcolor);
+  border-top: var(--border);
+  position: absolute;
 }
