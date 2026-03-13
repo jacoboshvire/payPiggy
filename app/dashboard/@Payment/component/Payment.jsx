@@ -56,9 +56,12 @@ export default function Payment() {
             />
           </div>
         </div>
+        <div className='payment_optional'>
+          <p>Optional</p>
+        </div>
         <div className='payment_form_input'>
           <label htmlFor='last_name'>
-            <p>Last name</p>
+            <p>Email</p>
           </label>
           <input
             type='text'
