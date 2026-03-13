@@ -25,4 +25,6 @@
 
 .payment_form {
   width: 100%;
+  height: 400px;
+  background-color: var(--subcolor);
 }
