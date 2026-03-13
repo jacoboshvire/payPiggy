@@ -75,6 +75,14 @@
   gap: 20px;
 }
 
+.payment_input_column .payment_form_input:first-child {
+  flex: 2;
+}
+
+.payment_input_column .payment_form_input:last-child {
+  flex: 1;
+}
+
 .payment_input_column .payment_form_input {
   background-color: rgb(92, 92, 92);
 }
