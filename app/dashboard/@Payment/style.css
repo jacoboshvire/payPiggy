@@ -25,11 +25,12 @@
 
 .payment_form {
   width: 100%;
-  height: 400px;
+  height: 350px;
   background-color: var(--subcolor);
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 .err {
-  color:;
+  color: red;
 }
