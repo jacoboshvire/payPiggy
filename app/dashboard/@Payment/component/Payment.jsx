@@ -29,7 +29,7 @@ export default function Payment() {
             </label>
             <input
               type='text'
-              name='accountNumber'
+              name='FristName'
               id='first_name'
               placeholder='Jack'
             />
@@ -38,7 +38,12 @@ export default function Payment() {
             <label htmlFor='last_name'>
               <p>Last name</p>
             </label>
-            <input type='text' name='LastName' id='last_name' />
+            <input
+              type='text'
+              name='LastName'
+              id='last_name'
+              placeholder='Stone'
+            />
           </div>
         </div>
       </form>
