@@ -6,6 +6,7 @@ export default function Payment() {
   return (
     <div className='payment_form'>
       <form>
+        {/* Payment input for account number and sort code */}
         <div className='payment_input_column'>
           <div className='payment_form_input'>
             <label htmlFor='account_no_input'>
