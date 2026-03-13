@@ -1,20 +1,20 @@
 /** @format */
+
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Payment() {
   const [checkEmail, setCheckEmail] = useState(false);
-  const handleEmail = () => {
+
+  const handleEmail = (e) => {
     const value = e.target.value;
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    if (!isEmail) {
-      setCheckEmail(true);
-    }
+    setCheckEmail(!isEmail && value.length > 0);
   };
+
   return (
     <div className='payment_form'>
       <form>
-        {/* Payment input for account number and sort code */}
         <div className='payment_input_column'>
           <div className='payment_form_input'>
             <label htmlFor='account_no_input'>
@@ -39,15 +39,15 @@ export default function Payment() {
             />
           </div>
         </div>
-        {/* Payment input for personal details */}
+
         <div className='payment_input_column'>
           <div className='payment_form_input'>
-            <label htmlFor='account_no_input'>
-              <p>Frist name</p>
+            <label htmlFor='first_name'>
+              <p>First name</p> {/* ✅ Fixed typo */}
             </label>
             <input
               type='text'
-              name='FristName'
+              name='firstName'
               id='first_name'
               placeholder='Jack'
             />
@@ -58,12 +58,13 @@ export default function Payment() {
             </label>
             <input
               type='text'
-              name='LastName'
+              name='lastName'
               id='last_name'
               placeholder='Stone'
             />
           </div>
         </div>
+
         <div className='payment_optional'>
           <p>Optional</p>
         </div>
@@ -75,8 +76,8 @@ export default function Payment() {
             type='text'
             name='email'
             id='email'
-            placeholder='name@exampl.com'
-            onChange={(e) => handleEmail}
+            placeholder='name@example.com'
+            onChange={handleEmail}
             className={checkEmail ? "err" : ""}
           />
         </div>
