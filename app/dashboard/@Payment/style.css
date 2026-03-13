@@ -109,6 +109,7 @@
   color: var(--lighttext);
 }
 
-.payment_errMsg {
+.payment_errorMsg {
   color: #e60101;
+  font-weight: 300;
 }
