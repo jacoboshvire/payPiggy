@@ -77,7 +77,7 @@ export default function Payment() {
             name='email'
             id='email'
             placeholder='name@example.com'
-            onChange={handleEmail}
+            onInput={handleEmail}
             className={checkEmail ? "err" : ""}
           />
         </div>
