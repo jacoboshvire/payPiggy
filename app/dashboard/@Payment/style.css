@@ -43,7 +43,8 @@
   width: 100%;
   padding: 50px;
   background-color: var(--subcolor);
-  border-top: var(--border);
+  border-top: 1px solid var(--border);
   position: absolute;
   bottom: 0;
+  right: 0;
 }
