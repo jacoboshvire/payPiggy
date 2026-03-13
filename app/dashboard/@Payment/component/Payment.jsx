@@ -77,6 +77,7 @@ export default function Payment() {
             id='email'
             placeholder='name@exampl.com'
             onChange={(e) => handleEmail}
+            className={checkEmail ? "err" : ""}
           />
         </div>
       </form>
