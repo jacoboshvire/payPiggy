@@ -32,6 +32,7 @@
   overflow: hidden;
   padding: 30px;
   position: relative;
+  overflow-y: scroll;
 }
 
 .err {
