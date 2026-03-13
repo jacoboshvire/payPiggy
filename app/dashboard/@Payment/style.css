@@ -85,4 +85,6 @@
 
 .payment_input_column .payment_form_input {
   background-color: rgb(92, 92, 92);
+  width: 50%;
+  margin: 2%;
 }
