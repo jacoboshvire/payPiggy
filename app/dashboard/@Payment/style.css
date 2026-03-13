@@ -28,6 +28,7 @@
   height: 350px;
   background-color: var(--subcolor);
   border: 1px solid var(--border);
+  border-radius: 20px;
   overflow: hidden;
   overflow-y: scroll;
   padding: 30px;
