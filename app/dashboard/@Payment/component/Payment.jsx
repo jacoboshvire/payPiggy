@@ -56,6 +56,17 @@ export default function Payment() {
             />
           </div>
         </div>
+        <div className='payment_form_input'>
+          <label htmlFor='last_name'>
+            <p>Last name</p>
+          </label>
+          <input
+            type='text'
+            name='LastName'
+            id='last_name'
+            placeholder='Stone'
+          />
+        </div>
       </form>
     </div>
   );
