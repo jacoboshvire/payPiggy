@@ -21,6 +21,7 @@ export default function Payment() {
             <input type='text' name='sortCode' id='sort_code' />
           </div>
         </div>
+        {/* Payment input for personal details */}
       </form>
     </div>
   );
