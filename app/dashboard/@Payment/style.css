@@ -27,4 +27,9 @@
   width: 100%;
   height: 400px;
   background-color: var(--subcolor);
+  overflow: hidden;
+}
+
+.err {
+  color:;
 }
