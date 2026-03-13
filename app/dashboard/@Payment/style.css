@@ -108,3 +108,7 @@
   padding: 2% 0;
   color: var(--lighttext);
 }
+
+.payment_errMsg {
+  color: #e60101;
+}
