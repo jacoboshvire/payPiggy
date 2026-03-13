@@ -3,5 +3,5 @@
 import { useEffect, useState } from "react";
 
 export default function Payment() {
-  return <div>Payment</div>;
+  return <div className='payment_form'></div>;
 }
