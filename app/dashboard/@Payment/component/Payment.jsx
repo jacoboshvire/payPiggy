@@ -8,8 +8,9 @@ export default function Payment() {
       <form>
         <div className='payment_form_input'>
           <label htmlFor=''>
-            <p>Account name</p>
+            <p>Account number</p>
           </label>
+          <input type='text' />
         </div>
       </form>
     </div>
