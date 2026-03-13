@@ -70,4 +70,6 @@
 
 .payment_input_column {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
