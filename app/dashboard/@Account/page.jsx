@@ -5,7 +5,7 @@ import React from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import Back from "../../component/Back";
 import AccountLink from "./component/AccountLink";
-import AcountDetail from "./component/AcountDetail";
+import AcountDetail from "./component/acountDetail";
 import "./style.css";
 
 export default function page() {
