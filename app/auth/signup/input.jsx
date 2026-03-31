@@ -1,17 +1,54 @@
 /** @format */
 
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import { api } from "@/lib/api";
 
-export default function form() {
+export default function Form() {
+  const router = useRouter();
   const [seePassword, setSeePassword] = useState(false);
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const changeType = () => {
-    setSeePassword((seePassword) => !seePassword);
+    setSeePassword((prev) => !prev);
   };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const data = await api.post("/api/auth/register", {
+        fullname,
+        email,
+        password,
+      });
+
+      if (!data.userId) {
+        setError(data.message || "Registration failed");
+        return;
+      }
+
+      Cookies.set("userId", String(data.userId), { expires: 1 });
+      Cookies.set("isNewUser", "true", { expires: 1 });
+      router.push("/otp-options");
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className='input'>
-      <form>
+      <form onSubmit={handleRegister}>
         <div className='inputField'>
           <label htmlFor='fullname'>Fullname</label>
           <div className='input'>
@@ -33,16 +70,18 @@ export default function form() {
                 d='M11.962 11.6423H11.993C14.688 11.6423 16.88 9.45026 16.88 6.75526C16.88 4.06126 14.688 1.86926 11.993 1.86926C9.29805 1.86926 7.10605 4.06126 7.10605 6.75326C7.09705 9.43926 9.27405 11.6323 11.962 11.6423Z'
               />
             </svg>
-
             <input
-              type='fullname'
+              type='text'
               id='fullname'
               name='fullname'
               placeholder='Jacob Oshevire'
+              value={fullname}
+              onChange={(e) => setFullname(e.target.value)}
               required
             />
           </div>
         </div>
+
         <div className='inputField'>
           <label htmlFor='email'>Email</label>
           <div className='input'>
@@ -59,16 +98,18 @@ export default function form() {
                 d='M18.1451 9.53C17.7931 9.952 14.6341 13.653 12.0111 13.653C9.39107 13.653 6.20007 9.955 5.84407 9.533C5.57807 9.216 5.61807 8.743 5.93507 8.476C6.25107 8.208 6.72407 8.25 6.99107 8.566C8.16207 9.953 10.5591 12.153 12.0111 12.153C13.4621 12.153 15.8371 9.955 16.9931 8.569C17.2581 8.252 17.7311 8.21 18.0491 8.473C18.3671 8.739 18.4101 9.212 18.1451 9.53ZM12.0001 2.383C4.59907 2.383 1.97607 4.899 1.97607 12C1.97607 19.1 4.59907 21.617 12.0001 21.617C19.4011 21.617 22.0241 19.1 22.0241 12C22.0241 4.899 19.4011 2.383 12.0001 2.383Z'
               />
             </svg>
-
             <input
               type='email'
               id='email'
               name='email'
               placeholder='name@example.com'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
         </div>
+
         <div className='inputField'>
           <label htmlFor='password'>Password</label>
           <div className='input'>
@@ -85,15 +126,15 @@ export default function form() {
                 d='M15.7207 10.2215L11.8227 14.1205C11.6817 14.2615 11.4917 14.3405 11.2927 14.3405C11.0937 14.3405 10.9027 14.2615 10.7617 14.1205L8.86969 12.2265C8.57669 11.9335 8.57669 11.4575 8.87069 11.1655C9.16269 10.8725 9.63769 10.8725 9.93069 11.1655L11.2927 12.5295L14.6597 9.16051C14.9527 8.86751 15.4277 8.86751 15.7207 9.16051C16.0137 9.45351 16.0137 9.92851 15.7207 10.2215ZM19.6877 4.82551C19.0817 4.21851 15.7537 2.07251 11.9997 2.07251C8.24369 2.07251 4.91769 4.21851 4.31169 4.82551C3.73069 5.40751 3.73969 5.86051 3.78369 8.37451C3.80269 9.39451 3.82769 10.7825 3.82769 12.7005C3.82769 19.2205 9.14969 21.9275 11.9997 21.9275C14.8487 21.9275 20.1717 19.2205 20.1717 12.7005C20.1717 10.7815 20.1967 9.39251 20.2157 8.37351C20.2607 5.85951 20.2687 5.40751 19.6877 4.82551Z'
               />
             </svg>
-
             <input
               type={seePassword ? "text" : "password"}
               id='password'
               name='password'
               placeholder='*******'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
-
             {seePassword ? (
               <svg
                 width='24'
@@ -139,7 +180,12 @@ export default function form() {
             )}
           </div>
         </div>
-        <button type='submit'>create an account</button>
+
+        {error && <p className='error'>{error}</p>}
+
+        <button type='submit' disabled={loading}>
+          {loading ? "Creating account..." : "Create an account"}
+        </button>
       </form>
     </div>
   );
