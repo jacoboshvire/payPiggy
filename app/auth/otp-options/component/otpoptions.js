@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { api } from "@/lib/api";
+import Details from "./details";
 import "../style.css";
 
 const channels = [
@@ -140,10 +141,7 @@ export default function OtpOptions() {
 
   return (
     <div className='otpOptions'>
-      <h2>Verify your identity</h2>
-      <p>
-        Choose how you’d like to receive your one-time verification code (OTP).
-      </p>
+      <Details />
 
       <div className='channels'>
         {channels.map((channel) => (
