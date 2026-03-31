@@ -44,10 +44,6 @@ export default function OtpOptions() {
         phone: selected === "sms" ? phone : undefined,
       });
 
-      // Save selected channel for resend
-      Cookies.set("otpChannel", selected, { expires: 1 });
-      if (selected === "sms") Cookies.set("otpPhone", phone, { expires: 1 });
-
       router.push("/auth/verification");
     } catch (err) {
       setError("Failed to send OTP. Please try again.");
