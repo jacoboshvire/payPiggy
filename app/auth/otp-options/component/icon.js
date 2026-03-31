@@ -7,8 +7,8 @@ const channels = [
     description: "Send OTP to your email address",
     icon: (
       <svg
-        width='50'
-        height='50'
+        width='60'
+        height='60'
         viewBox='0 0 24 24'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -28,8 +28,8 @@ const channels = [
     description: "Send OTP to your phone number",
     icon: (
       <svg
-        width='50'
-        height='50'
+        width='60'
+        height='60'
         viewBox='0 0 100 100'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
@@ -61,8 +61,8 @@ const channels = [
     description: "Send OTP via push notification",
     icon: (
       <svg
-        width='50'
-        height='50'
+        width='60'
+        height='60'
         viewBox='0 0 50 50'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'
