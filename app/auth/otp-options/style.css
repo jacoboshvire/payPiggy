@@ -45,5 +45,5 @@
 }
 
 .selected {
-  border: 3px boted var(--border);
+  border: 3px var(--border) dotted;
 }
