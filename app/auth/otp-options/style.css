@@ -36,8 +36,8 @@
   text-align: center;
   cursor: pointer;
   padding: 50px;
-  height: 305px;
-  width: 305px;
+  height: 205px;
+  width: 205px;
   border-radius: 15px;
   transition: background-color 0.2s ease;
   background-color: var(--subcolor);
