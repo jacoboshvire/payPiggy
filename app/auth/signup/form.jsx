@@ -1,30 +1,134 @@
-"use client"
-import { useState, useEffect } from "react"
-import "./style.css"
-import Input from "./input"
+/** @format */
 
-export default function form() {
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import { api } from "@/lib/api";
+
+export default function Input({ isRegister = false }) {
+  const router = useRouter();
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [seePassword, setSeePassword] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      let data;
+
+      if (isRegister) {
+        // Register flow
+        data = await api.post("/api/auth/register", {
+          fullname,
+          email,
+          password,
+        });
+        if (!data.userId) {
+          setError(data.message || "Registration failed");
+          return;
+        }
+        // Mark as new user
+        Cookies.set("isNewUser", "true", { expires: 1 });
+      } else {
+        // Login flow
+        data = await api.post("/api/auth/login", { email, password });
+        if (!data.userId) {
+          setError(data.message || "Login failed");
+          return;
+        }
+      }
+
+      // Save userId and redirect to OTP options
+      Cookies.set("userId", String(data.userId), { expires: 1 });
+      router.push("/otp-options");
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="loginInput">
-        <div className="titleAndDetails">
-            <div className="logo">
-                <svg width="32" height="23" viewBox="0 0 62 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M46.2168 0C54.725 0 61.6219 6.89714 61.6221 15.4053C61.6221 23.9136 54.7251 30.8115 46.2168 30.8115H16.1631V42.1758H0V0H46.2168ZM17.5527 9.59668C14.4146 9.59668 11.8704 12.1974 11.8701 15.4053C11.8701 18.6133 14.4144 21.2148 17.5527 21.2148C20.6909 21.2147 23.2344 18.6132 23.2344 15.4053C23.2341 12.1975 20.6908 9.59684 17.5527 9.59668ZM43.8174 9.59668C40.6794 9.59689 38.136 12.1976 38.1357 15.4053C38.1357 18.6132 40.6793 21.2146 43.8174 21.2148C46.9557 21.2148 49.5 18.6133 49.5 15.4053C49.4998 12.1974 46.9555 9.59668 43.8174 9.59668Z" fill="url(#paint0_linear_34_3709)"/>
-                    <defs>
-                    <linearGradient id="paint0_linear_34_3709" x1="1.08212" y1="5.79448e-07" x2="60.5399" y2="42.1758" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="#241E77"/>
-                    <stop offset="1" stopColor="#4337DD"/>
-                    </linearGradient>
-                    </defs>
-                </svg>
-                <h1>PayPiggy</h1>
+    <div className='form'>
+      <form onSubmit={handleSubmit}>
+        {isRegister && (
+          <div className='inputField'>
+            <label htmlFor='fullname'>Full Name</label>
+            <div className='input'>
+              <input
+                type='text'
+                id='fullname'
+                placeholder='Jacob Oshevire'
+                value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
+                required
+              />
             </div>
-            <div className="Details">
-                <h2>Hey welcome</h2>
-                <p>Smart Banking, Simplified</p>
-            </div>
+          </div>
+        )}
+
+        <div className='inputField'>
+          <label htmlFor='email'>Email</label>
+          <div className='input'>
+            <input
+              type='email'
+              id='email'
+              placeholder='name@example.com'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
         </div>
-        <Input />
+
+        <div className='inputField'>
+          <label htmlFor='password'>Password</label>
+          <div className='input'>
+            <input
+              type={seePassword ? "text" : "password"}
+              id='password'
+              placeholder='*******'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <span onClick={() => setSeePassword((prev) => !prev)}>
+              {seePassword ? "Hide" : "Show"}
+            </span>
+          </div>
+        </div>
+
+        {!isRegister && (
+          <div className='forgottenPassword'>
+            <a href='#'>Forgotten Password?</a>
+          </div>
+        )}
+
+        {error && <p className='error'>{error}</p>}
+
+        <button type='submit' disabled={loading}>
+          {loading ? "Please wait..." : isRegister ? "Create Account" : "Login"}
+        </button>
+
+        <p className='switchAuth'>
+          {isRegister ? (
+            <>
+              Already have an account? <a href='/login'>Login</a>
+            </>
+          ) : (
+            <>
+              Don't have an account? <a href='/register'>Sign Up</a>
+            </>
+          )}
+        </p>
+      </form>
     </div>
-  )
+  );
 }
