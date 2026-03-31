@@ -4,7 +4,6 @@ const channels = [
   {
     id: "email",
     label: "Email",
-    description: "Send OTP to your email address",
     icon: (
       <svg
         width='60'
@@ -25,7 +24,6 @@ const channels = [
   {
     id: "sms",
     label: "SMS",
-    description: "Send OTP to your phone number",
     icon: (
       <svg
         width='60'
@@ -57,8 +55,7 @@ const channels = [
   },
   {
     id: "push",
-    label: "Push Notification",
-    description: "Send OTP via push notification",
+    label: "Notification",
     icon: (
       <svg
         width='60'
