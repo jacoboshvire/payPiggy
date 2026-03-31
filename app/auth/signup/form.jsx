@@ -123,9 +123,7 @@ export default function Input({ isRegister = false }) {
               Already have an account? <a href='/login'>Login</a>
             </>
           ) : (
-            <>
-              Don't have an account? <a href='/register'>Sign Up</a>
-            </>
+            `Don't have an account? ${(<a href='/register'>Sign Up</a>)}`
           )}
         </p>
       </form>
