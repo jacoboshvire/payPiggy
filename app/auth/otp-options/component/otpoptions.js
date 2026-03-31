@@ -73,7 +73,6 @@ export default function OtpOptions() {
             <div className='channelIcon'>{channel.icon}</div>
             <div className='channelInfo'>
               <p className='channelLabel'>{channel.label}</p>
-              <p className='channelDescription'>{channel.description}</p>
             </div>
             <div className='channelRadio'>
               <div
