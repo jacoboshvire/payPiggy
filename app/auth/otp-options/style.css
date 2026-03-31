@@ -20,3 +20,8 @@
   font-weight: 300;
   margin: 1% 0 3% 0;
 }
+
+.channels {
+  display: flex;
+  gap: 20px;
+}
