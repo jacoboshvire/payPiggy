@@ -84,20 +84,6 @@ export default function OtpOptions() {
         ))}
       </div>
 
-      {/* Show phone input if SMS selected */}
-      {selected === "sms" && (
-        <div className='phoneInput'>
-          <label htmlFor='phone'>Phone Number</label>
-          <input
-            type='tel'
-            id='phone'
-            placeholder='+447911123456'
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-        </div>
-      )}
-
       {error && <p className='error'>{error}</p>}
 
       <button onClick={handleContinue} disabled={loading || !selected}>
