@@ -38,7 +38,12 @@
   padding: 20px;
   height: 305px;
   width: 305px;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: background-color 0.2s ease;
   background-color: var(--subcolor);
+  border:;
+}
+
+.selected {
+  border:;
 }
