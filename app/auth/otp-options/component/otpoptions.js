@@ -1,0 +1,193 @@
+/** @format */
+
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import { api } from "@/lib/api";
+import "../style.css";
+
+const channels = [
+  {
+    id: "email",
+    label: "Email",
+    description: "Send OTP to your email address",
+    icon: (
+      <svg
+        width='50'
+        height='50'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M18.1451 9.53C17.7931 9.952 14.6341 13.653 12.0111 13.653C9.39107 13.653 6.20007 9.955 5.84407 9.533C5.57807 9.216 5.61807 8.743 5.93507 8.476C6.25107 8.208 6.72407 8.25 6.99107 8.566C8.16207 9.953 10.5591 12.153 12.0111 12.153C13.4621 12.153 15.8371 9.955 16.9931 8.569C17.2581 8.252 17.7311 8.21 18.0491 8.473C18.3671 8.739 18.4101 9.212 18.1451 9.53ZM12.0001 2.383C4.59907 2.383 1.97607 4.899 1.97607 12C1.97607 19.1 4.59907 21.617 12.0001 21.617C19.4011 21.617 22.0241 19.1 22.0241 12C22.0241 4.899 19.4011 2.383 12.0001 2.383Z'
+          fill='currentColor'
+        />
+      </svg>
+    ),
+  },
+  {
+    id: "sms",
+    label: "SMS",
+    description: "Send OTP to your phone number",
+    icon: (
+      <svg
+        width='50'
+        height='50'
+        viewBox='0 0 100 100'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M60.8781 7.31664C59.1572 7.09998 57.6156 8.36248 57.4281 10.075C57.2364 11.7916 58.4739 13.3333 60.1864 13.525C74.2572 15.0875 85.1822 26.0041 86.7614 40.0708C86.9406 41.6666 88.2906 42.8458 89.8614 42.8458C89.9781 42.8458 90.0989 42.8375 90.2156 42.825C91.9281 42.6375 93.1614 41.0875 92.9697 39.3708C91.0656 22.3875 77.8697 9.20414 60.8781 7.31664Z'
+          fill='currentColor'
+        />
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M72.0477 40.365C72.3393 41.8566 73.6477 42.89 75.1102 42.89C75.3102 42.89 75.5102 42.8733 75.7143 42.8358C77.406 42.5066 78.5143 40.8608 78.1852 39.1691C76.4893 30.4941 69.7935 23.7983 61.1268 22.115C59.4727 21.7858 57.7935 22.8941 57.4643 24.59C57.1352 26.2816 58.2435 27.9233 59.9393 28.2525C66.0893 29.4483 70.8477 34.2025 72.0477 40.365Z'
+          fill='currentColor'
+        />
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M64.691 57.6992C60.5327 59.7242 56.9327 61.4825 47.5702 52.12C38.2118 42.7575 39.9618 39.1617 41.991 34.9992C44.9285 28.9658 46.116 23.4783 32.7743 12.4908C29.5868 9.88667 26.1285 8.88667 22.516 9.58667C14.8785 11.0158 9.48265 19.5158 9.49099 19.5158C6.10765 24.2492 1.47432 38.4825 31.3368 68.3492C50.9785 87.995 63.8618 92.7075 71.6785 92.7075C75.7452 92.7075 78.441 91.4325 79.9993 90.3117C80.0827 90.2617 88.6577 84.9492 90.1077 77.1617C90.7827 73.5408 89.7993 70.095 87.191 66.9075C76.2077 53.5783 70.7202 54.7617 64.691 57.6992Z'
+          fill='currentColor'
+        />
+      </svg>
+    ),
+  },
+  {
+    id: "push",
+    label: "Push Notification",
+    description: "Send OTP via push notification",
+    icon: (
+      <svg
+        width='50'
+        height='50'
+        viewBox='0 0 50 50'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M40.8904 29.0882C39.1258 25.207 39.1716 23.7466 39.2529 21.0924C39.2737 20.4653 39.2946 19.7841 39.2946 19.0028C39.2946 12.8007 34.8591 4.06531 25.0008 4.06531C15.1425 4.06531 10.7071 12.8007 10.7071 19.0028C10.7071 19.782 10.7279 20.4653 10.7487 21.0924C10.83 23.7466 10.8737 25.207 9.0904 29.1403C8.3279 31.107 8.41956 32.8049 9.36748 34.1882C11.6425 37.5174 18.2258 37.9757 25.0008 37.9757C31.7758 37.9757 38.3591 37.5174 40.6341 34.1882C41.5841 32.8049 41.6758 31.107 40.8904 29.0882Z'
+          fill='currentColor'
+        />
+        <path
+          fillRule='evenodd'
+          clipRule='evenodd'
+          d='M30.6202 40.0847C27.2223 40.4617 23.5389 40.4597 19.3514 40.0805C18.7243 40.0305 18.1035 40.3617 17.816 40.9347C17.5264 41.5097 17.6181 42.1992 18.0452 42.6784C19.9202 44.7763 22.3868 45.9347 24.991 45.9347H24.9952C27.6056 45.9347 30.0785 44.7784 31.9577 42.6784C32.3889 42.1972 32.4785 41.4972 32.1827 40.9201C31.8848 40.3472 31.2723 40.0263 30.6202 40.0847Z'
+          fill='currentColor'
+        />
+      </svg>
+    ),
+  },
+];
+
+export default function OtpOptions() {
+  const router = useRouter();
+  const [selected, setSelected] = useState("");
+  const [phone, setPhone] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleContinue = async () => {
+    if (!selected) {
+      setError("Please select a channel");
+      return;
+    }
+
+    if (selected === "sms" && !phone) {
+      setError("Please enter your phone number");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const userId = Cookies.get("userId");
+
+      if (!userId) {
+        router.push("/login");
+        return;
+      }
+
+      await api.post("/api/auth/send-otp", {
+        userId: Number(userId),
+        channel: selected,
+        phone: selected === "sms" ? phone : undefined,
+      });
+
+      // Save selected channel for resend
+      Cookies.set("otpChannel", selected, { expires: 1 });
+      if (selected === "sms") Cookies.set("otpPhone", phone, { expires: 1 });
+
+      router.push("/auth/verification");
+    } catch (err) {
+      setError("Failed to send OTP. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className='otpOptions'>
+      <h2>Verify your identity</h2>
+      <p>
+        Choose how you’d like to receive your one-time verification code (OTP).
+      </p>
+
+      <div className='channels'>
+        {channels.map((channel) => (
+          <div
+            key={channel.id}
+            className={`channel ${selected === channel.id ? "selected" : ""}`}
+            onClick={() => {
+              setSelected(channel.id);
+              setError("");
+            }}
+          >
+            <div className='channelIcon'>{channel.icon}</div>
+            <div className='channelInfo'>
+              <p className='channelLabel'>{channel.label}</p>
+              <p className='channelDescription'>{channel.description}</p>
+            </div>
+            <div className='channelRadio'>
+              <div
+                className={`radio ${selected === channel.id ? "active" : ""}`}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Show phone input if SMS selected */}
+      {selected === "sms" && (
+        <div className='phoneInput'>
+          <label htmlFor='phone'>Phone Number</label>
+          <input
+            type='tel'
+            id='phone'
+            placeholder='+447911123456'
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </div>
+      )}
+
+      {error && <p className='error'>{error}</p>}
+
+      <button onClick={handleContinue} disabled={loading || !selected}>
+        {loading ? "Sending..." : "Continue"}
+      </button>
+    </div>
+  );
+}
