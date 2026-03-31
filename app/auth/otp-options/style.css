@@ -53,5 +53,19 @@
   background-color: thistle;
 }
 
-            <div className='channelRadio'>
-.
+.channelRadio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+.channelRadio .active {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--border);
+}
