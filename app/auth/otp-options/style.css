@@ -8,3 +8,9 @@
   max-width: 1300px;
   margin: 0 auto;
 }
+
+.otp_title {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
