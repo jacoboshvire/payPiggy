@@ -46,5 +46,5 @@
 }
 
 .selected {
-  border: 3px var(--border) dotted;
+  border: 3px var(--border) dashed;
 }
