@@ -21,12 +21,6 @@ export default function OtpOptions() {
       setError("Please select a channel");
       return;
     }
-
-    if (selected === "sms" && !phone) {
-      setError("Please enter your phone number");
-      return;
-    }
-
     setLoading(true);
     setError("");
 
