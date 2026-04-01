@@ -80,5 +80,9 @@
   gap: 20px;
   align-items: center;
   justify-content: center;
-  background-color: var(--gradient);
+  background: var(--gradient);
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 15px 30px;
 }
