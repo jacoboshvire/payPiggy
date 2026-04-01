@@ -86,4 +86,6 @@
   font-weight: 300;
   padding: 15px 60px;
   border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
