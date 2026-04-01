@@ -81,8 +81,26 @@ export default function OtpOptions() {
 
       {error && <p className='error'>{error}</p>}
 
-      <button onClick={handleContinue} disabled={loading || !selected}>
+      <button
+        onClick={handleContinue}
+        disabled={loading || !selected}
+        className='continueButton'
+      >
         <p>{loading ? "Sending..." : "next"}</p>
+        <svg
+          width='24'
+          height='24'
+          viewBox='0 0 24 24'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            fillRule='evenodd'
+            clipRule='evenodd'
+            d='M14.9872 6.9572C14.2112 6.6362 13.3452 6.3802 12.8132 6.9142C12.3692 7.3602 12.1162 9.0872 12.0512 10.9992H3.8252C3.2722 10.9992 2.8252 11.4462 2.8252 11.9992C2.8252 12.5522 3.2722 12.9992 3.8252 1２.999２H1２.05２２C1２.1１７２ 1４.９０７２ 1２.3７０２ １６．６２８２ １２．８１４２ １７．０７２２C１３．０４８２ １７．３０６２ １３．３４５２ １７．３９４２ １３．６６８２ １７．３９４２C１４．１２１２ １７．３９４２ １４．６２３２ １７．２２０２ １５．０６２２ １７．０３８２C１６．６３３２ １６．３８８₂  twenty-one point one seven four two thirteen point six four two two twenty-one point one seven four two eleven point nine nine two two twenty-one point one seven four two ten point two eight nine two sixteen point four two seven two seven point five five four two fourteen point nine eight seven two six point nine five seven two'
+            fill='white'
+          />
+        </svg>
       </button>
     </div>
   );
