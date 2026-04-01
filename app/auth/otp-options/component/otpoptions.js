@@ -82,7 +82,7 @@ export default function OtpOptions() {
       {error && <p className='error'>{error}</p>}
 
       <button onClick={handleContinue} disabled={loading || !selected}>
-        {loading ? "Sending..." : "Continue"}
+        <p>{loading ? "Sending..." : "next"}</p>
       </button>
     </div>
   );
