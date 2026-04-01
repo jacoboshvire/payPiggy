@@ -74,3 +74,11 @@
   font-size: 20px;
   font-weight: 300;
 }
+
+.continueButton {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
