@@ -9,7 +9,10 @@ export default function details() {
     <div className='welcome_details'>
       <Back />
       <Logo />
-      <p>details</p>
+      <div className='welcome_title'>
+        <h1>We’d like to get to know you better</h1>
+        <p>please provide a few more details to create your account.</p>
+      </div>
     </div>
   );
 }
