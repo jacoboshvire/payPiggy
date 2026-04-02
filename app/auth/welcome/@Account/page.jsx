@@ -42,39 +42,41 @@ export default function UpdateName({ accountId }) {
 
   return (
     <>
-      {}
-      <div className='updateName'>
-        <form onSubmit={handleSubmit}>
-          <div className='inputField'>
-            <label htmlFor='firstName'>First Name</label>
-            <input
-              type='text'
-              id='firstName'
-              placeholder='Jacob'
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
+      {pathname.includes("welcome") &&
+        searchParams.get("phonenumber") !== "true" && (
+          <div className='updateName'>
+            <form onSubmit={handleSubmit}>
+              <div className='inputField'>
+                <label htmlFor='firstName'>First Name</label>
+                <input
+                  type='text'
+                  id='firstName'
+                  placeholder='Jacob'
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
+
+              <div className='inputField'>
+                <label htmlFor='lastName'>Last Name</label>
+                <input
+                  type='text'
+                  id='lastName'
+                  placeholder='Oshevire'
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
+
+              {error && <p className='error'>{error}</p>}
+              {success && <p className='success'>Name updated successfully</p>}
+
+              <button type='submit' disabled={loading}>
+                {loading ? "Updating..." : "Update Name"}
+              </button>
+            </form>
           </div>
-
-          <div className='inputField'>
-            <label htmlFor='lastName'>Last Name</label>
-            <input
-              type='text'
-              id='lastName'
-              placeholder='Oshevire'
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-
-          {error && <p className='error'>{error}</p>}
-          {success && <p className='success'>Name updated successfully</p>}
-
-          <button type='submit' disabled={loading}>
-            {loading ? "Updating..." : "Update Name"}
-          </button>
-        </form>
-      </div>
+        )}
     </>
   );
 }
