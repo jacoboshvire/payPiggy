@@ -2,11 +2,13 @@
 
 "use client";
 import { useState } from "react";
-import { useRouter, useParams, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { api } from "@/lib/api";
 
 export default function UpdateName({ accountId }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [error, setError] = useState("");
