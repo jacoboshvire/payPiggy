@@ -1,8 +1,8 @@
 /** @format */
 "use client";
 import React from "react";
-import Back from "../../component/Back";
-import Logo from "../../component/Logo";
+import Back from "../../../component/Back";
+import Logo from "../../../component/Logo";
 
 export default function details() {
   return (
