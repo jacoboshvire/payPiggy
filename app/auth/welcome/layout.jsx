@@ -8,9 +8,9 @@ export default function layout({ Account, ChooseImage, PhoneNumber }) {
   return (
     <div className='welcome'>
       <Details />
-      {Account}
-      {ChooseImage}
-      {PhoneNumber}
+      {Account && Account}
+      {ChooseImage && ChooseImage}
+      {PhoneNumber && PhoneNumber}
     </div>
   );
 }
