@@ -42,7 +42,7 @@ export default function UpdateName({ accountId }) {
 
   return (
     <>
-      {(pathname.includes("/auth/welcome") &&
+      {pathname.includes("/auth/welcome") &&
         searchParams.get("phonenumber") === "true" && (
           <div className='updateName'>
             <form onSubmit={handleSubmit}>
@@ -76,7 +76,7 @@ export default function UpdateName({ accountId }) {
               </button>
             </form>
           </div>
-        )) || <div>Loading...</div>}
+        )}
     </>
   );
 }
