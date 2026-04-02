@@ -5,8 +5,8 @@ import Details from "./component/details";
 
 export default function layout({ Account, ChooseImage, PhoneNumber }) {
   return (
-    <div>
-        <Details
+    <div className='welcome-layout'>
+      <Details />
       {Account}
       {ChooseImage}
       {PhoneNumber}
