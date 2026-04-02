@@ -3,5 +3,5 @@
 import React from "react";
 
 export default function page() {
-  return <div>choose image</div>;
+  return <div>account form</div>;
 }
