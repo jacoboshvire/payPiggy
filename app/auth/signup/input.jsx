@@ -29,6 +29,7 @@ export default function Form() {
         fullname,
         email,
         password,
+        phone,
       });
 
       if (!data.userId) {
