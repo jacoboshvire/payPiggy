@@ -2,7 +2,7 @@
 
 "use client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams, usePathname } from "next/navigation";
 import { api } from "@/lib/api";
 
 export default function UpdateName({ accountId }) {
@@ -40,6 +40,7 @@ export default function UpdateName({ accountId }) {
 
   return (
     <>
+      {}
       <div className='updateName'>
         <form onSubmit={handleSubmit}>
           <div className='inputField'>
