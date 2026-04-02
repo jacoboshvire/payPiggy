@@ -27,7 +27,7 @@ export default function UpdateName({ accountId }) {
 
       if (data.message === "Account updated") {
         setSuccess(true);
-        router.refresh();
+        router.push("/welcome?phonenumber=true");
       } else {
         setError(data.message || "Update failed");
       }
