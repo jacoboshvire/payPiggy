@@ -42,8 +42,8 @@ export default function UpdateName({ accountId }) {
 
   return (
     <>
-      {(pathname.includes("welcome") &&
-        searchParams.get("phonenumber") !== "true" && (
+      {(pathname.includes("/auth/welcome") &&
+        searchParams.get("phonenumber") === "true" && (
           <div className='updateName'>
             <form onSubmit={handleSubmit}>
               <div className='inputField'>
