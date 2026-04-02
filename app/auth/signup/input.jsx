@@ -40,7 +40,7 @@ export default function Form() {
 
       Cookies.set("userId", String(data.userId), { expires: 1 });
       Cookies.set("isNewUser", "true", { expires: 1 });
-      router.push("/otp-options");
+      router.push("/auth/otp-options");
     } catch (err) {
       setError("Something went wrong. Please try again.");
     } finally {
