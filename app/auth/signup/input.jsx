@@ -10,6 +10,7 @@ export default function Form() {
   const router = useRouter();
   const [seePassword, setSeePassword] = useState(false);
   const [fullname, setFullname] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
