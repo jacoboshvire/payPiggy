@@ -11,6 +11,5 @@ export default function page() {
     pathname.includes("/auth/welcome") && searchParams.get("ChooseImage") === "true") && (
       return <div>choose image</div>)
     }
-  }
   </>
 }
