@@ -1,6 +1,6 @@
 /** @format */
 "use client";
-import React from "react";
+import { useEffect } from "react";
 import Details from "./component/details";
 import "./style.css";
 import { usePathname, useRouter } from "next/navigation";
