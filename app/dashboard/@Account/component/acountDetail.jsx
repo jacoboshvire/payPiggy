@@ -9,6 +9,10 @@ import Auth from "../../../../lib/auth";
 
 export default function AccountDetail() {
   const router = useRouter();
+  const handleLogout = () => {
+    Auth.logout();
+    router.push("/auth/login");
+  };
   return (
     <div className='Account_Detail'>
       <div className='Account_Detail_title'>
