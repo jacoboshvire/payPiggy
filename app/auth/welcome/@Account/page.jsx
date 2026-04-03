@@ -28,6 +28,7 @@ export default function UpdateName({ accountId }) {
       return;
     }
     console.log(`${firstName} and ${lastName}`);
+    console.log("Account ID:", accountId);
     try {
       const data = await api.put(`/api/account/${accountId}`, {
         first_name: firstName,
