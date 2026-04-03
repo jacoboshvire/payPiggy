@@ -22,26 +22,26 @@ export default function UpdateName({ accountId }) {
     setError("");
     setSuccess(false);
 
-    if (!firstName || !lastName) {
-      setError("First name and last name are required");
-      setLoading(false);
-      return;
-    }
-
     try {
-      const response = await api.put(`/api/account/${accountId}`, {
+      const data = await api.put(`/api/account/${accountId}`, {
         first_name: firstName,
         last_name: lastName,
       });
 
-      if (response.data.message === "Account updated") {
+      if (firstName === "" || lastName === "") {
+        setError("First name and last name are required");
+        setLoading(false);
+        return;
+      }
+
+      if (data.message === "Account updated") {
         setSuccess(true);
         router.push("/welcome?ChooseImage=true");
       } else {
-        setError(response.data.message || "Update failed");
+        setError(data.message || "Update failed");
       }
     } catch (err) {
-      setError(err.response?.data?.message || "Something went wrong");
+      setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
