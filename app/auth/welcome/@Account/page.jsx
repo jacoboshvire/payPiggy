@@ -34,7 +34,7 @@ export default function UpdateName({ accountId }) {
         last_name: lastName,
       });
 
-      if (response.data.message === "Account updated") {
+      if (data.message === "Account updated") {
         setSuccess(true);
         router.push("/welcome?ChooseImage=true");
       } else {
