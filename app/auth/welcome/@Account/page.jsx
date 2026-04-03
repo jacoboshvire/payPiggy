@@ -22,6 +22,8 @@ export default function UpdateName({ accountId }) {
     setLoading(true);
     setError("");
     setSuccess(false);
+    const id = localStorage.getItem("accountId");
+    setAccountId(id);
 
     if (firstName === "" || lastName === "") {
       setError("First name and last name are required");
