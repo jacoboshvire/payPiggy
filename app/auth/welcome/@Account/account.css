@@ -1,0 +1,13 @@
+/** @format */
+
+.updateName {
+  width: 60%;
+  background-color: aliceblue;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
