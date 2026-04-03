@@ -29,20 +29,18 @@ export default function UpdateName({ accountId }) {
     }
     console.log(`${firstName} and ${lastName}`);
     try {
-      const data = await api.put(`/api/account/${accountId}`, {
-        first_name: firstName,
-        last_name: lastName,
-      });
+  const data = await api.put(`/api/account/${accountId}`, {
+    first_name: firstName,
+    last_name: lastName,
+  });
 
-      if (data.message === "Account updated") {
-        setSuccess(true);
-        router.push("/welcome?ChooseImage=true");
-      } else {
-        setError(data.message || "Update failed");
-      }
-    } catch (err) {
-      setError("Something went wrong. Please try again.");
-    } finally {
+  if (data.message === "Account updated") {
+    setSuccess(true);
+    router.push("/welcome?ChooseImage=true");
+  }
+} catch (err: any) {
+  setError(err.message || "Something went wrong");
+}finally {
       setLoading(false);
     }
   };
