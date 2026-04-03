@@ -18,6 +18,7 @@ const authRoutes = [
 export function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
   const userId = request.cookies.get("userId")?.value;
+  const isNewUser = request.cookies.get("isNewUser")?.value === "true";
   const { pathname } = request.nextUrl;
 
   const isProtected = protectedRoutes.some((route) =>
@@ -34,10 +35,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
-  // Redirect to verify if userId exists but no token yet
-  //   if (authRoutes.includes(pathname) && userId && !token) {
-  //     return NextResponse.redirect(new URL("/auth/verification", request.url));
-  //   }
+  /// Prevent accessing verification without userId
+  if (pathname === "/auth/verification" && !userId) {
+    return NextResponse.redirect(new URL("/dashboard", request.url));
+  }
+
+  // Protect welcome — only accessible after signing up
+  if (pathname.startsWith("/auth/welcome")) {
+    if (!token || !isNewUser) {
+      return NextResponse.redirect(new URL("/dashboard", request.url));
+    }
+  }
 
   // Prevent accessing verification without userId
   if (pathname === "/auth/verification" && !userId) {
