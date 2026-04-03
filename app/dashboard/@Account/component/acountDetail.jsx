@@ -10,7 +10,7 @@ import Auth from "../../../../lib/auth";
 export default function AccountDetail() {
   const router = useRouter();
   const handleLogout = () => {
-    Auth.logout();
+    Auth.removeToken();
     router.push("/auth/login");
   };
   return (
