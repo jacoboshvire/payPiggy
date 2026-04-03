@@ -9,7 +9,7 @@ export default function page() {
   <>
   {
     if (pathname.includes("/auth/welcome") && searchParams.get("ChooseImage") === "true") {
-      return <div>choose image</div>;
+      return( <div>choose image</div>)
     }
   }
   </>
