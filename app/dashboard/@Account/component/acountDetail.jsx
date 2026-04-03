@@ -62,7 +62,7 @@ export default function AccountDetail() {
                 />
               </svg>
             </div>
-            <div className='Account_Detail_logoutBtu'>
+            <div className='Account_Detail_logoutBtu' onClick={handleLogout}>
               <p>Logout</p>
             </div>
           </div>
