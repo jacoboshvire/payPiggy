@@ -8,8 +8,8 @@ export default function page() {
   const pathname = usePathname();
   <>
   {
-    if (pathname.includes("/auth/welcome") && searchParams.get("ChooseImage") === "true") {
-      return( <div>choose image</div>)
+    pathname.includes("/auth/welcome") && searchParams.get("ChooseImage") === "true") && (
+      return <div>choose image</div>)
     }
   }
   </>
