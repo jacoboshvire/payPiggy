@@ -34,11 +34,12 @@ export default function UpdateName({ accountId }) {
         last_name: lastName,
       });
 
-      if (data.message === "Account updated") {
+      if (response.data.message === "Account updated") {
         setSuccess(true);
         router.push("/welcome?ChooseImage=true");
       } else {
-        if (response.data.message === "Account updated")
+        setError(data.message || "Update failed");
+      }
     } catch (err) {
       setError("Something went wrong. Please try again.");
     } finally {
