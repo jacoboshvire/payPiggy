@@ -60,6 +60,7 @@ export default function UpdateName({ accountId }) {
                   id='firstName'
                   placeholder='Jacob'
                   value={firstName}
+                  name='firstName'
                   onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
