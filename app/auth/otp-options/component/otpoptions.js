@@ -46,6 +46,22 @@ export default function OtpOptions() {
     }
   };
 
+  const handleResend = async () => {
+    try {
+      const userId = Cookies.get("userId");
+      const channel = Cookies.get("otpChannel") || "email";
+
+      await api.post("/api/auth/send-otp", {
+        userId: Number(userId),
+        channel,
+      });
+
+      setError("OTP resent successfully");
+    } catch (err) {
+      setError("Failed to resend OTP");
+    }
+  };
+
   return (
     <div className='otpOptions'>
       <Details />
