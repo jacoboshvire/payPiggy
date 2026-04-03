@@ -4,7 +4,16 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const protectedRoutes = ["/dashboard"];
-const authRoutes = ["/auth/login", "/auth/register", "/auth/verification"];
+const authRoutes = [
+  "/auth/login",
+  "/auth/register",
+  "/auth/verification",
+  "/auth/otp-options",
+  "/auth/welcome",
+  "/auth/signup",
+  "/auth/welcome/@PhoneNumber",
+  "/auth/welcome/@ChooseImage",
+];
 
 export function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
