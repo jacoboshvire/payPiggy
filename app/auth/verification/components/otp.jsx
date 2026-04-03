@@ -54,10 +54,6 @@ export default function Otp({ length = 5 }) {
 
     const combinedOTP = OneTimePassword.join("");
 
-    // Fetch and save account ID
-    const userData = await api.get("/api/account");
-    localStorage.setItem("accountId", userData[0].id);
-
     if (combinedOTP.length !== length) {
       setError("Please enter the full OTP");
       return;
@@ -83,13 +79,15 @@ export default function Otp({ length = 5 }) {
         return;
       }
 
-      // Save JWT and clean up
+      // Save JWT first
       saveToken(data.token);
       Cookies.remove("userId");
 
-      // Save JWT and clean up
-      saveToken(data.token);
-      Cookies.remove("userId");
+      // Now fetch account ID (token is saved so request is authenticated)
+      const userData = await api.get("/api/account");
+      if (userData && userData.length > 0) {
+        localStorage.setItem("accountId", userData[0].id);
+      }
 
       // Redirect based on new user or not
       const isNewUser = Cookies.get("isNewUser");
