@@ -62,7 +62,7 @@ export default function Account() {
 
   return (
     <>
-      {pathname === "/auth/welcome" &&  Account && (
+      {pathname === "/auth/welcome" && Account && (
         <div className='updateName'>
           <form onSubmit={handleSubmit}>
             <div className='inputField'>
@@ -110,7 +110,7 @@ export default function Account() {
               </svg>
             </button>
           </form>
-        </div>)
+        </div>
       )}
     </>
   );
