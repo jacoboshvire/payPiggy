@@ -29,7 +29,7 @@ export default function UpdateName({ accountId }) {
 
       if (data.message === "Account updated") {
         setSuccess(true);
-        router.push("/welcome?phonenumber=true");
+        router.push("/welcome?ChooseImage=true");
       } else {
         setError(data.message || "Update failed");
       }
