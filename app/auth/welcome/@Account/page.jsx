@@ -38,7 +38,7 @@ export default function UpdateName({ accountId }) {
         setSuccess(true);
         router.push("/welcome?ChooseImage=true");
       } else {
-        setError(data.message || "Update failed");
+        if (response.data.message === "Account updated") { ... }
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");
