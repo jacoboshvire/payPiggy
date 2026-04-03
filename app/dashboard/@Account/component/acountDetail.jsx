@@ -6,6 +6,10 @@ import Link from "next/link";
 import "../style.css";
 
 export default function AccountDetail() {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    router.push("/login");
+  };
   return (
     <div className='Account_Detail'>
       <div className='Account_Detail_title'>
