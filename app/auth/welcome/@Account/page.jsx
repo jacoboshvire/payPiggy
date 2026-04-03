@@ -7,10 +7,11 @@ import { api } from "@/lib/api";
 import "./account.css";
 import { p } from "framer-motion/client";
 
-export default function UpdateName() {
+export default function Account() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const Account = searchParams.get("Account");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [error, setError] = useState("");
@@ -61,7 +62,7 @@ export default function UpdateName() {
 
   return (
     <>
-      {
+      {pathname === "/auth/welcome" &&  Account && (
         <div className='updateName'>
           <form onSubmit={handleSubmit}>
             <div className='inputField'>
@@ -109,8 +110,8 @@ export default function UpdateName() {
               </svg>
             </button>
           </form>
-        </div>
-      }
+        </div>)
+      )}
     </>
   );
 }
