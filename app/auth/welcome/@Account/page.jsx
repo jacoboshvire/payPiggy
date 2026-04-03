@@ -49,7 +49,7 @@ export default function Account() {
 
       if (data.message === "Account updated") {
         setSuccess(true);
-        router.push("/auth/welcome?step=chooseImage");
+        router.push("/auth/welcome?ChooseImage=true");
       } else {
         setError(data.message || "Failed to update account. Please try again.");
       }
