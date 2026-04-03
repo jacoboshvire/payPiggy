@@ -34,6 +34,7 @@ export default function UpdateName({ accountId }) {
         first_name: firstName,
         last_name: lastName,
       });
+      console.log("Response:", data);
 
       if (data.message === "Account updated") {
         setSuccess(true);
