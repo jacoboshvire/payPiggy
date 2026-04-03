@@ -84,18 +84,18 @@ export default function Otp({ length = 5 }) {
       Cookies.remove("userId");
 
       // Save JWT and clean up
-saveToken(data.token);
-Cookies.remove("userId");
+      saveToken(data.token);
+      Cookies.remove("userId");
 
-// Redirect based on new user or not
-const isNewUser = Cookies.get("isNewUser");
+      // Redirect based on new user or not
+      const isNewUser = Cookies.get("isNewUser");
 
-if (isNewUser) {
-  Cookies.remove("isNewUser");
-  router.push("/welcome");
-} else {
-  router.push("/dashboard");
-}
+      if (isNewUser) {
+        Cookies.remove("isNewUser");
+        router.push("/auth/welcome");
+      } else {
+        router.push("/dashboard");
+      }
     } catch (err) {
       setError("Something went wrong. Please try again.");
     } finally {
