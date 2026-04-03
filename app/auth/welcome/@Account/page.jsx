@@ -72,7 +72,19 @@ export default function UpdateName({ accountId }) {
               {success && <p className='success'>Name updated successfully</p>}
 
               <button type='submit' disabled={loading}>
-                {loading ? "Updating..." : "Update Name"}
+                <p>{loading ? "loading..." : "next"}</p>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='16'
+                  height='16'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    fill='#fff'
+                    d='M8.293 5.293a1 1 0 011.414 0L15.707 11a1 1 0 01-1.414 1.414L9 7.414a1 1 0 010-1.414z'
+                  />
+                </svg>
               </button>
             </form>
           </div>
