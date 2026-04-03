@@ -54,6 +54,10 @@ export default function Otp({ length = 5 }) {
 
     const combinedOTP = OneTimePassword.join("");
 
+    // Fetch and save account ID
+    const userData = await api.get("/api/account");
+    localStorage.setItem("accountId", userData[0].id);
+
     if (combinedOTP.length !== length) {
       setError("Please enter the full OTP");
       return;
