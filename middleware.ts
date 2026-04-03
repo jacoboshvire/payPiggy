@@ -40,12 +40,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
-  // Protect welcome — only accessible after signing up
-  if (pathname.startsWith("/auth/welcome")) {
-    if (!token || !isNewUser) {
-      return NextResponse.redirect(new URL("/dashboard", request.url));
-    }
-  }
+  //   // Protect welcome — only accessible after signing up
+  //   if (pathname.startsWith("/auth/welcome")) {
+  //     if (!token || !isNewUser) {
+  //       return NextResponse.redirect(new URL("/dashboard", request.url));
+  //     }
+  //   }
 
   // Prevent accessing verification without userId
   if (pathname === "/auth/verification" && !userId) {
