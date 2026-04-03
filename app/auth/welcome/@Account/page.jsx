@@ -22,17 +22,17 @@ export default function UpdateName({ accountId }) {
     setError("");
     setSuccess(false);
 
+    if (firstName === "" || lastName === "") {
+      setError("First name and last name are required");
+      setLoading(false);
+      return;
+    }
+
     try {
       const data = await api.put(`/api/account/${accountId}`, {
         first_name: firstName,
         last_name: lastName,
       });
-
-      if (firstName === "" || lastName === "") {
-        setError("First name and last name are required");
-        setLoading(false);
-        return;
-      }
 
       if (data.message === "Account updated") {
         setSuccess(true);
