@@ -23,7 +23,7 @@ export default function UpdateName({ accountId }) {
     setSuccess(false);
 
     try {
-      const data = await api.put(`/api/accounts/${accountId}`, {
+      const data = await api.put(`/api/account/${accountId}`, {
         first_name: firstName,
         last_name: lastName,
       });
