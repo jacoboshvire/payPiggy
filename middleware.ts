@@ -9,10 +9,10 @@ const authRoutes = [
   "/auth/register",
   "/auth/verification",
   "/auth/otp-options",
-  "/auth/welcome",
+  //   "/auth/welcome",
   "/auth/signup",
-  "/auth/welcome/@PhoneNumber",
-  "/auth/welcome/@ChooseImage",
+  //   "/auth/welcome/@PhoneNumber",
+  //   "/auth/welcome/@ChooseImage",
 ];
 
 export function middleware(request: NextRequest) {
