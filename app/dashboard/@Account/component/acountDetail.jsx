@@ -5,12 +5,12 @@ import LinkArray from "./LinkArray";
 import Link from "next/link";
 import "../style.css";
 import { useRouter } from "next/navigation";
-import { auth } from "../../../../lib/auth";
+import { removeToken } from "../../../../lib/auth";
 
 export default function AccountDetail() {
   const router = useRouter();
   const handleLogout = () => {
-    auth.removeToken();
+    removeToken();
     router.push("/auth/login");
   };
   return (
