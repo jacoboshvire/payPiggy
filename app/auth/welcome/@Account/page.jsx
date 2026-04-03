@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { api } from "@/lib/api";
-import "account.css";
+import "./account.css";
 
 export default function UpdateName({ accountId }) {
   const router = useRouter();
