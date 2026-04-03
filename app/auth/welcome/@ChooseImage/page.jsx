@@ -2,6 +2,7 @@
 "use client";
 import React from "react";
 import { useSearchParams, usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function page() {
   const searchParams = useSearchParams();
@@ -9,7 +10,13 @@ export default function page() {
   return (
     <>
       {pathname.includes("/auth/welcome") &&
-        searchParams.get("ChooseImage") === "true" && <div>choose image</div>}
+        searchParams.get("ChooseImage") === "true" && (
+          <div>
+            <Link href='/dashboard' className='skipLink'>
+              skip for now
+            </Link>
+          </div>
+        )}
     </>
   );
 }
