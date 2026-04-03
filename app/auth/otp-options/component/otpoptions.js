@@ -12,7 +12,6 @@ import "../style.css";
 export default function OtpOptions() {
   const router = useRouter();
   const [selected, setSelected] = useState("");
-  const [phone, setPhone] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -35,9 +34,9 @@ export default function OtpOptions() {
       await api.post("/api/auth/send-otp", {
         userId: Number(userId),
         channel: selected,
-        phone: selected === "sms" ? phone : undefined,
       });
 
+      Cookies.set("otpChannel", selected, { expires: 1 });
       router.push("/auth/verification");
     } catch (err) {
       setError("Failed to send OTP. Please try again.");
