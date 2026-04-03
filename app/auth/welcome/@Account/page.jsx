@@ -27,7 +27,7 @@ export default function UpdateName({ accountId }) {
       setLoading(false);
       return;
     }
-
+    console.log(`${firstName} and ${lastName}`);
     try {
       const data = await api.put(`/api/account/${accountId}`, {
         first_name: firstName,
