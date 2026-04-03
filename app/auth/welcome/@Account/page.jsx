@@ -15,6 +15,7 @@ export default function UpdateName({ accountId }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [accountId, setAccountId] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
