@@ -28,8 +28,8 @@ export default function UpdateName({ accountId }) {
         last_name: lastName,
       });
 
-      if (!data || !data.message) {
-        setError("Unexpected response from server");
+      if (firstName === "" || lastName === "") {
+        setError("First name and last name are required");
         setLoading(false);
         return;
       }
