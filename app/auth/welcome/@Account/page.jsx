@@ -28,6 +28,12 @@ export default function UpdateName({ accountId }) {
         last_name: lastName,
       });
 
+      if (!data || !data.message) {
+        setError("Unexpected response from server");
+        setLoading(false);
+        return;
+      }
+
       if (data.message === "Account updated") {
         setSuccess(true);
         router.push("/welcome?ChooseImage=true");
