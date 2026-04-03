@@ -5,7 +5,7 @@ import LinkArray from "./LinkArray";
 import Link from "next/link";
 import "../style.css";
 import { useRouter } from "next/navigation";
-import Auth from "../../app/lib/auth";
+import Auth from "../../../../lib/auth";
 
 export default function AccountDetail() {
   const router = useRouter();
