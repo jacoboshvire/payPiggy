@@ -18,7 +18,7 @@ export default function AccountLink() {
 
         // Use user_id from account to fetch user
         const userData = await api.get(`/api/users/${accountData.user_id}`);
-        setUser(userData);
+        setAvatar(userData.avatar);
       } catch (err) {
         console.error(err);
       }
