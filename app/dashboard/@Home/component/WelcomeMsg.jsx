@@ -17,10 +17,11 @@ export default function WelcomeMsg() {
         const accountId = localStorage.getItem("accountId");
         const data = await api.get(`/api/account/${accountId}`);
         console.log(data);
-        console.log(data.user_id.avatar);
+
         if (data?.user_id) {
           const avatarData = await api.get(`/api/user/${data.user_id}`);
           setAvatar(avatarData.avatar);
+          console.log(avatarData.avatar);
         }
         setAccount(data);
       } catch (err) {
