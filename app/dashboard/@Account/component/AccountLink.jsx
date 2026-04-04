@@ -1,9 +1,23 @@
 /** @format */
-
+"use client";
+import { useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
 
 export default function AccountLink() {
+  const [avatar, setAvatar] = useState("");
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      try {
+        const data = await api.get(`/api/users/${id}`);
+        setAvatar(data.avatar);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchAvatar();
+  }, []);
   return (
     <div className='Account_Link'>
       <div className='Account_Link_image'>
