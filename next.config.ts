@@ -12,7 +12,9 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
       {
-        domains: ["cdn.pixabay.com"],
+        protocol: "https",
+        hostname: "cdn.pixabay.com",
+        pathname: "/**",
       },
     ],
   },
