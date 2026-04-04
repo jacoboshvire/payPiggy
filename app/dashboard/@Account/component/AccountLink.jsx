@@ -10,20 +10,21 @@ export default function AccountLink() {
   const [account, setAccount] = useState(null);
 
   useEffect(() => {
-    const fetchAvatar = async () => {
+    const fetchData = async () => {
       try {
-        const userId = localStorage.getItem("userId");
         const accountId = localStorage.getItem("accountId");
-        const data = await api.get(`/api/users/${userId}`);
         const accountData = await api.get(`/api/account/${accountId}`);
-        setAvatar(data.avatar);
         setAccount(accountData);
+
+        // Use user_id from account to fetch user
+        const userData = await api.get(`/api/users/${accountData.user_id}`);
+        setUser(userData);
       } catch (err) {
         console.error(err);
       }
     };
 
-    fetchAvatar();
+    fetchData();
   }, []);
 
   return (
