@@ -40,7 +40,7 @@ export default function WelcomeMsg() {
         <Image
           src={
             avatar ||
-            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959019/cld-sample.jpg"
           }
           alt='profile'
           height={50}
