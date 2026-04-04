@@ -6,6 +6,7 @@ import Link from "next/link";
 import "../style.css";
 import { useRouter } from "next/navigation";
 import { removeToken } from "../../../../lib/auth";
+import { api } from "@/lib/api";
 
 export default function AccountDetail() {
   const router = useRouter();
@@ -13,6 +14,24 @@ export default function AccountDetail() {
     removeToken();
     router.push("/auth/login");
   };
+
+  const [avatar, setAvatar] = useState("");
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      try {
+        const accountId = localStorage.getItem("accountId");
+        const data = await api.get(`/api/account/${accountId}`);
+        if (data?.user_id) {
+          const avatarData = await api.get(`/api/users/${data.user_id}`);
+          setAvatar(avatarData.avatar);
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchAvatar();
+  }, []);
   return (
     <div className='Account_Detail'>
       <div className='Account_Detail_title'>
