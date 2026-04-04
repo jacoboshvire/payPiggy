@@ -43,7 +43,7 @@ export default function WelcomeMsg() {
           width={50}
         />
       </div>
-      <p>Hi Govin</p>
+      <p>Hi {account?.first_name || "there"}!</p>
     </div>
   );
 }
