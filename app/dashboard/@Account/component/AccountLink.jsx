@@ -32,7 +32,7 @@ export default function AccountLink() {
       <div className='Account_Link_image'>
         <Image
           src={
-            avatar.Avatar ||
+            avatar.avatar ||
             "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959019/cld-sample.jpg"
           }
           alt='profile'
