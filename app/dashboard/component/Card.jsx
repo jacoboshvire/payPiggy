@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Card from "../../../public/Group.svg";
 import { m } from "framer-motion";
+import { api } from "@/lib/api";
 
 export default function vault() {
   const [seeBalance, setSeeBalance] = useState(false);
