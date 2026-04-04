@@ -19,7 +19,7 @@ export default function WelcomeMsg() {
         console.log(data);
 
         if (data?.user_id) {
-          const avatarData = await api.get(`/api/user/${data.user_id}`);
+          const avatarData = await api.get(`/api/users/${data.user_id}`);
           // setAvatar(avatarData.avatar);
           console.log(avatarData);
         }
