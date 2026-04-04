@@ -9,13 +9,16 @@ export default function WelcomeMsg() {
   const router = useRouter();
   const [account, setAccount] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [avatar, setAvatar] = useState("");
 
   useEffect(() => {
     const fetchAccount = async () => {
       try {
         const accountId = localStorage.getItem("accountId");
         const data = await api.get(`/api/account/${accountId}`);
+        const avatarData = await api.get(`/api/user/${data.user_id}`);
         setAccount(data);
+        setAvatar(avatarData.avatar);
       } catch (err) {
         console.error(err);
       } finally {
@@ -36,7 +39,8 @@ export default function WelcomeMsg() {
       <div className='Home_welcomeMsg_profile'>
         <Image
           src={
-            "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1767871145/nxn2zpymtgyxybpjhqqg.jpg"
+            avatar ||
+            "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
           }
           alt='profile'
           height={50}
