@@ -6,7 +6,7 @@ import Image from "next/image";
 import { api } from "@/lib/api";
 
 export default function AccountLink() {
-  const [avatar, setAvatar] = useState(null);
+  const [user, setUser] = useState(null);
   const [account, setAccount] = useState(null);
 
   useEffect(() => {
@@ -18,8 +18,7 @@ export default function AccountLink() {
 
         // Use user_id from account to fetch user
         const userData = await api.get(`/api/users/${accountData.user_id}`);
-        console.log(userData);
-        setAvatar(userData);
+        setUser(userData);
       } catch (err) {
         console.error(err);
       }
@@ -33,7 +32,7 @@ export default function AccountLink() {
       <div className='Account_Link_image'>
         <Image
           src={
-            avatar.avatar ||
+            user.avatar ||
             "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959019/cld-sample.jpg"
           }
           alt='profile'
