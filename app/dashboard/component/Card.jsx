@@ -7,6 +7,8 @@ import { m } from "framer-motion";
 
 export default function vault() {
   const [seeBalance, setSeeBalance] = useState(false);
+  const [account, setAccount] = useState(null);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchAccount = async () => {
       try {
