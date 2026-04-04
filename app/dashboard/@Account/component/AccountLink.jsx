@@ -32,7 +32,7 @@ export default function AccountLink() {
       <div className='Account_Link_image'>
         <Image
           src={
-            user.avatar ||
+            user?.avatar ||
             "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959019/cld-sample.jpg"
           }
           alt='profile'
@@ -40,7 +40,7 @@ export default function AccountLink() {
           width={300}
         />
       </div>
-      <h1>{avatar.name || "Name Not Available"}</h1>
+      <h1>{avatar?.name || "Name Not Available"}</h1>
     </div>
   );
 }
