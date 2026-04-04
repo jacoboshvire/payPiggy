@@ -20,8 +20,8 @@ export default function WelcomeMsg() {
 
         if (data?.user_id) {
           const avatarData = await api.get(`/api/user/${data.user_id}`);
-          setAvatar(avatarData.avatar);
-          console.log(avatarData.avatar);
+          // setAvatar(avatarData.avatar);
+          console.log(avatarData);
         }
         setAccount(data);
       } catch (err) {
@@ -44,7 +44,6 @@ export default function WelcomeMsg() {
       <div className='Home_welcomeMsg_profile'>
         <Image
           src={
-            avatar ||
             "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959019/cld-sample.jpg"
           }
           alt='profile'
