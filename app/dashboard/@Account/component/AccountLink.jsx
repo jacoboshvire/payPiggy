@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { api } from "@/lib/api";
-import { data } from "framer-motion/client";
+import { a, data } from "framer-motion/client";
 
 export default function AccountLink() {
   const [avatar, setAvatar] = useState("");
@@ -14,8 +14,9 @@ export default function AccountLink() {
     const fetchAvatar = async () => {
       try {
         const userId = localStorage.getItem("userId");
-        const accountData = await api.get(`/api/account/user/${userId}`);
-        const data = await api.get(`/api/users/${accountData.user_id}`);
+        const accountId = localStorage.getItem("accountId");
+        const data = await api.get(`/api/users/${userId}`);
+        const accountData = await api.get(`/api/account/${a}`);
         setAvatar(data.avatar);
         setAccount(accountData);
       } catch (err) {
