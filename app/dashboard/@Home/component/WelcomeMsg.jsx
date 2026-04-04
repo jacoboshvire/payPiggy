@@ -3,9 +3,31 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { api } from "@/lib/api";
 
 export default function WelcomeMsg() {
   const router = useRouter();
+  const [account, setAccount] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAccount = async () => {
+      try {
+        const accountId = localStorage.getItem("accountId");
+        const data = await api.get(`/api/account/${accountId}`);
+        setAccount(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAccount();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (!account) return <p>Account not found</p>;
   return (
     <div
       className='Home_welcomeMsg'
