@@ -44,6 +44,7 @@ export default function WelcomeMsg() {
       <div className='Home_welcomeMsg_profile'>
         <Image
           src={
+            avatar ||
             "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959019/cld-sample.jpg"
           }
           alt='profile'
