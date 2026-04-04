@@ -16,9 +16,11 @@ export default function WelcomeMsg() {
       try {
         const accountId = localStorage.getItem("accountId");
         const data = await api.get(`/api/account/${accountId}`);
-        // const avatarData = await api.get(`/api/user/${data.user_id}`);
+        if (data?.user_id) {
+          const avatarData = await api.get(`/api/user/${data.user_id}`);
+          setAvatar(avatarData.avatar);
+        }
         setAccount(data);
-        // setAvatar(avatarData.avatar);
       } catch (err) {
         console.error(err);
       } finally {
@@ -39,7 +41,7 @@ export default function WelcomeMsg() {
       <div className='Home_welcomeMsg_profile'>
         <Image
           src={
-            account.user_id.avatar ||
+            avatar ||
             "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959019/cld-sample.jpg"
           }
           alt='profile'
