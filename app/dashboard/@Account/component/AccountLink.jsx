@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import Image from "next/image";
+import { api } from "@/lib/api";
 
 export default function AccountLink() {
   const [avatar, setAvatar] = useState("");
