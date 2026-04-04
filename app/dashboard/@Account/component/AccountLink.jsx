@@ -40,7 +40,10 @@ export default function AccountLink() {
           width={300}
         />
       </div>
-      <h1>{user?.name.charAt(0).toUpperCase() || "Name Not Available"}</h1>
+      <h1>
+        {user?.name.charAt(0).toUpperCase() + user?.name.slice(1) ||
+          "Name Not Available"}
+      </h1>
     </div>
   );
 }
