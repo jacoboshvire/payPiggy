@@ -7,6 +7,21 @@ import { m } from "framer-motion";
 
 export default function vault() {
   const [seeBalance, setSeeBalance] = useState(false);
+  useEffect(() => {
+    const fetchAccount = async () => {
+      try {
+        const accountId = localStorage.getItem("accountId");
+        const data = await api.get(`/api/account/${accountId}`);
+        setAccount(data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAccount();
+  }, []);
 
   const seeMoney = () => {
     setSeeBalance((seeBalance) => !seeBalance);
