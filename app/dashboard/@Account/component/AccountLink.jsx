@@ -40,7 +40,7 @@ export default function AccountLink() {
           width={300}
         />
       </div>
-      <h1>{avatar?.name || "Name Not Available"}</h1>
+      <h1>{user?.name || "Name Not Available"}</h1>
     </div>
   );
 }
