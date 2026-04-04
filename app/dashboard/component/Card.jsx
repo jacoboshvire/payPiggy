@@ -1,5 +1,4 @@
 /** @format */
-
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -89,7 +88,7 @@ export default function vault() {
         </div>
         <div className='balance'>
           <h1>Balance</h1>
-          <p>{seeBalance ? "￡1030" : "-----"}</p>
+          <p>{seeBalance ? ` £${account?.balance || 0}` : "-----"}</p>
 
           {seeBalance ? (
             <svg
