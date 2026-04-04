@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { api } from "@/lib/api";
 import "./account.css";
-import { p } from "framer-motion/client";
 
 export default function Account() {
   const router = useRouter();
