@@ -2,7 +2,7 @@
 
 "use client";
 import React from "react";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Back from "../../component/Back";
 import AccountLink from "./component/AccountLink";
 import AcountDetail from "./component/acountDetail";
