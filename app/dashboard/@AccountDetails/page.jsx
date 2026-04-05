@@ -2,6 +2,6 @@
 
 import React from "react";
 
-export default function page() {
+export default function account() {
   return <div>page</div>;
 }
