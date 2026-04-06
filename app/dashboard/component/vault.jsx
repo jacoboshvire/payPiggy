@@ -93,7 +93,10 @@ export default function vault() {
               />
             </svg>
           </div>
-          <div className='cardDetail'>
+          <div
+            className='cardDetail'
+            onClick={() => router.push("/dashboard?vault=true")}
+          >
             <p>Add</p>
             <svg
               width='24'
