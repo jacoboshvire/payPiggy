@@ -21,7 +21,7 @@ export default function Add() {
             <h1>Add Money</h1>
           </div>
           <div className='form'>
-            <from>
+            <form>
               <label htmlFor='amount'>Amount</label>
               <input
                 type='number'
@@ -30,7 +30,7 @@ export default function Add() {
                 placeholder='$0.00'
               />
               <button className='add_btn'>Add</button>
-            </from>
+            </form>
           </div>
         </div>
       ) : null}
