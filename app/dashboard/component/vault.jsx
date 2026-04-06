@@ -7,6 +7,28 @@ import "./style.css";
 
 export default function vault() {
   const [seeBalance, setSeeBalance] = useState(false);
+  const [vaults, setVaults] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchVaults = async () => {
+      try {
+        const data = await api.get("/api/vault");
+        setVaults(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVaults();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+  if (vaults.length === 0) return <p>No vaults yet</p>;
 
   const seeMoney = () => {
     setSeeBalance((seeBalance) => !seeBalance);
