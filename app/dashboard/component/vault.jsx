@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Card from "../../../public/Group 3.svg";
+import { api } from "@/lib/api";
 import "./style.css";
 
 export default function vault() {
