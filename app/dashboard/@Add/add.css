@@ -93,6 +93,7 @@ button {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .cancel_btu svg {
@@ -102,4 +103,11 @@ button {
 
 .cancel_btu:hover svg {
   stroke: var(--lighttext);
+}
+
+.cancel_btu:hover {
+  background-color: var(--transparent);
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
 }
