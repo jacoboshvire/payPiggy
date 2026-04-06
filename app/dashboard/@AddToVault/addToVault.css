@@ -144,10 +144,11 @@
   font-size: 24px;
 }
 .transferIcon {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background-color: var(--border);
+  background-color: var(--subcolor);
+  border: 1px solid var(--border);
   display: flex;
   justify-content: center;
   align-items: center;
