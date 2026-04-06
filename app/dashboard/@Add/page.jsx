@@ -8,5 +8,16 @@ import { saveToken } from "@/lib/auth";
 import "../style.css";
 
 export default function Add() {
-  return <div>page</div>;
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const [add, setAdd] = useState(null);
+  const [loading, setLoading] = useState(true);
+  return (
+    <div className='Home_add'>
+      <div className='title'>
+        <h1>Add Money</h1>
+      </div>
+    </div>
+  );
 }
