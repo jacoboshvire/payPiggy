@@ -38,6 +38,7 @@
 .title {
   font-size: 24px;
   font-weight: 900;
+  display: flex;
 }
 
 .add_input {
@@ -77,6 +78,15 @@ button {
   color: #ffffff;
   border-radius: 10px;
   margin-top: 40px;
+}
+
+.cancel_btu {
+  background-color: var(--subcolor);
+  border: 1px solid var(--border);
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  cursor: pointer;
 }
 
 .cancel_btu svg {
