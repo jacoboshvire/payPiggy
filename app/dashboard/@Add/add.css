@@ -60,3 +60,11 @@
   outline: none;
   color: var(--lighttext);
 }
+
+.add_input label {
+  width: 30%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--lighttext);
+}
