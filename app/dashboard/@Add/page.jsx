@@ -52,7 +52,6 @@ export default function Add() {
           router.push("/dashboard?home=true");
         }, 2000);
         return;
-        router.push("/dashboard?home=true");
       } else {
         setError(data.message || "Failed to add money");
       }
