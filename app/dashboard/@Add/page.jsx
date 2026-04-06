@@ -31,9 +31,6 @@ export default function Add() {
     setError("");
     setSuccess(false);
 
-    console.log("Account ID:", accountId);
-    console.log("Amount:", amount);
-
     if (!amount || amount <= 0) {
       setError("Please enter a valid amount");
       return;
@@ -43,6 +40,8 @@ export default function Add() {
 
     try {
       const accountId = localStorage.getItem("accountId");
+      console.log("Account ID:", accountId);
+      console.log("Amount:", amount);
       const data = await api.post(`/api/account/${accountId}/deposit`, {
         amount: Number(amount),
       });
