@@ -59,7 +59,7 @@
   font-weight: 900;
 }
 
-button {
+.transferToVault button {
   padding: 10px 50px;
   background: var(--gradient);
   display: flex;
