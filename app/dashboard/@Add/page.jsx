@@ -65,7 +65,7 @@ export default function Add() {
             <div className='title'>
               <h1>Add Money</h1>
 
-              <div className="cancel_btu">
+              <div className='cancel_btu'>
                 <svg
                   width='24'
                   height='24'
@@ -88,7 +88,11 @@ export default function Add() {
                     y1='5.63604'
                     x2='18.364'
                     y2='18.364'
-                    stroke='#606060'            strokeWidth='2'                   strokeLinecap='round'                 />  
+                    stroke='#606060'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                  />
+                </svg>
               </div>
             </div>
             <div className='form'>
