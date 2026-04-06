@@ -18,7 +18,7 @@ export default function layout({ Account, Home, Payment, Wallet, Add }) {
     <div className='bashboard'>
       <div className='bashboard_container'>
         <Nav />
-        {Add}
+        {Add && Add}
         {Home && Home}
         {Payment && Payment}
         {Wallet && Wallet}
