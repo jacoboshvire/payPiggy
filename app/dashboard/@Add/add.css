@@ -78,3 +78,12 @@ button {
   border-radius: 10px;
   margin-top: 40px;
 }
+
+.cancel_btu svg {
+  stroke: var(--transparent);
+  transition: stroke 0.3s ease;
+}
+
+.cancel_btu:hover svg {
+  stroke: var(--lighttext);
+}
