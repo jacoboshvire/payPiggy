@@ -110,3 +110,15 @@ button {
   background-color: var(--transparent);
   transform: scale(1.1);
 }
+
+.error {
+  color: red;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.success {
+  color: green;
+  margin: 10px 0;
+  font-size: 18px;
+}
