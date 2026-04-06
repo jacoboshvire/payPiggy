@@ -2,12 +2,16 @@
 
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { api } from "@/lib/api";
 
 export default function Vaults() {
   const [vaults, setVaults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const fetchVaults = async () => {
