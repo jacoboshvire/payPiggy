@@ -66,5 +66,5 @@
   background-color: transparent;
   border: none;
   outline: none;
-  color: var(--lighttext);
+  font-weight: 900;
 }
