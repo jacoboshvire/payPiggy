@@ -42,7 +42,7 @@ export default function Nav() {
         </div>
         <div className='bashboard_navbar_links'>
           <Link
-            href='/dashboard'
+            href='/dashboard?home=true'
             className={
               pathanme === "/dashboard" && searchParams.get("home")
                 ? "active"
