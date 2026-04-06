@@ -136,6 +136,9 @@ export default function TransferToVault({ onSuccess }) {
                 </svg>
               </div>
               <div className='vaultDistination'>
+                <div className='vaultLabel'>
+                  <p>Vault</p>
+                </div>
                 <p>{amount}</p>
               </div>
 
