@@ -48,7 +48,7 @@ export default function Add() {
       console.log("Response:", data);
       if (data.message === "Deposit successful") {
         setSuccess(true);
-        router.push("/dashboard");
+        router.push("/dashboard?home=true");
       } else {
         setError(data.message || "Failed to add money");
       }
