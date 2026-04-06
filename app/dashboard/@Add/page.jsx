@@ -13,7 +13,6 @@ export default function Add() {
   const pathname = usePathname();
   const [add, setAdd] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
 
   const typeHandle = (e) => {
     const value = e.target.value;
