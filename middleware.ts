@@ -55,11 +55,11 @@ export function middleware(request: NextRequest) {
   }
 
   // Protect welcome — only accessible after signing up
-  if (pathname.startsWith("/auth/welcome")) {
-    if (!token || !isNewUser) {
-      return NextResponse.redirect(new URL("/dashboard", request.url));
-    }
-  }
+  // if (pathname.startsWith("/auth/welcome")) {
+  //   if (!token || !isNewUser) {
+  //     return NextResponse.redirect(new URL("/dashboard", request.url));
+  //   }
+  // }
 
   return NextResponse.next();
 }
