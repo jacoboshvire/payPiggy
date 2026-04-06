@@ -53,27 +53,29 @@ export default function TransferToVault({ vaultId, onSuccess }) {
 
   return (
     <>
-      <div className='transferToVault'>
-        <form onSubmit={handleTransfer}>
-          <div className='inputField'>
-            <label htmlFor='amount'>Amount £</label>
-            <input
-              type='text'
-              id='amount'
-              placeholder='£0.00'
-              value={amount}
-              onChange={handleInput}
-            />
-          </div>
+      {pathname.includes("wallet") && searchParams.get("vault") === "true" && (
+        <div className='transferToVault'>
+          <form onSubmit={handleTransfer}>
+            <div className='inputField'>
+              <label htmlFor='amount'>Amount £</label>
+              <input
+                type='text'
+                id='amount'
+                placeholder='£0.00'
+                value={amount}
+                onChange={handleInput}
+              />
+            </div>
 
-          {error && <p className='error'>{error}</p>}
-          {success && <p className='success'>Transfer successful</p>}
+            {error && <p className='error'>{error}</p>}
+            {success && <p className='success'>Transfer successful</p>}
 
-          <button type='submit' disabled={loading}>
-            {loading ? "Transferring..." : "Transfer to Vault"}
-          </button>
-        </form>
-      </div>
+            <button type='submit' disabled={loading}>
+              {loading ? "Transferring..." : "Transfer to Vault"}
+            </button>
+          </form>
+        </div>
+      )}
     </>
   );
 }
