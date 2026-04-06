@@ -46,7 +46,7 @@ export default function Add() {
 
       if (data.message === "Account updated") {
         setSuccess(true);
-        router.push("/dashboard");
+        router.push("/dashboard?home=true");
       } else {
         setError(data.message || "Failed to add money");
       }
