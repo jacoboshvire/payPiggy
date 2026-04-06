@@ -6,7 +6,6 @@ import { api } from "@/lib/api";
 import Cookies from "js-cookie";
 import { saveToken } from "@/lib/auth";
 import "../style.css";
-import { p } from "framer-motion/client";
 
 export default function Add() {
   const router = useRouter();
