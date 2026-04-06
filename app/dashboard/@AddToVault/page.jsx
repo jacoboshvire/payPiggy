@@ -78,6 +78,9 @@ export default function TransferToVault({ onSuccess }) {
         searchParams.get("vault") === "true" && (
           <div className='transferToVault'>
             <form onSubmit={handleTransfer}>
+              <div className='title'>
+                <h1>Move Money to Vault</h1>
+              </div>
               <div className='inputField'>
                 <label htmlFor='amount'>Amount £</label>
                 <input

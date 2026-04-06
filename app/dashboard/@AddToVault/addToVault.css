@@ -25,3 +25,8 @@
   gap: 30px;
   animation: popup 0.3s ease-out;
 }
+
+.transferToVault .title {
+  font-size: 24px;
+  font-weight: 900;
+}
