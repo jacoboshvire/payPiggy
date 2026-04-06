@@ -111,7 +111,11 @@ export default function vault() {
         </div>
         <div className='balance'>
           <h1>Balance</h1>
-          <p>{seeBalance ? vault.balance : "-----"}</p>
+          <p>
+            {seeBalance
+              ? "￡" + (vault.length < 0 ? "0.00" : vault.balance)
+              : "-----"}
+          </p>
 
           {seeBalance ? (
             <svg
