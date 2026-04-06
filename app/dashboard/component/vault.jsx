@@ -113,7 +113,7 @@ export default function vault() {
           <h1>Balance</h1>
           <p>
             {seeBalance
-              ? "￡" + (vault.length < 0 ? "0.00" : vault.balance)
+              ? "￡" + (vault.length === 0 ? "0.00" : vault.balance)
               : "-----"}
           </p>
 
