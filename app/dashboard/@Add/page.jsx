@@ -67,15 +67,17 @@ export default function Add() {
             </div>
             <div className='form'>
               <form onSubmit={handleSubmit}>
-                <label htmlFor='amount'>Amount ￡ </label>
-                <input
-                  type='text'
-                  id='amount'
-                  name='amount'
-                  placeholder='£0.00'
-                  value={amount}
-                  onInput={typeHandle}
-                />
+                <div className='add_input'>
+                  <label htmlFor='amount'>Amount ￡ </label>
+                  <input
+                    type='text'
+                    id='amount'
+                    name='amount'
+                    placeholder='£0.00'
+                    value={amount}
+                    onInput={typeHandle}
+                  />
+                </div>
                 {error && <p className='error'>{error}</p>}
                 {success && <p className='success'>Money added successfully</p>}
                 <button className='add_btn' type='submit' disabled={loading}>
