@@ -29,7 +29,7 @@ export default function vault() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
-  if (vaults.length === 0) return <p>No vaults yet</p>;
+  // if (vaults.length === 0) return <p>No vaults yet</p>;
 
   const seeMoney = () => {
     setSeeBalance((seeBalance) => !seeBalance);
