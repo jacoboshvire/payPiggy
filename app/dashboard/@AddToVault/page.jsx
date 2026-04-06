@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { api } from "@/lib/api";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import "./addToVault.css";
 
 export default function TransferToVault({ onSuccess }) {
   const [amount, setAmount] = useState("");
