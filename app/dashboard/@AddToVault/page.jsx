@@ -86,6 +86,7 @@ export default function TransferToVault({ onSuccess }) {
                   placeholder='£0.00'
                   value={amount}
                   onChange={handleInput}
+                  onInput={handleInput}
                 />
               </div>
 
