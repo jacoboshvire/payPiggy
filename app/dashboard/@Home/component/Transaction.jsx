@@ -12,7 +12,7 @@ export default function Transaction() {
       <div className='Home_transaction_btu'>
         <div
           className='Home_transaction_icon'
-          onClick={() => router.push("/dashboard?+add=true")}
+          onClick={() => router.push("/dashboard?add=true")}
         >
           <svg
             width='30'
