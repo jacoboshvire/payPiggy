@@ -70,9 +70,9 @@ export default function Vaults() {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-  if (vaults.length === 0) return <p>No vaults yet</p>;
+  //   if (loading) return <p>Loading...</p>;
+  //   if (error) return <p>{error}</p>;
+  //   if (vaults.length === 0) return <p>No vaults yet</p>;
 
   return (
     <>
