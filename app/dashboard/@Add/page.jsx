@@ -45,7 +45,7 @@ export default function Add() {
       const data = await api.post(`/api/account/${accountId}/deposit`, {
         amount: Number(amount),
       });
-
+      console.log("Response:", data);
       if (data.message === "Deposit successful") {
         setSuccess(true);
         router.push("/dashboard");
