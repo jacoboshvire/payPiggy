@@ -3,12 +3,16 @@
 "use client";
 import { useState } from "react";
 import { api } from "@/lib/api";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 export default function TransferToVault({ vaultId, onSuccess }) {
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   const handleTransfer = async (e) => {
     e.preventDefault();
