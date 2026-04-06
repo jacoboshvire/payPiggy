@@ -1,9 +1,11 @@
 /** @format */
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import "../style.css";
 
 export default function Transaction() {
+  const router = useRouter();
   return (
     <div className='Home_transaction'>
       {/* add */}
@@ -38,7 +40,10 @@ export default function Transaction() {
       </div>
       {/* Pay */}
       <div className='Home_transaction_btu'>
-        <div className='Home_transaction_icon'>
+        <div
+          className='Home_transaction_icon'
+          onClick={() => router.push("/dashboard?payment=true")}
+        >
           <svg
             width='30'
             height='30'
