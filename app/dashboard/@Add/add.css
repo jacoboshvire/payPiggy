@@ -12,3 +12,12 @@
   top: 0;
   z-index: 100;
 }
+
+.Home_add {
+  background-color: var(--background);
+  padding: 40px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
