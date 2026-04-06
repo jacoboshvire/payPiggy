@@ -40,13 +40,13 @@ export default function Add() {
 
     try {
       const accountId = localStorage.getItem("accountId");
-      const data = await api.put(`/api/account/${accountId}`, {
-        balance: Number(amount),
+      const data = await api.post(`/api/account/${accountId}/deposit`, {
+        amount: Number(amount),
       });
 
-      if (data.message === "Account updated") {
+      if (data.message === "Deposit successful") {
         setSuccess(true);
-        router.push("/dashboard?home=true");
+        router.push("/dashboard");
       } else {
         setError(data.message || "Failed to add money");
       }
