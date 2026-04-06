@@ -31,6 +31,9 @@ export default function Add() {
     setError("");
     setSuccess(false);
 
+    console.log("Account ID:", accountId);
+    console.log("Amount:", amount);
+
     if (!amount || amount <= 0) {
       setError("Please enter a valid amount");
       return;
