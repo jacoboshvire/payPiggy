@@ -6,7 +6,14 @@ import Nav from "./component/Nav";
 import { usePathname, useRouter } from "next/navigation";
 import "./style.css";
 
-export default function layout({ Account, Home, Payment, Wallet, Add }) {
+export default function layout({
+  Account,
+  Home,
+  Payment,
+  Wallet,
+  Add,
+  AddToVault,
+}) {
   const pathname = usePathname();
   const router = useRouter();
   useEffect(() => {
@@ -19,6 +26,7 @@ export default function layout({ Account, Home, Payment, Wallet, Add }) {
       <div className='bashboard_container'>
         <Nav />
         {Add && Add}
+        {AddToVault && AddToVault}
         {Home && Home}
         {Payment && Payment}
         {Wallet && Wallet}
