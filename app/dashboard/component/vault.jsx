@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Card from "../../../public/Group 3.svg";
+import { useRouter } from "next/navigation";
 import { api } from "@/lib/api";
 import "./style.css";
 
@@ -11,6 +12,7 @@ export default function vault() {
   const [vaults, setVaults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const fetchVaults = async () => {
