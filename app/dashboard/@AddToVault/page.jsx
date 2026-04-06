@@ -1,18 +1,34 @@
 /** @format */
 
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { api } from "@/lib/api";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
-export default function TransferToVault({ vaultId, onSuccess }) {
+export default function TransferToVault({ onSuccess }) {
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [vaultId, setVaultId] = useState(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
+
+  useEffect(() => {
+    const fetchVault = async () => {
+      try {
+        const data = await api.get("/api/vault");
+        if (data && data.length > 0) {
+          setVaultId(data[0].id);
+        }
+      } catch (err) {
+        console.error("Failed to fetch vault:", err);
+      }
+    };
+
+    fetchVault();
+  }, []);
 
   const handleTransfer = async (e) => {
     e.preventDefault();
@@ -21,6 +37,11 @@ export default function TransferToVault({ vaultId, onSuccess }) {
 
     if (!amount || amount <= 0) {
       setError("Please enter a valid amount");
+      return;
+    }
+
+    if (!vaultId) {
+      setError("Vault not found");
       return;
     }
 
@@ -71,7 +92,7 @@ export default function TransferToVault({ vaultId, onSuccess }) {
               {error && <p className='error'>{error}</p>}
               {success && <p className='success'>Transfer successful</p>}
 
-              <button type='submit' disabled={loading}>
+              <button type='submit' disabled={loading || !vaultId}>
                 {loading ? "Transferring..." : "Transfer to Vault"}
               </button>
             </form>
