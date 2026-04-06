@@ -1,114 +1,73 @@
 /** @format */
 
 "use client";
-import { useState, useEffect } from "react";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useState } from "react";
 import { api } from "@/lib/api";
 
-export default function Vaults() {
-  const [vaults, setVaults] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function TransferToVault({ vaultId, onSuccess }) {
+  const [amount, setAmount] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
+  const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    const fetchVaults = async () => {
-      try {
-        const data = await api.get("/api/vault");
-        setVaults(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const handleTransfer = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess(false);
 
-    fetchVaults();
-  }, []);
+    if (!amount || amount <= 0) {
+      setError("Please enter a valid amount");
+      return;
+    }
 
-  const handleDeposit = async (vaultId, amount) => {
+    setLoading(true);
+
     try {
       const data = await api.post(`/api/vault/${vaultId}/deposit`, {
         amount: Number(amount),
       });
-      console.log(data);
+
+      if (data.message === "Deposit to vault successful") {
+        setSuccess(true);
+        setAmount("");
+        if (onSuccess) onSuccess();
+      } else {
+        setError(data.message || "Transfer failed");
+      }
     } catch (err) {
-      console.error(err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleWithdraw = async (vaultId) => {
-    try {
-      const data = await api.post(`/api/vault/${vaultId}/withdraw`);
-      console.log(data);
-    } catch (err) {
-      console.error(err);
-    }
+  const handleInput = (e) => {
+    const value = e.target.value;
+    if (!/^\d*\.?\d{0,2}$/.test(value)) return;
+    setAmount(value);
   };
-
-  const handleRequestWithdrawal = async (vaultId, channel) => {
-    try {
-      const data = await api.post(`/api/vault/${vaultId}/request-withdrawal`, {
-        channel,
-      });
-      console.log(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const handleVerifyWithdrawal = async (vaultId, otp) => {
-    try {
-      const data = await api.post(`/api/vault/${vaultId}/verify-withdrawal`, {
-        otp,
-      });
-      console.log(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  //   if (loading) return <p>Loading...</p>;
-  //   if (error) return <p>{error}</p>;
-  //   if (vaults.length === 0) return <p>No vaults yet</p>;
 
   return (
-    <>
-      {pathname === "/dashboard" && searchParams.get("vault") === "true" && (
-        <div className='vaults'>
-          <div className='me'>
-            <h1>My Vaults</h1>
-          </div>
-          {vaults.map((vault) => {
-            const isLocked = new Date(vault.lock_until) > new Date();
-            return (
-              <div key={vault.id} className='vault'>
-                <h3>{vault.name}</h3>
-                <p>Balance: £{vault.balance}</p>
-                <p>
-                  Locked until:{" "}
-                  {new Date(vault.lock_until).toLocaleDateString()}
-                </p>
-                <p>Status: {isLocked ? "Locked" : "Unlocked"}</p>
-
-                {isLocked ? (
-                  <button
-                    onClick={() => handleRequestWithdrawal(vault.id, "email")}
-                  >
-                    Request Early Withdrawal
-                  </button>
-                ) : (
-                  <button onClick={() => handleWithdraw(vault.id)}>
-                    Withdraw
-                  </button>
-                )}
-              </div>
-            );
-          })}
+    <div className='transferToVault'>
+      <form onSubmit={handleTransfer}>
+        <div className='inputField'>
+          <label htmlFor='amount'>Amount £</label>
+          <input
+            type='text'
+            id='amount'
+            placeholder='£0.00'
+            value={amount}
+            onChange={handleInput}
+          />
         </div>
-      )}
-    </>
+
+        {error && <p className='error'>{error}</p>}
+        {success && <p className='success'>Transfer successful</p>}
+
+        <button type='submit' disabled={loading}>
+          {loading ? "Transferring..." : "Transfer to Vault"}
+        </button>
+      </form>
+    </div>
   );
 }
