@@ -16,6 +16,11 @@ export default function Add() {
 
   const typeHandle = (e) => {
     const value = e.target.value.replace(/\D/g, "");
+    if (isNaN) {
+      return;
+    } else {
+      e.target.value = value;
+    }
     setAdd(value);
   };
   return (
