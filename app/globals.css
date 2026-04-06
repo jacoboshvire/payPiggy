@@ -47,3 +47,13 @@ body {
   color: var(--foreground);
   font-family: "Poppins", sans-serif;
 }
+
+.error {
+  color: red;
+  margin: 10px 0;
+}
+
+.success {
+  color: green;
+  margin: 10px 0;
+}
