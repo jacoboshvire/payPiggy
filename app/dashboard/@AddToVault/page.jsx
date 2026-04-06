@@ -113,10 +113,10 @@ export default function TransferToVault({ onSuccess }) {
               {success && <p className='success'>Transfer successful</p>}
 
               <button type='submit' disabled={loading || !vaultId}>
-                <p>{loading ? "Transferring..." : "Sendt"}</p>
+                <p>{loading ? "Transferring..." : "Send"}</p>
                 <svg
-                  width='35'
-                  height='35'
+                  width='24'
+                  height='24'
                   viewBox='0 0 35 35'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
