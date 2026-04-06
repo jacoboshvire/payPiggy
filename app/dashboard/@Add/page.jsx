@@ -72,14 +72,13 @@ export default function Add() {
                   viewBox='0 0 24 24'
                   fill='none'
                   xmlns='http://www.w3.org/2000/svg'
-                  onClick={() => router.push("/dashboard")}
+                  onClick={() => router.push("/dashboard?home=true")}
                 >
                   <line
                     x1='18.364'
                     y1='5.63604'
                     x2='5.63599'
                     y2='18.364'
-                    stroke='#606060'
                     strokeWidth='2'
                     strokeLinecap='round'
                   />
@@ -88,7 +87,6 @@ export default function Add() {
                     y1='5.63604'
                     x2='18.364'
                     y2='18.364'
-                    stroke='#606060'
                     strokeWidth='2'
                     strokeLinecap='round'
                   />
