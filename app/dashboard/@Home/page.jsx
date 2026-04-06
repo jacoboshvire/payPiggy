@@ -14,7 +14,7 @@ export default function page() {
   const searchParams = useSearchParams();
   return (
     <>
-      {pathname === "/dashboard" && searchParams.toString() === "" && (
+      {pathname === "/dashboard" && searchParams.get("home") === "true" && (
         <div className='dashboard_home'>
           <WelcomeMsg />
           <Card />
