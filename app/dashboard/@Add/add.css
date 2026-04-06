@@ -94,6 +94,7 @@ button {
   align-items: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  transform-origin: center;
 }
 
 .cancel_btu svg {
@@ -107,7 +108,5 @@ button {
 
 .cancel_btu:hover {
   background-color: var(--transparent);
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
+  transform: scale(1.1);
 }
