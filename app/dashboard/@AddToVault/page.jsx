@@ -113,7 +113,21 @@ export default function TransferToVault({ onSuccess }) {
               {success && <p className='success'>Transfer successful</p>}
 
               <button type='submit' disabled={loading || !vaultId}>
-                {loading ? "Transferring..." : "Sendt"}
+                <p>{loading ? "Transferring..." : "Sendt"}</p>
+                <svg
+                  width='35'
+                  height='35'
+                  viewBox='0 0 35 35'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M21.748 10.0955C20.622 9.62969 19.3653 9.25822 18.5934 10.0331C17.9491 10.6803 17.5819 13.1863 17.4876 15.9608H5.55105C4.74861 15.9608 4.09998 16.6094 4.09998 17.4118C4.09998 18.2143 4.74861 18.8629 5.55105 18.8629H17.4891C17.5834 21.6316 17.9505 24.1289 18.5948 24.7732C18.9344 25.1127 19.3653 25.2404 19.834 25.2404C20.4914 25.2404 21.2198 24.9879 21.8568 24.7238C24.1365 23.7806 30.7258 19.796 30.7258 17.4017C30.7258 14.9305 23.8376 10.9618 21.748 10.0955Z'
+                    fill='white'
+                  />
+                </svg>
               </button>
             </form>
           </div>
