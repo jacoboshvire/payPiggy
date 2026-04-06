@@ -25,7 +25,7 @@ export default function Add() {
               <form>
                 <label htmlFor='amount'>Amount</label>
                 <input
-                  type='number'
+                  type='text'
                   id='amount'
                   name='amount'
                   placeholder='$0.00'
