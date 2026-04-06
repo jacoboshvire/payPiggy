@@ -5,7 +5,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { api } from "@/lib/api";
 import Cookies from "js-cookie";
 import { saveToken } from "@/lib/auth";
-import "../style.css";
+import "./add.css";
 
 export default function Add() {
   const router = useRouter();
