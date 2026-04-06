@@ -1,5 +1,6 @@
 /** @format */
 
+"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Card from "../../../public/Group 3.svg";
@@ -7,9 +8,9 @@ import { useRouter } from "next/navigation";
 import { api } from "@/lib/api";
 import "./style.css";
 
-export default function vault() {
+export default function Vault() {
   const [seeBalance, setSeeBalance] = useState(false);
-  const [vaults, setVaults] = useState([]);
+  const [vault, setVault] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const router = useRouter();
@@ -18,7 +19,9 @@ export default function vault() {
     const fetchVaults = async () => {
       try {
         const data = await api.get("/api/vault");
-        setVaults(data);
+        if (data && data.length > 0) {
+          setVault(data[0]);
+        }
       } catch (err) {
         setError(err.message);
       } finally {
@@ -31,11 +34,11 @@ export default function vault() {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
-  // if (vaults.length === 0) return <p>No vaults yet</p>;
 
   const seeMoney = () => {
-    setSeeBalance((seeBalance) => !seeBalance);
+    setSeeBalance((prev) => !prev);
   };
+
   return (
     <div className='card'>
       <div className='card_detail'>
@@ -107,18 +110,19 @@ export default function vault() {
             >
               <path
                 fillRule='evenodd'
-                clipzule='evenodd'
+                clipRule='evenodd'
                 d='M15.5777 12.7499H12.7497V15.5739C12.7497 15.9879 12.4137 16.3239 11.9997 16.3239C11.5857 16.3239 11.2497 15.9879 11.2497 15.5739V12.7499H8.4217C8.0077 12.7499 7.6717 12.4139 7.6717 11.9999C7.6717 11.5859 8.0077 11.2499 8.4217 11.2499H11.2497V8.42594C11.2497 8.01194 11.5857 7.67594 11.9997 7.67594C12.4137 7.67594 12.7497 8.01194 12.7497 8.42594V11.2499H15.5777C15.9917 11.2499 16.3277 11.5859 16.3277 11.9999C16.3277 12.4139 15.9917 12.7499 15.5777 12.7499ZM11.9997 1.76294C4.4407 1.76294 1.7627 4.44094 1.7627 11.9999C1.7627 19.5589 4.4407 22.2369 11.9997 22.2369C19.5577 22.2369 22.2367 19.5589 22.2367 11.9999C22.2367 4.44094 19.5577 1.76294 11.9997 1.76294Z'
                 fill='white'
               />
             </svg>
           </div>
         </div>
+
         <div className='balance'>
           <h1>Balance</h1>
           <p>
             {seeBalance
-              ? "￡" + (vault.length === 0 ? "0.00" : vault.balance)
+              ? "£" + (vault ? Number(vault.balance).toFixed(2) : "0.00")
               : "-----"}
           </p>
 
@@ -169,6 +173,7 @@ export default function vault() {
           )}
         </div>
       </div>
+
       <div className='mainImage'>
         <Image src={Card} alt='card' width={400} height={400} />
       </div>
