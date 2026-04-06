@@ -50,6 +50,7 @@ export default function Add() {
         setSuccess(true);
         setTimeout(() => {
           router.push("/dashboard?home=true");
+          setSuccess(false);
         }, 2000);
         return;
       } else {
