@@ -13,8 +13,16 @@ export default function Add() {
   const pathname = usePathname();
   const [add, setAdd] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const 
+  const typeHandle = (e) => {
+    const value = e.target.value;
+    const regex = /^\$?\d*\.?\d{0,2}$/;
+
+    if (regex.test(value)) {
+      setAdd(value);
+    }
+  };
   return (
     <>
       {pathname === "/dashboard" && searchParams.get("add") === "true" ? (
