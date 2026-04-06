@@ -15,8 +15,14 @@ export default function Add() {
   const [success, setSuccess] = useState(false);
 
   const typeHandle = (e) => {
-    const value = e.target.value.replace(/\D/g, "");
-    if (isNaN(value)) return;
+    const value = e.target.value;
+
+    // Allow numbers and a single decimal point with up to 2 decimal places
+    if (!/^\d*\.?\d{0,2}$/.test(value)) {
+      e.target.value = amount;
+      return;
+    }
+
     setAmount(value);
   };
 
