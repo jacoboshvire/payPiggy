@@ -67,3 +67,13 @@
   outline: none;
   font-weight: 900;
 }
+
+button {
+  padding: 10px 50px;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  border-radius: 10px;
+}
