@@ -18,6 +18,13 @@ export default function Add() {
       <div className='title'>
         <h1>Add Money</h1>
       </div>
+      <div className='form'>
+        <from>
+          <label htmlFor='amount'>Amount</label>
+          <input type='number' id='amount' name='amount' placeholder='$0.00' />
+          <button className='add_btn'>Add</button>
+        </from>
+      </div>
     </div>
   );
 }
