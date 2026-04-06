@@ -1,6 +1,6 @@
 /** @format */
 "use client";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Card from "../../../public/Group.svg";
 import { api } from "@/lib/api";
