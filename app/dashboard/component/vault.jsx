@@ -95,7 +95,7 @@ export default function vault() {
           </div>
           <div
             className='cardDetail'
-            onClick={() => router.push("/dashboard?vault=true")}
+            onClick={() => router.push("?account=true&vault=true")}
           >
             <p>Add</p>
             <svg
