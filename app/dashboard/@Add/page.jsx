@@ -67,7 +67,7 @@ export default function Add() {
             </div>
             <div className='form'>
               <form onSubmit={handleSubmit}>
-                <label htmlFor='amount'>Amount</label>
+                <label htmlFor='amount'>Amount ￡ </label>
                 <input
                   type='text'
                   id='amount'
