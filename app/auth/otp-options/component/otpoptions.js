@@ -57,6 +57,7 @@ export default function OtpOptions() {
 
       setError("OTP resent successfully");
     } catch (err) {
+      console.error("Full error:", err);
       setError("Failed to resend OTP");
     }
   };
