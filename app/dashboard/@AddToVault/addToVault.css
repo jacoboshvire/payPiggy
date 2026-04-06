@@ -16,6 +16,7 @@
 
 .transferToVault form {
   background-color: var(--background);
+  border: 1px solid var(--border);
   padding: 50px;
   border-radius: 20px;
   display: flex;
