@@ -113,7 +113,7 @@ export default function TransferToVault({ onSuccess }) {
               {success && <p className='success'>Transfer successful</p>}
 
               <button type='submit' disabled={loading || !vaultId}>
-                {loading ? "Transferring..." : "Transfer to Vault"}
+                {loading ? "Transferring..." : "Sendt"}
               </button>
             </form>
           </div>
