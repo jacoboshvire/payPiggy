@@ -28,7 +28,10 @@ export default function Transaction() {
       </div>
       {/* move */}
       <div className='Home_transaction_btu'>
-        <div className='Home_transaction_icon'>
+        <div
+          className='Home_transaction_icon'
+          onClick={() => router.push("/dashboard?home=true&vault=true")}
+        >
           <svg
             width='30'
             height='30'
