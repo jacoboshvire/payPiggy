@@ -25,7 +25,7 @@ export default function vault() {
 
     fetchAccount();
 
-    const interval = setInterval(fetchAccount, 5000);
+    const interval = setInterval(fetchAccount, 1000);
 
     return () => clearInterval(interval);
   }, []);
