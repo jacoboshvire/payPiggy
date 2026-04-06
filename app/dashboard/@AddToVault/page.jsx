@@ -78,6 +78,9 @@ export default function Vaults() {
     <>
       {pathname === "/dashboard" && searchParams.get("vault") === "true" && (
         <div className='vaults'>
+          <div className='me'>
+            <h1>My Vaults</h1>
+          </div>
           {vaults.map((vault) => {
             const isLocked = new Date(vault.lock_until) > new Date();
             return (
