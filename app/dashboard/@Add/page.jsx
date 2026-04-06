@@ -15,12 +15,8 @@ export default function Add() {
   const [loading, setLoading] = useState(true);
 
   const typeHandle = (e) => {
-    const value = e.target.value;
-    const regex = /^\$?\d*\.?\d{0,2}$/;
-
-    if (regex.test(value)) {
-      setAdd(value);
-    }
+    const value = e.target.value.replace(/\D/g, "");
+    setAdd(value);
   };
   return (
     <>
