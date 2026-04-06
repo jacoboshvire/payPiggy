@@ -1,28 +1,56 @@
 /** @format */
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { api } from "@/lib/api";
-import Cookies from "js-cookie";
-import { saveToken } from "@/lib/auth";
 import "./add.css";
 
 export default function Add() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const [add, setAdd] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [amount, setAmount] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const typeHandle = (e) => {
     const value = e.target.value.replace(/\D/g, "");
-    if (isNaN) {
-      return;
-    } else {
-      e.target.value = value;
-    }
-    setAdd(value);
+    if (isNaN(value)) return;
+    setAmount(value);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess(false);
+
+    if (!amount || amount <= 0) {
+      setError("Please enter a valid amount");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const accountId = localStorage.getItem("accountId");
+      const data = await api.put(`/api/account/${accountId}`, {
+        balance: Number(amount),
+      });
+
+      if (data.message === "Account updated") {
+        setSuccess(true);
+        router.push("/dashboard");
+      } else {
+        setError(data.message || "Failed to add money");
+      }
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       {pathname === "/dashboard" && searchParams.get("add") === "true" ? (
@@ -32,16 +60,21 @@ export default function Add() {
               <h1>Add Money</h1>
             </div>
             <div className='form'>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <label htmlFor='amount'>Amount</label>
                 <input
                   type='text'
                   id='amount'
                   name='amount'
-                  placeholder='$0.00'
+                  placeholder='£0.00'
+                  value={amount}
                   onInput={typeHandle}
                 />
-                <button className='add_btn'>Add</button>
+                {error && <p className='error'>{error}</p>}
+                {success && <p className='success'>Money added successfully</p>}
+                <button className='add_btn' type='submit' disabled={loading}>
+                  {loading ? "Adding..." : "Add"}
+                </button>
               </form>
             </div>
           </div>
