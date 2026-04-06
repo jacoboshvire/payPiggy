@@ -13,6 +13,8 @@ export default function Add() {
   const pathname = usePathname();
   const [add, setAdd] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const 
   return (
     <>
       {pathname === "/dashboard" && searchParams.get("add") === "true" ? (
@@ -29,6 +31,7 @@ export default function Add() {
                   id='amount'
                   name='amount'
                   placeholder='$0.00'
+                  onInput={typeHandle}
                 />
                 <button className='add_btn'>Add</button>
               </form>
