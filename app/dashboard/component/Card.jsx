@@ -24,6 +24,10 @@ export default function vault() {
     };
 
     fetchAccount();
+
+    const interval = setInterval(fetchAccount, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const seeMoney = () => {
