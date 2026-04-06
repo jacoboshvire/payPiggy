@@ -89,6 +89,10 @@ export default function TransferToVault({ onSuccess }) {
                 />
               </div>
 
+              <div className='vaultDistination'>
+                <p>{amount}</p>
+              </div>
+
               {error && <p className='error'>{error}</p>}
               {success && <p className='success'>Transfer successful</p>}
 
