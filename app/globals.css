@@ -12,7 +12,7 @@
   --gradient: linear-gradient(45deg, #4337dd, #241e77);
   --lighttext: #606060;
   --darkcolor: #e6e6e6;
-  --transparent: #30303014;
+  --transparent: #3736363b;
 }
 
 @theme inline {
