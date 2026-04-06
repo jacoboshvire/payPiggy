@@ -71,30 +71,34 @@ export default function Vaults() {
   if (vaults.length === 0) return <p>No vaults yet</p>;
 
   return (
-    <div className='vaults'>
-      {vaults.map((vault) => {
-        const isLocked = new Date(vault.lock_until) > new Date();
-        return (
-          <div key={vault.id} className='vault'>
-            <h3>{vault.name}</h3>
-            <p>Balance: £{vault.balance}</p>
-            <p>
-              Locked until: {new Date(vault.lock_until).toLocaleDateString()}
-            </p>
-            <p>Status: {isLocked ? "Locked" : "Unlocked"}</p>
+    <>
+      <div className='vaults'>
+        {vaults.map((vault) => {
+          const isLocked = new Date(vault.lock_until) > new Date();
+          return (
+            <div key={vault.id} className='vault'>
+              <h3>{vault.name}</h3>
+              <p>Balance: £{vault.balance}</p>
+              <p>
+                Locked until: {new Date(vault.lock_until).toLocaleDateString()}
+              </p>
+              <p>Status: {isLocked ? "Locked" : "Unlocked"}</p>
 
-            {isLocked ? (
-              <button
-                onClick={() => handleRequestWithdrawal(vault.id, "email")}
-              >
-                Request Early Withdrawal
-              </button>
-            ) : (
-              <button onClick={() => handleWithdraw(vault.id)}>Withdraw</button>
-            )}
-          </div>
-        );
-      })}
-    </div>
+              {isLocked ? (
+                <button
+                  onClick={() => handleRequestWithdrawal(vault.id, "email")}
+                >
+                  Request Early Withdrawal
+                </button>
+              ) : (
+                <button onClick={() => handleWithdraw(vault.id)}>
+                  Withdraw
+                </button>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 }
