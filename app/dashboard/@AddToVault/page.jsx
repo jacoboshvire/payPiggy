@@ -80,6 +80,33 @@ export default function TransferToVault({ onSuccess }) {
             <form onSubmit={handleTransfer}>
               <div className='title'>
                 <h1>Move Money to Vault</h1>
+                <div className='cancel_btu'>
+                  <svg
+                    width='24'
+                    height='24'
+                    viewBox='0 0 24 24'
+                    fill='none'
+                    xmlns='http://www.w3.org/2000/svg'
+                    onClick={() => router.push("/dashboard?home=true")}
+                  >
+                    <line
+                      x1='18.364'
+                      y1='5.63604'
+                      x2='5.63599'
+                      y2='18.364'
+                      strokeWidth='2'
+                      strokeLinecap='round'
+                    />
+                    <line
+                      x1='5.63599'
+                      y1='5.63604'
+                      x2='18.364'
+                      y2='18.364'
+                      strokeWidth='2'
+                      strokeLinecap='round'
+                    />
+                  </svg>
+                </div>
               </div>
               <div className='inputField'>
                 <label htmlFor='amount'>Amount £</label>
