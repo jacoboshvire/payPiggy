@@ -16,21 +16,23 @@ export default function Add() {
   return (
     <>
       {pathname === "/dashboard" && searchParams.get("add") === "true" ? (
-        <div className='Home_add'>
-          <div className='title'>
-            <h1>Add Money</h1>
-          </div>
-          <div className='form'>
-            <form>
-              <label htmlFor='amount'>Amount</label>
-              <input
-                type='number'
-                id='amount'
-                name='amount'
-                placeholder='$0.00'
-              />
-              <button className='add_btn'>Add</button>
-            </form>
+        <div className='Home_add_bg'>
+          <div className='Home_add'>
+            <div className='title'>
+              <h1>Add Money</h1>
+            </div>
+            <div className='form'>
+              <form>
+                <label htmlFor='amount'>Amount</label>
+                <input
+                  type='number'
+                  id='amount'
+                  name='amount'
+                  placeholder='$0.00'
+                />
+                <button className='add_btn'>Add</button>
+              </form>
+            </div>
           </div>
         </div>
       ) : null}
