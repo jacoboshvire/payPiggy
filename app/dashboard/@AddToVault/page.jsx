@@ -109,7 +109,7 @@ export default function TransferToVault({ onSuccess }) {
                 </div>
               </div>
               <div className='inputField'>
-                <label htmlFor='amount'>Amount £</label>
+                <label htmlFor='amount'>main account:</label>
                 <input
                   type='text'
                   id='amount'
