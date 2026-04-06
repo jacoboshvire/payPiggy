@@ -120,7 +120,7 @@ export default function TransferToVault({ onSuccess }) {
                 />
               </div>
 
-              <div className='icon'>
+              <div className='transferIcon'>
                 <svg
                   width='24'
                   height='24'
