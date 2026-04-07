@@ -107,14 +107,12 @@ export default function WithdrawFromVault({ onSuccess }) {
         searchParams.get("withdraw-vault") === "true" && (
           {
             /* Modal backdrop */
-            !vault ? (
+            !vault && (
               <div className='withdraw_bg'>
                 <div className='withdrawVault'>
                   <p>Loading vault information...</p>
                 </div>
-              </div>
-            ) : (
-              null)
+              </div>)
           }
           <div className='withdraw_bg'>
             <div className='withdrawVault'>
