@@ -15,6 +15,9 @@ export default function PaymentHistory() {
         const accountId = localStorage.getItem("accountId");
         const data = await api.get(`/api/transaction/history/${accountId}`);
         const userData = await api.get(`/api/users/${data.results[0].user_id}`);
+        data.results.forEach((transaction) => {
+          transaction.image = userData.avatar;
+        });
         setTransactions(data.results);
       } catch (err) {
         setError(err.message);
