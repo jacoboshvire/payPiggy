@@ -108,7 +108,7 @@ export default function TransferToVault({ onSuccess }) {
                   </svg>
                 </div>
               </div>
-              <div className='inputField'>
+              <div className={"inputField " + (error ? "inputError" : "")}>
                 <label htmlFor='amount'>Main account:</label>
                 <input
                   type='text'
@@ -117,7 +117,6 @@ export default function TransferToVault({ onSuccess }) {
                   value={amount}
                   onChange={handleInput}
                   onInput={handleInput}
-                  className={error ? "inputError" : ""}
                 />
               </div>
 
