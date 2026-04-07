@@ -61,7 +61,7 @@
 
 .transferToVault .inputError {
   border-color: rgba(255, 48, 48, 0.498);
-  color: red;
+  color: rgb(74, 0, 0);
 }
 
 .transferToVault button {
