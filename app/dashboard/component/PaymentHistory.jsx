@@ -5,22 +5,30 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function PaymentHistory() {
-  const paymentDate = [
-    {
-      name: "samuel Ateeq",
-      profile:
-        "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1768045411/odljnvt8thtadwd27i5m.png",
-      type: "sent",
-      amount: "45",
-    },
-    {
-      name: "Ross Getmoney",
-      profile:
-        "https://res.cloudinary.com/dr0yyqvj6/image/upload/v1765672997/i92u2nhuybbyr2rinfog.jpg",
-      type: "sent",
-      amount: "900",
-    },
-  ];
+  const [transactions, setTransactions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const accountId = localStorage.getItem("accountId");
+        const data = await api.get(`/api/transaction/history/${accountId}`);
+        setTransactions(data.results);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTransactions();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+  if (!transactions || transactions.length === 0)
+    return <p>No transactions yet</p>;
   return (
     <div className='paymentHistory'>
       <div className='paymentHistory_title'>
