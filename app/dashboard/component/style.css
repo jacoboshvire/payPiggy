@@ -86,7 +86,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 50;
 }
 
 .card .card_detail_addMoney {
@@ -133,6 +132,9 @@
   opacity: 0.6;
 }
 
+.cardDetail {
+  z-index: 50;
+}
 /* payment history ================================================ */
 .paymentHistory {
   margin-top: 5%;
