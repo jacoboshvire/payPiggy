@@ -14,6 +14,7 @@ export default function PaymentHistory() {
       try {
         const accountId = localStorage.getItem("accountId");
         const data = await api.get(`/api/transaction/history/${accountId}`);
+        const userData = await api.get(`/api/users/${data.results[0].user_id}`);
         setTransactions(data.results);
       } catch (err) {
         setError(err.message);
@@ -42,7 +43,7 @@ export default function PaymentHistory() {
               <div className='paymentHistory_item_nameAndImage'>
                 <div className='paymentHistory_item_image'>
                   <Image
-                    src={data.profile}
+                    src={data.}
                     alt={data.name}
                     height={50}
                     width={50}
