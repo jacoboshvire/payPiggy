@@ -116,3 +116,9 @@ button {
   border-radius: 10px;
   width: fit-content;
 }
+
+.channelSelect label {
+  border: none;
+  outline: none;
+  font-weight: 900;
+}
