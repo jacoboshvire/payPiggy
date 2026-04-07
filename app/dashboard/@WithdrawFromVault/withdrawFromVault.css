@@ -32,14 +32,7 @@
   justify-content: space-between;
 }
 
-.withdraw_input {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  width: 100%;
-  padding: 20px;
-  background-color: var(--subcolor);
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  font-size: 24px;
+.withdrawVault h1 {
+  font-size: 32px;
+  font-weight: 900;
 }
