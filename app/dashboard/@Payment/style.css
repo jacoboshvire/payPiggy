@@ -50,7 +50,7 @@
 }
 
 .payment_form button {
-  padding: 10px 50px;
+  /* padding: 10px 50px; */
   background: var(--gradient);
   display: flex;
   align-items: center;
