@@ -46,6 +46,7 @@ button {
   color: #ffffff;
   border-radius: 10px;
   margin-top: 40px;
+  width: fit-content;
 }
 
 .cancel_btu {
