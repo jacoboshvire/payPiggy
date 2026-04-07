@@ -14,11 +14,20 @@ export default function PaymentHistory() {
       try {
         const accountId = localStorage.getItem("accountId");
         const data = await api.get(`/api/transaction/history/${accountId}`);
-        const userData = await api.get(`/api/users/${data.results[0].user_id}`);
-        data.results.forEach((transaction) => {
-          transaction.image = userData.avatar;
-        });
-        setTransactions(data.results);
+
+        // Fetch current user's avatar for all transactions
+        const accountData = await api.get(`/api/account/${accountId}`);
+        const userData = await api.get(`/api/users/${accountData.user_id}`);
+
+        const enriched = data.results.map((txn) => ({
+          ...txn,
+          image:
+            userData.avatar ||
+            "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png",
+          name: userData.name || "Unknown",
+        }));
+
+        setTransactions(enriched);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -33,40 +42,40 @@ export default function PaymentHistory() {
   if (error) return <p>{error}</p>;
   if (!transactions || transactions.length === 0)
     return <p>No transactions yet</p>;
+
   return (
     <div className='paymentHistory'>
       <div className='paymentHistory_title'>
         <h1>Payment History</h1>
       </div>
       <div className='paymentHistory_lists'>
-        {transactions.map((data, index) => {
-          return (
-            <div className='paymentHistory_item' key={data.amount + index}>
-              {/* name and image container */}
-              <div className='paymentHistory_item_nameAndImage'>
-                <div className='paymentHistory_item_image'>
-                  <Image
-                    src={data.image}
-                    alt={data.name}
-                    height={50}
-                    width={50}
-                  />
-                </div>
-                <div className='paymentHistory_item_name'>
-                  <p>{data.name}</p>
-                </div>
+        {transactions.map((data, index) => (
+          <div className='paymentHistory_item' key={data.id || index}>
+            <div className='paymentHistory_item_nameAndImage'>
+              <div className='paymentHistory_item_image'>
+                <Image
+                  src={data.image}
+                  alt={data.name}
+                  height={50}
+                  width={50}
+                />
               </div>
-              {/* transaction status */}
-              <div className='paymentHistory_item_status'>
-                <p>{data.type}</p>
-              </div>
-              {/*transaction amount*/}
-              <div className='paymentHistory_item_amount'>
-                <p>￡{data.amount}</p>
+              <div className='paymentHistory_item_name'>
+                <p>{data.name}</p>
+                <p>{new Date(data.created_at).toLocaleDateString()}</p>
               </div>
             </div>
-          );
-        })}
+            <div className='paymentHistory_item_status'>
+              <p>{data.type}</p>
+            </div>
+            <div className='paymentHistory_item_amount'>
+              <p className={data.type === "debit" ? "debit" : "credit"}>
+                {data.type === "debit" ? "-" : "+"}£
+                {Number(data.amount).toFixed(2)}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
