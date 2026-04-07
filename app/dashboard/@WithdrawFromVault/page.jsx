@@ -199,7 +199,7 @@ export default function WithdrawFromVault({ onSuccess }) {
 
                   {/* Step 2 - OTP */}
                   {step === "otp" && (
-                    <>
+                    <div className='enterOtp'>
                       <p>Enter the OTP sent to your {channel}</p>
                       <input
                         type='text'
@@ -212,7 +212,7 @@ export default function WithdrawFromVault({ onSuccess }) {
                         {loading ? "Verifying..." : "Confirm Withdrawal"}
                       </button>
                       <button onClick={() => setStep("confirm")}>Back</button>
-                    </>
+                    </div>
                   )}
                 </>
               )}
