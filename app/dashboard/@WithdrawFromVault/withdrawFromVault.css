@@ -97,4 +97,7 @@ button {
   gap: 20px;
   font-size: 18px;
   padding: 20px;
+  background-color: var(--subcolor);
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
