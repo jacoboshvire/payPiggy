@@ -59,6 +59,10 @@
   font-weight: 900;
 }
 
+.transferToVault .inputError {
+  border-color: red;
+}
+
 .transferToVault button {
   padding: 10px 50px;
   background: var(--gradient);
