@@ -50,13 +50,14 @@
 }
 
 .payment_form button {
-  /* padding: 10px 50px; */
+  padding: 10px 50px;
   background: var(--gradient);
   display: flex;
   align-items: center;
   gap: 10px;
   color: #ffffff;
   border-radius: 10px;
+  margin: 0;
 }
 
 .payment_form_container {
