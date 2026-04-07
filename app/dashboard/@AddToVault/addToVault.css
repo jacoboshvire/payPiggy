@@ -159,6 +159,6 @@
   fill: var(--foreground);
 }
 
-.errInput {
+.inputError {
   border-color: red;
 }

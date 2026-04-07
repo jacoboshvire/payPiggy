@@ -117,6 +117,7 @@ export default function TransferToVault({ onSuccess }) {
                   value={amount}
                   onChange={handleInput}
                   onInput={handleInput}
+                  className={error ? "inputError" : ""}
                 />
               </div>
 
