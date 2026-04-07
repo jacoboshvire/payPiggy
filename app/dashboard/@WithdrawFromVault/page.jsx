@@ -101,8 +101,6 @@ export default function WithdrawFromVault({ onSuccess }) {
     }
   };
 
-  if (!vault) return <p>No vault found</p>;
-
   return (
     <>
       {pathname.includes("dashboard") &&
