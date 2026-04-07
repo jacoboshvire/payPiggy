@@ -36,3 +36,55 @@
   font-size: 32px;
   font-weight: 900;
 }
+
+button {
+  padding: 10px 50px;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.cancel_btu {
+  background-color: var(--subcolor);
+  border: 1px solid var(--border);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.cancel_btu svg {
+  stroke: var(--transparent);
+  transition: stroke 0.3s ease;
+}
+
+.cancel_btu:hover svg {
+  stroke: var(--lighttext);
+}
+
+.cancel_btu:hover {
+  background-color: var(--transparent);
+  transform: scale(1.1);
+}
+
+.error {
+  color: red;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.success {
+  color: green;
+  margin: 10px 0;
+  font-size: 18px;
+}
