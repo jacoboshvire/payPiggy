@@ -36,6 +36,10 @@ export default function TransferToVault({ onSuccess }) {
     setError("");
     setSuccess(false);
 
+    const value = e.target.value;
+    if (!/^\d*\.?\d{0,2}$/.test(value)) return;
+    setAmount(value);
+
     if (!amount || amount <= 0) {
       setError("Please enter a valid amount");
       return;
@@ -67,15 +71,7 @@ export default function TransferToVault({ onSuccess }) {
     }
   };
 
-  const handleInput = (e) => {
-    if (!amount || amount <= 0) {
-      setError("Please enter a valid amount");
-      return;
-    }
-    const value = e.target.value;
-    if (!/^\d*\.?\d{0,2}$/.test(value)) return;
-    setAmount(value);
-  };
+  const handleInput = (e) => {};
   return (
     <>
       {pathname.includes("dashboard") &&
