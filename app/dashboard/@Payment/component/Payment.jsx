@@ -88,7 +88,7 @@ export default function Payment() {
             />
           </div>
         </div>
-        <div className='payment_form_btu'>
+        <div className=''>
           <button>
             <p>Send</p>
             <svg
