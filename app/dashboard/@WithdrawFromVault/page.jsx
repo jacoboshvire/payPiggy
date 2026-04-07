@@ -160,8 +160,9 @@ export default function WithdrawFromVault({ onSuccess }) {
                     </div>
                     <div className='vault_info'>
                       <p>
-                        <b>Balance:</b>
-                        {vault && "£" + Number(vault.balance).toFixed(2)}
+                        <b>Balance: £</b>
+                        {(vault && " " + Number(vault.balance).toFixed(2)) ||
+                          "0.00"}
                       </p>
                       <p>
                         <b>Locked until:</b>{" "}
