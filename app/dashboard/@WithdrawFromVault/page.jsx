@@ -106,79 +106,81 @@ export default function WithdrawFromVault({ onSuccess }) {
     <>
       {pathname.includes("dashboard") &&
         searchParams.get("withdraw-vault") === "true" && (
-          <div className='withdrawVault'>
-            {success ? (
-              <div>
-                <p className='success'>Withdrawal successful</p>
-                <button onClick={() => router.push("/dashboard")}>
-                  Back to Dashboard
-                </button>
-              </div>
-            ) : (
-              <>
-                <h2>Withdraw from Vault</h2>
-                <p>Balance: £{Number(vault.balance).toFixed(2)}</p>
-                <p>
-                  Locked until:{" "}
-                  {new Date(vault.lock_until).toLocaleDateString()}
-                </p>
-                <p>Status: {isLocked ? "Locked" : "Unlocked"}</p>
+          <div className='withdraw_bg'>
+            <div className='withdrawVault'>
+              {success ? (
+                <div>
+                  <p className='success'>Withdrawal successful</p>
+                  <button onClick={() => router.push("/dashboard")}>
+                    Back to Dashboard
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <h2>Withdraw from Vault</h2>
+                  <p>Balance: £{Number(vault.balance).toFixed(2)}</p>
+                  <p>
+                    Locked until:{" "}
+                    {new Date(vault.lock_until).toLocaleDateString()}
+                  </p>
+                  <p>Status: {isLocked ? "Locked" : "Unlocked"}</p>
 
-                {error && <p className='error'>{error}</p>}
+                  {error && <p className='error'>{error}</p>}
 
-                {/* Step 1 - Confirm */}
-                {step === "confirm" && (
-                  <>
-                    {isLocked ? (
-                      <>
-                        <p className='warning'>
-                          This vault is still locked. Early withdrawal requires
-                          OTP verification.
-                        </p>
-                        <div className='channelSelect'>
-                          <label>Send OTP via:</label>
-                          <select
-                            value={channel}
-                            onChange={(e) => setChannel(e.target.value)}
-                          >
-                            <option value='email'>Email</option>
-                            <option value='sms'>SMS</option>
-                            <option value='push'>Push Notification</option>
-                          </select>
-                        </div>
-                        <button onClick={handleRequestOtp} disabled={loading}>
-                          {loading
-                            ? "Sending OTP..."
-                            : "Request Early Withdrawal"}
+                  {/* Step 1 - Confirm */}
+                  {step === "confirm" && (
+                    <>
+                      {isLocked ? (
+                        <>
+                          <p className='warning'>
+                            This vault is still locked. Early withdrawal
+                            requires OTP verification.
+                          </p>
+                          <div className='channelSelect'>
+                            <label>Send OTP via:</label>
+                            <select
+                              value={channel}
+                              onChange={(e) => setChannel(e.target.value)}
+                            >
+                              <option value='email'>Email</option>
+                              <option value='sms'>SMS</option>
+                              <option value='push'>Push Notification</option>
+                            </select>
+                          </div>
+                          <button onClick={handleRequestOtp} disabled={loading}>
+                            {loading
+                              ? "Sending OTP..."
+                              : "Request Early Withdrawal"}
+                          </button>
+                        </>
+                      ) : (
+                        <button onClick={handleWithdraw} disabled={loading}>
+                          {loading ? "Withdrawing..." : "Withdraw"}
                         </button>
-                      </>
-                    ) : (
-                      <button onClick={handleWithdraw} disabled={loading}>
-                        {loading ? "Withdrawing..." : "Withdraw"}
-                      </button>
-                    )}
-                  </>
-                )}
+                      )}
+                    </>
+                  )}
 
-                {/* Step 2 - OTP */}
-                {step === "otp" && (
-                  <>
-                    <p>Enter the OTP sent to your {channel}</p>
-                    <input
-                      type='text'
-                      placeholder='Enter OTP'
-                      maxLength={5}
-                      value={otp}
-                      onChange={(e) => setOtp(e.target.value)}
-                    />
-                    <button onClick={handleVerifyOtp} disabled={loading}>
-                      {loading ? "Verifying..." : "Confirm Withdrawal"}
-                    </button>
-                    <button onClick={() => setStep("confirm")}>Back</button>
-                  </>
-                )}
-              </>
-            )}
+                  {/* Step 2 - OTP */}
+                  {step === "otp" && (
+                    <>
+                      <p>Enter the OTP sent to your {channel}</p>
+                      <input
+                        type='text'
+                        placeholder='Enter OTP'
+                        maxLength={5}
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value)}
+                      />
+                      <button onClick={handleVerifyOtp} disabled={loading}>
+                        {loading ? "Verifying..." : "Confirm Withdrawal"}
+                      </button>
+                      <button onClick={() => setStep("confirm")}>Back</button>
+                    </>
+                  )}
+                </>
+              )}
+            </div>
           </div>
         )}
     </>
