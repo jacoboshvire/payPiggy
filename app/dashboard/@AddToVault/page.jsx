@@ -62,6 +62,9 @@ export default function TransferToVault({ onSuccess }) {
         }, 2000);
         if (onSuccess) onSuccess();
       } else {
+        setTimeout(() => {
+          setError("");
+        }, 10000);
         setError(data.message || "Transfer failed");
       }
     } catch (err) {
