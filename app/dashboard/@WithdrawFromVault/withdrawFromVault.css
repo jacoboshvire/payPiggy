@@ -106,3 +106,13 @@ button {
   font-size: 18px;
   font-weight: 900;
 }
+
+.channelSelect {
+  display: flex;
+  gap: 20px;
+  background-color: var(--subcolor);
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: fit-content;
+}
