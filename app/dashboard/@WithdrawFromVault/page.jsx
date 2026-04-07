@@ -166,7 +166,9 @@ export default function WithdrawFromVault({ onSuccess }) {
                       </p>
                       <p>
                         <b>Locked until:</b>{" "}
-                        {new Date(vault.lock_until).toLocaleDateString()}
+                        {(vault &&
+                          new Date(vault.lock_until).toLocaleDateString()) ||
+                          "Pending"}
                       </p>
                       <p>
                         {" "}
