@@ -1,7 +1,7 @@
 /** @format */
 "use client";
-import { type } from "os";
 import { useState, useEffect } from "react";
+import { api } from "@/lib/api";
 import Image from "next/image";
 
 export default function PaymentHistory() {
