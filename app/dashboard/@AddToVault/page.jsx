@@ -80,7 +80,7 @@ export default function TransferToVault({ onSuccess }) {
             <form onSubmit={handleTransfer}>
               <div className='title'>
                 <h1>Move Money to Vault</h1>
-                <div className='cancel_btu'>
+                <div className={"cancel_btu"}>
                   <svg
                     width='24'
                     height='24'
