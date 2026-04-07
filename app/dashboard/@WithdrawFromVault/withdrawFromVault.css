@@ -122,3 +122,18 @@ button {
   outline: none;
   font-weight: 900;
 }
+
+.enterOtp {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.enterOtp input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--subcolor);
+  outline: none;
+}
