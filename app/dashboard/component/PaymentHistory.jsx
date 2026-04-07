@@ -46,7 +46,7 @@ export default function PaymentHistory() {
               <div className='paymentHistory_item_nameAndImage'>
                 <div className='paymentHistory_item_image'>
                   <Image
-                    src={data.}
+                    src={data.image}
                     alt={data.name}
                     height={50}
                     width={50}
