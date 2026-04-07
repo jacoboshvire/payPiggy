@@ -44,7 +44,7 @@ export default function Payment() {
           <div className='payment_input_column'>
             <div className='payment_form_input'>
               <label htmlFor='first_name'>
-                <p>First name</p> {/* ✅ Fixed typo */}
+                <p>First name</p>
               </label>
               <input
                 type='text'
