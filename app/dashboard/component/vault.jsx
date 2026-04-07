@@ -47,7 +47,7 @@ export default function Vault() {
             className='cardDetail'
             onClick={() => router.push("?wallet=true&withdraw-vault=true")}
           >
-            <p>Detail</p>
+            <p>Withdraw from vault</p>
             <svg
               width='36'
               height='24'
