@@ -57,7 +57,7 @@ export default function TransferToVault({ onSuccess }) {
         setSuccess(true);
         setAmount("");
         setTimeout(() => {
-          router.push("/dashboard?home=true");
+          router.back();
         }, 2000);
         if (onSuccess) onSuccess();
       } else {
