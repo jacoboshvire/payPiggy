@@ -43,7 +43,10 @@ export default function Vault() {
     <div className='card'>
       <div className='card_detail'>
         <div className='card_detail_addMoney'>
-          <div className='cardDetail'>
+          <div
+            className='cardDetail'
+            onClick={() => router.push("?wallet=true&withdraw-vault=true")}
+          >
             <p>Detail</p>
             <svg
               width='36'
