@@ -118,7 +118,9 @@ export default function WithdrawFromVault({ onSuccess }) {
                 </div>
               ) : (
                 <>
-                  <h2>Withdraw from Vault</h2>
+                  <div className='title'>
+                    <h1>Vault Withdrawal</h1>
+                  </div>
                   <p>Balance: £{Number(vault.balance).toFixed(2)}</p>
                   <p>
                     Locked until:{" "}
