@@ -94,6 +94,7 @@ button {
 .vault_info {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   font-size: 18px;
+  padding: 20px;
 }
