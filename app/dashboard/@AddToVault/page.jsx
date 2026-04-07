@@ -56,6 +56,9 @@ export default function TransferToVault({ onSuccess }) {
       if (data.message === "Deposit to vault successful") {
         setSuccess(true);
         setAmount("");
+        setTimeout(() => {
+          router.push("/dashboard?home=true");
+        }, 2000);
         if (onSuccess) onSuccess();
       } else {
         setError(data.message || "Transfer failed");
