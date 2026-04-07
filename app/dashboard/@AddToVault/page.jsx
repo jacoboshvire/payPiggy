@@ -68,6 +68,10 @@ export default function TransferToVault({ onSuccess }) {
   };
 
   const handleInput = (e) => {
+    if (!amount || amount <= 0) {
+      setError("Please enter a valid amount");
+      return;
+    }
     const value = e.target.value;
     if (!/^\d*\.?\d{0,2}$/.test(value)) return;
     setAmount(value);
