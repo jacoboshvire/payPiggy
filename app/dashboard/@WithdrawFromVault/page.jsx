@@ -156,7 +156,10 @@ export default function WithdrawFromVault({ onSuccess }) {
                       <b>Locked until:</b>{" "}
                       {new Date(vault.lock_until).toLocaleDateString()}
                     </p>
-                    <p>Status: {isLocked ? "Locked" : "Unlocked"}</p>
+                    <p>
+                      {" "}
+                      <b>Status:</b> {isLocked ? "Locked" : "Unlocked"}
+                    </p>
                   </div>
                   {error && <p className='error'>{error}</p>}
 
