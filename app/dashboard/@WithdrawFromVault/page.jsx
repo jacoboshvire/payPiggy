@@ -148,13 +148,14 @@ export default function WithdrawFromVault({ onSuccess }) {
                       </svg>
                     </div>
                   </div>
-                  <p>Balance: £{Number(vault.balance).toFixed(2)}</p>
-                  <p>
-                    Locked until:{" "}
-                    {new Date(vault.lock_until).toLocaleDateString()}
-                  </p>
-                  <p>Status: {isLocked ? "Locked" : "Unlocked"}</p>
-
+                  <div className='vault_info'>
+                    <p>Balance: £{Number(vault.balance).toFixed(2)}</p>
+                    <p>
+                      Locked until:{" "}
+                      {new Date(vault.lock_until).toLocaleDateString()}
+                    </p>
+                    <p>Status: {isLocked ? "Locked" : "Unlocked"}</p>
+                  </div>
                   {error && <p className='error'>{error}</p>}
 
                   {/* Step 1 - Confirm */}
