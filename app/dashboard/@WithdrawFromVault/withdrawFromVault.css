@@ -130,7 +130,7 @@ button {
 }
 
 .enterOtp input {
-  padding: 10px;
+  padding: 10px 20px;
   font-size: 16px;
   border: 1px solid var(--border);
   border-radius: 5px;
