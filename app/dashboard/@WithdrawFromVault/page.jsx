@@ -107,17 +107,17 @@ export default function WithdrawFromVault({ onSuccess }) {
       {pathname.includes("dashboard") &&
         searchParams.get("withdraw-vault") === "true" && (
           <>
-            {
-              /* Modal backdrop */
-              vault == null && (
-                <div className='withdraw_bg'>
-                  <div className='withdrawVault'>
-                    <p>Loading vault information...</p>
-                  </div>
-                </div>
-              )
-            }
             <div className='withdraw_bg'>
+              {
+                /* Modal backdrop */
+                vault == null && (
+                  <div className='withdraw_bg'>
+                    <div className='withdrawVault'>
+                      <p>Loading vault information...</p>
+                    </div>
+                  </div>
+                )
+              }
               <div className='withdrawVault'>
                 {success ? (
                   <div>
