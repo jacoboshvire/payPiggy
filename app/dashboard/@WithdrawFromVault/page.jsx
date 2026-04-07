@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { api } from "@/lib/api";
+import "./withdrawFromVault.css";
 
 export default function WithdrawFromVault({ onSuccess }) {
   const [vault, setVault] = useState(null);
