@@ -2,19 +2,76 @@
 
 "use client";
 import { useState } from "react";
+import { api } from "@/lib/api";
 
 export default function Payment() {
   const [checkEmail, setCheckEmail] = useState(false);
+  const [accountNumber, setAccountNumber] = useState("");
+  const [sortCode, setSortCode] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [amount, setAmount] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleEmail = (e) => {
     const value = e.target.value;
+    setEmail(value);
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     setCheckEmail(!isEmail && value.length > 0);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+
+    if (!accountNumber || !sortCode || !firstName || !lastName || !amount) {
+      setError("Please fill in all required fields");
+      return;
+    }
+
+    if (checkEmail) {
+      setError("Please enter a valid email");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const fromAccount = localStorage.getItem("accountId");
+
+      const data = await api.post("/api/transaction/transfer", {
+        fromAccount: Number(fromAccount),
+        toAccountNumber: accountNumber,
+        toSortCode: sortCode,
+        toName: `${firstName} ${lastName}`,
+        amount: Number(amount),
+      });
+
+      if (data.message === "Transfer successful") {
+        setSuccess(`Transfer successful. Reference: ${data.reference}`);
+        setAccountNumber("");
+        setSortCode("");
+        setFirstName("");
+        setLastName("");
+        setAmount("");
+        setEmail("");
+      } else {
+        setError(data.message || "Transfer failed");
+      }
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className='payment_form'>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className='payment_form_container'>
           <div className='payment_input_column'>
             <div className='payment_form_input'>
@@ -26,6 +83,8 @@ export default function Payment() {
                 name='accountNumber'
                 id='account_no_input'
                 placeholder='54##-####'
+                value={accountNumber}
+                onChange={(e) => setAccountNumber(e.target.value)}
               />
             </div>
             <div className='payment_form_input'>
@@ -37,6 +96,8 @@ export default function Payment() {
                 name='sortCode'
                 id='sort_code'
                 placeholder='##-##-##'
+                value={sortCode}
+                onChange={(e) => setSortCode(e.target.value)}
               />
             </div>
           </div>
@@ -51,6 +112,8 @@ export default function Payment() {
                 name='firstName'
                 id='first_name'
                 placeholder='Jack'
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
             <div className='payment_form_input'>
@@ -62,8 +125,27 @@ export default function Payment() {
                 name='lastName'
                 id='last_name'
                 placeholder='Stone'
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
+          </div>
+
+          <div className='payment_form_input'>
+            <label htmlFor='amount'>
+              <p>Amount £</p>
+            </label>
+            <input
+              type='text'
+              name='amount'
+              id='amount'
+              placeholder='0.00'
+              value={amount}
+              onChange={(e) => {
+                const value = e.target.value;
+                if (/^\d*\.?\d{0,2}$/.test(value)) setAmount(value);
+              }}
+            />
           </div>
 
           <div className='payment_form_input'>
@@ -83,14 +165,19 @@ export default function Payment() {
               name='email'
               id='email'
               placeholder='name@example.com'
+              value={email}
               onInput={handleEmail}
               className={checkEmail ? "err" : ""}
             />
           </div>
         </div>
+
+        {error && <p className='error'>{error}</p>}
+        {success && <p className='success'>{success}</p>}
+
         <div className='payment_form_btus'>
-          <button>
-            <p>Send</p>
+          <button type='submit' disabled={loading}>
+            <p>{loading ? "Sending..." : "Send"}</p>
             <svg
               width='20'
               height='20'
