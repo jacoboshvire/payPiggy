@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { api } from "@/lib/api";
 import "./withdrawFromVault.css";
+import { data } from "framer-motion/client";
 
 export default function WithdrawFromVault({ onSuccess }) {
   const [vault, setVault] = useState(null);
@@ -107,12 +108,12 @@ export default function WithdrawFromVault({ onSuccess }) {
         searchParams.get("withdraw-vault") === "true" && (
           {
             /* Modal backdrop */
-            !vault && (
+            vault == null && (
               <div className='withdraw_bg'>
                 <div className='withdrawVault'>
                   <p>Loading vault information...</p>
                 </div>
-              </div>)
+              </div> )
           }
           <div className='withdraw_bg'>
             <div className='withdrawVault'>
