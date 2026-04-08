@@ -71,6 +71,11 @@ export default function Payment() {
 
   return (
     <div className='payment_form'>
+      {success && (
+        <div className='payment_successMsg'>
+          <p>{success}</p>
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div className='payment_form_container'>
           <div className='payment_input_column'>
