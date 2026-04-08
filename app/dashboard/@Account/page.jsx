@@ -14,13 +14,14 @@ export default function page() {
 
   return (
     <>
-      {pathname === "/dashboard" && searchParams.get("account") === "true" && (
-        <div className='bashboard_account'>
-          <Back />
-          <AccountLink />
-          <AcountDetail />
-        </div>
-      )}
+      {pathname.includes("/dashboard") &&
+        searchParams.get("account") === "true" && (
+          <div className='bashboard_account'>
+            <Back />
+            <AccountLink />
+            <AcountDetail />
+          </div>
+        )}
     </>
   );
 }
