@@ -40,7 +40,7 @@ export default function Account() {
 
   return (
     <>
-      {pathname.includes("account") &&
+      {pathname.includes("dashboard") &&
         searchParams.get("accountDetail") === "true" && (
           <div className='accountDetail'>
             <div className='accountDetail_avatar'>
