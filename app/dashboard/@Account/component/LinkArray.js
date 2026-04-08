@@ -43,7 +43,7 @@ const LinkArray = [
         />
       </svg>
     ),
-    link: "#",
+    link: "&?accountinformation=true",
   },
   {
     linkName: "Settings",
