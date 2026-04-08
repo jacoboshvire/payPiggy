@@ -41,7 +41,7 @@ export default function Account() {
   return (
     <>
       {pathname.includes("account") &&
-        searchParams.get("accountinformation") === "true" && (
+        searchParams.get("account_details") === "true" && (
           <div className='accountDetail'>
             <div className='accountDetail_avatar'>
               <Image
