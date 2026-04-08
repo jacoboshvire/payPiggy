@@ -27,11 +27,11 @@ export default function layout({
     <div className='bashboard'>
       <div className='bashboard_container'>
         <Nav />
-        {AccountDetails && AccountDetails}
         {WithdrawFromVault && WithdrawFromVault}
         {Add && Add}
         {AddToVault && AddToVault}
         {Home && Home}
+        {AccountDetails && AccountDetails}
         {Payment && Payment}
         {Wallet && Wallet}
         {Account && Account}
