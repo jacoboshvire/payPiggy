@@ -36,7 +36,7 @@ export default function PaymentHistory() {
     };
 
     fetchTransactions();
-    const interval = setInterval(fetchAccount, 1000);
+    const interval = setInterval(fetchTransactions, 1000);
 
     return () => clearInterval(interval);
   }, []);
