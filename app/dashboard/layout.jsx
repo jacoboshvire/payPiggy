@@ -18,11 +18,11 @@ export default function layout({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-  useEffect(() => {
-    if (pathname === "/dashboard") {
-      router.push("/dashboard?home=true");
-    }
-  }, [pathname, router]);
+  // useEffect(() => {
+  //   if (pathname === "/dashboard") {
+  //     router.push("/dashboard?home=true");
+  //   }
+  // }, [pathname, router]);
   return (
     <div className='bashboard'>
       <div className='bashboard_container'>
