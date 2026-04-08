@@ -34,7 +34,7 @@ export default function Account() {
   }, []);
 
   if (
-    !pathname.includes("account") ||
+    pathname.includes("dashboard") ||
     searchParams.get("account_details") === "true"
   ) {
     return null;
