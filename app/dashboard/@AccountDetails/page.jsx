@@ -1,9 +1,13 @@
 /** @format */
 
 import { useEffect, useState } from "react";
+import api from "../../../lib/api";
 
 export default function account() {
   const [account, setAccount] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [avatar, setAvatar] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchAccount = async () => {
@@ -14,6 +18,9 @@ export default function account() {
         setAccount(data);
       } catch (err) {
         console.error(err);
+        setError("Failed to load account details");
+      } finally {
+        setLoading(false);
       }
     };
 
