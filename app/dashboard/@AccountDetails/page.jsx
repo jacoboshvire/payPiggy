@@ -42,7 +42,11 @@ export default function Account() {
     <>
       {pathname.includes("account") &&
         searchParams.get("account_details") === "true" && (
+      
           <div className='accountDetail'>
+                {
+            loading && <p>Loading...</p>;
+          }
             <div className='accountDetail_avatar'>
               <Image
                 src={
