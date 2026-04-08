@@ -1,6 +1,7 @@
 /** @format */
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import "./accountDetail.css";
 import { api } from "../../../lib/api";
 import Image from "next/image";
@@ -36,6 +37,7 @@ export default function Account() {
 
   return (
     <>
+      {}
       <div className='accountDetail'>
         <div className='accountDetail_avatar'>
           <Image
