@@ -34,9 +34,6 @@ export default function Account() {
     fetchAccount();
   }, []);
 
-  if (error) return <p>{error}</p>;
-  if (!account) return <p>Account not found</p>;
-
   return (
     <>
       {pathname.includes("account") &&
@@ -44,6 +41,7 @@ export default function Account() {
           <div className='accountDetail'>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
+            {!account && !loading && !error && <p>Account not found</p>}
             <div className='accountDetail_avatar'>
               <Image
                 src={
