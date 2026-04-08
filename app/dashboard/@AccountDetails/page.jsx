@@ -40,11 +40,12 @@ export default function Account() {
 
   return (
     <>
-      {}
-      <div className='accountDetail'>
-        <div className='accountDetail_avatar'>
-          <Image
-            src={
+      {
+        pathname.includes("account") && searchParams.get("accountDetail") && (
+          <div className='accountDetail'>
+            <div className='accountDetail_avatar'>
+              <Image
+                src={
               user?.avatar ||
               "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png"
             }
@@ -94,7 +95,7 @@ export default function Account() {
             <p className='accountDetail_value'>{user?.phone}</p>
           </div>
         </div>
-      </div>
+      </div>)
     </>
   );
 }
