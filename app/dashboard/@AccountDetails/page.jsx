@@ -1,9 +1,9 @@
 /** @format */
 "use client";
 import { useEffect, useState } from "react";
-import "./style.css";
+import "./accountDetail.css";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import api from "../../../lib/api";
+import api from "@/lib/api";
 
 export default function account() {
   const [account, setAccount] = useState(null);
