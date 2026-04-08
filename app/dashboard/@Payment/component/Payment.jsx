@@ -76,6 +76,12 @@ export default function Payment() {
           <p>{success}</p>
         </div>
       )}
+
+      {error && (
+        <div className='payment_errorMsg'>
+          <p>{error}</p>
+        </div>
+      )}
       <form onSubmit={handleSubmit}>
         <div className='payment_form_container'>
           <div className='payment_input_column'>
