@@ -14,6 +14,7 @@ export default function layout({
   Add,
   AddToVault,
   WithdrawFromVault,
+  AccountDetails,
 }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -26,6 +27,7 @@ export default function layout({
     <div className='bashboard'>
       <div className='bashboard_container'>
         <Nav />
+        {AccountDetails && AccountDetails}
         {WithdrawFromVault && WithdrawFromVault}
         {Add && Add}
         {AddToVault && AddToVault}
