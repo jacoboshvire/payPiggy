@@ -1,6 +1,8 @@
 /** @format */
 "use client";
 import { useEffect, useState } from "react";
+import "./style.css";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import api from "../../../lib/api";
 
 export default function account() {
