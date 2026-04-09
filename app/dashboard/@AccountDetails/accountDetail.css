@@ -38,6 +38,11 @@
   gap: 20px;
 }
 
+.accountDetail_label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .accountDetail .accountDetail_info .accountDetail_item {
   display: flex;
   gap: 20px;
