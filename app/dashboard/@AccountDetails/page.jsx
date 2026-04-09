@@ -88,14 +88,20 @@ export default function Account() {
                   <p className='accountDetail_value'>{account.sort_code}</p>
                 </div>
 
-                <div className='accountDetail_item'>
+                <div
+                  className='accountDetail_item'
+                  onClick={() => copyToClipboard(account.balance)}
+                >
                   <p className='accountDetail_label'>Balance</p>
                   <p className='accountDetail_value'>
                     £{Number(account.balance).toFixed(2)}
                   </p>
                 </div>
 
-                <div className='accountDetail_item'>
+                <div
+                  className='accountDetail_item'
+                  onClick={() => copyToClipboard(account.account_type)}
+                >
                   <p className='accountDetail_label'>Account Type</p>
                   <p className='accountDetail_value'>{account.account_type}</p>
                 </div>
