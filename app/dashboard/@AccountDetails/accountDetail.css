@@ -27,4 +27,13 @@
 .accountDetail .title {
   font-size: 32px;
   font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accountDetail .account_info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
