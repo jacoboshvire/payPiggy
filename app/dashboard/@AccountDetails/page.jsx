@@ -85,7 +85,7 @@ export default function Account() {
                 </div>
               </div>
               <div className='accountDetail_info'>
-                <div className='account_names'>
+                <div className='account_flex'>
                   <div className='accountDetail_item'>
                     <p className='accountDetail_label'>First Name</p>
                     <p className='accountDetail_value'>{account.first_name}</p>
