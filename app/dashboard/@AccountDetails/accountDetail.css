@@ -126,7 +126,7 @@
 
 .accountDetail_copyAll {
   display: flex;
-  gap: 10px;
+  gap: 30px;
   justify-content: flex-end;
   align-items: center;
   background-color: var(--subcolor);
