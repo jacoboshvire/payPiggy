@@ -75,6 +75,10 @@
   transform: scale(1.05);
 }
 
+.accountDetail .accountDetail_info .copy:hover svg {
+  fill: var(--background);
+}
+
 .accountDetail .accountDetail_info .copy:active {
   background-color: var(--gradient);
   color: var(--background);
