@@ -33,15 +33,13 @@ export default function Account() {
     fetchAccount();
   }, []);
 
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text).then(
-      () => {
-        alert("Copied to clipboard!");
-      },
-      (err) => {
-        alert("Failed to copy: ", err);
-      },
-    );
+  const copyToClipboard = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("Copied!");
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
   };
 
   if (loading) return <p>Loading...</p>;
