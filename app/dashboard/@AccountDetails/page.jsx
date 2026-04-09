@@ -59,6 +59,7 @@ export default function Account() {
       {pathname.includes("/dashboard") &&
         searchParams.get("account_details") === "true" && (
           <div className='accountDetail_bg'>
+            {copySuccess && <div className='copy_success'>{copySuccess}</div>}
             <div className='accountDetail'>
               <div className='title'>
                 <h1>Add Money</h1>
