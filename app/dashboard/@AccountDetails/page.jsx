@@ -38,8 +38,9 @@ export default function Account() {
   const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
+      setCopySuccess("Copied!");
       setTimeout(() => {
-        setCopySuccess("Copied!");
+        setCopySuccess("");
       }, 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
@@ -49,8 +50,9 @@ export default function Account() {
   const copyAll = async () => {
     const accountInfo = `First Name: ${account.first_name}\nLast Name: ${account.last_name}\nAccount Number: ${account.account_number} \n Sort Code: ${account.sort_code}`;
     await navigator.clipboard.writeText(accountInfo);
+    setCopySuccess("All details copied!");
     setTimeout(() => {
-      setCopySuccess("All details copied!");
+      setCopySuccess("");
     }, 2000);
   };
 
