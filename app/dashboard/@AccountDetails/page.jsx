@@ -62,7 +62,7 @@ export default function Account() {
 
   return (
     <>
-      {pathname.includes("account") &&
+      {pathname.includes("/dashboard?account=true&") &&
         searchParams.get("account_details") === "true" && (
           <div className='accountDetail_bg'>
             {copySuccess !== "" && (
