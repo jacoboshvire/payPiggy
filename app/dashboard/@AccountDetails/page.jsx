@@ -1,7 +1,7 @@
 /** @format */
 "use client";
 import { useEffect, useState } from "react";
-import { useSearchParams, usePathname } from "next/navigation";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import "./accountDetail.css";
 import { api } from "../../../lib/api";
 import Image from "next/image";
@@ -13,6 +13,7 @@ export default function Account() {
   const [error, setError] = useState("");
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchAccount = async () => {
