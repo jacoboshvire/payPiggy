@@ -38,8 +38,10 @@
   gap: 20px;
 }
 
-.accountDetail .accountDetail_info .accountDetail_info_item {
+.accountDetail .accountDetail_info .accountDetail_item {
   display: flex;
   gap: 20px;
   align-items: center;
+  justify-content: space-between;
+  padding: 20px;
 }
