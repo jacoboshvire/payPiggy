@@ -23,3 +23,8 @@
   animation: popup 0.3s ease-out;
   width: 800px;
 }
+
+.accountDetail .title {
+  font-size: 32px;
+  font-weight: 900;
+}
