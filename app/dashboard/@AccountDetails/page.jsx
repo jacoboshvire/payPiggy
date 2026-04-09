@@ -63,7 +63,7 @@ export default function Account() {
                     viewBox='0 0 24 24'
                     fill='none'
                     xmlns='http://www.w3.org/2000/svg'
-                    onClick={() => router.push("/dashboard?account=true")}
+                    onClick={() => router.back()}
                   >
                     <line
                       x1='18.364'
