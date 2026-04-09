@@ -65,12 +65,14 @@
   padding: 10px;
   background-color: var(--border);
   border-radius: 5px;
+  transform-origin: center;
 }
 
 .accountDetail .accountDetail_info .copy:hover {
   background-color: var(--lighttext);
   color: var(--background);
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 .accountDetail .accountDetail_info .copy:active {
