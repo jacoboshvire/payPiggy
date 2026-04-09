@@ -72,3 +72,8 @@
   color: var(--background);
   cursor: pointer;
 }
+
+.accountDetail .accountDetail_info .copy:active {
+  background-color: var(--gradient);
+  color: var(--background);
+}
