@@ -43,6 +43,12 @@ export default function Account() {
     }
   };
 
+  const copyAll = async () => {
+    const accountInfo = `First Name: ${account.first_name}\nLast Name: ${account.last_name}\nAccount Number: ${account.account_number} \n Sort Code: ${account.sort_code}`;
+    await navigator.clipboard.writeText(accountInfo);
+    alert("All account information copied!");
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!account) return <p>Account not found</p>;
