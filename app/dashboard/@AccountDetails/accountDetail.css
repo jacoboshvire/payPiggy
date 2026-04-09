@@ -131,7 +131,7 @@
   align-items: center;
 }
 .accountDetail_copyAll p {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--lighttext);
 }
 .accountDetail_copyAll .copy {
