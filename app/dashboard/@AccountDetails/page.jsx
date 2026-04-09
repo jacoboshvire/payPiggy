@@ -75,7 +75,10 @@ export default function Account() {
                   <p className='accountDetail_value'>
                     {account.account_number}
                   </p>
-                  <div className='copy'>
+                  <div
+                    className='copy'
+                    onClick={() => copyToClipboard(account.account_number)}
+                  >
                     <svg
                       width='24'
                       height='24'
