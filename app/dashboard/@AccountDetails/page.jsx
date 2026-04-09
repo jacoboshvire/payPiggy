@@ -38,7 +38,9 @@ export default function Account() {
   const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      copySuccess("Copied!");
+      setTimeout(() => {
+        setCopySuccess("Copied!");
+      }, 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
