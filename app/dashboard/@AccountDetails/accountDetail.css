@@ -43,6 +43,12 @@
   font-weight: 600;
 }
 
+.accountDetail_value {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--lighttext);
+}
+
 .accountDetail .accountDetail_info .accountDetail_item {
   display: flex;
   gap: 20px;
