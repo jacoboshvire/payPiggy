@@ -33,6 +33,17 @@ export default function Account() {
     fetchAccount();
   }, []);
 
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        alert("Copied to clipboard!");
+      },
+      (err) => {
+        alert("Failed to copy: ", err);
+      },
+    );
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!account) return <p>Account not found</p>;
