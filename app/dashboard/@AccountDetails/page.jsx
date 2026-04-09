@@ -41,7 +41,7 @@ export default function Account() {
       setCopySuccess("Copied!");
       setTimeout(() => {
         setCopySuccess("");
-      }, 2000);
+      }, 3000);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
@@ -53,7 +53,7 @@ export default function Account() {
     setCopySuccess("All details copied!");
     setTimeout(() => {
       setCopySuccess("");
-    }, 2000);
+    }, 3000);
   };
 
   if (loading) return <p>Loading...</p>;
