@@ -32,8 +32,9 @@
   justify-content: space-between;
 }
 
-.accountDetail .account_info {
+.accountDetail .account {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   align-items: center;
 }
