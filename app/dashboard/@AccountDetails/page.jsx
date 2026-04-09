@@ -13,6 +13,7 @@ export default function Account() {
   const [error, setError] = useState("");
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const [copySuccess, setCopySuccess] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Account() {
   const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert("Copied!");
+      copySuccess("Copied!");
     } catch (err) {
       console.error("Failed to copy:", err);
     }
@@ -46,7 +47,7 @@ export default function Account() {
   const copyAll = async () => {
     const accountInfo = `First Name: ${account.first_name}\nLast Name: ${account.last_name}\nAccount Number: ${account.account_number} \n Sort Code: ${account.sort_code}`;
     await navigator.clipboard.writeText(accountInfo);
-    alert("All account information copied!");
+    setCopySuccess("All details copied!");
   };
 
   if (loading) return <p>Loading...</p>;
