@@ -49,3 +49,9 @@
   border: 1px solid var(--border);
   font-size: 18px;
 }
+
+.accountDetail .accountDetail_info .account_flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
