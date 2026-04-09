@@ -70,10 +70,7 @@ export default function Account() {
                   </div>
                 </div>
 
-                <div
-                  className='accountDetail_item'
-                  onClick={() => copyToClipboard(account.account_number)}
-                >
+                <div className='accountDetail_item'>
                   <p className='accountDetail_label'>Account Number</p>
                   <p className='accountDetail_value'>
                     {account.account_number}
