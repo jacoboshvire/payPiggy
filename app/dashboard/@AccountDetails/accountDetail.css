@@ -36,5 +36,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.accountDetail .accountDetail_info .accountDetail_info_item {
+  display: flex;
+  gap: 20px;
   align-items: center;
 }
