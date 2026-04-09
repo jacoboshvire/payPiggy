@@ -52,20 +52,11 @@ export default function Account() {
         searchParams.get("account_details") === "true" && (
           <div className='accountDetail_bg'>
             <div className='accountDetail'>
-              <div className='accountDetail_avatar'>
-                <Image
-                  src={
-                    user?.avatar ||
-                    "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png"
-                  }
-                  alt='profile'
-                  height={100}
-                  width={100}
-                />
-              </div>
-
               <div className='accountDetail_info'>
-                <div className='accountDetail_item'>
+                <div
+                  className='accountDetail_item'
+                  onClick={() => copyToClipboard(account.last_name)}
+                >
                   <p className='accountDetail_label'>Full Name</p>
                   <p className='accountDetail_value'>
                     {account.first_name} {account.last_name}
