@@ -70,7 +70,7 @@ export default function Account() {
             )}
             <div className='accountDetail'>
               <div className='title'>
-                <h1>Add Money</h1>
+                <h1>Account Details</h1>
 
                 <div className='cancel_btu'>
                   <svg
