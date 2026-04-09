@@ -32,7 +32,7 @@
   justify-content: space-between;
 }
 
-.accountDetail .account {
+.accountDetail .accountDetail_info {
   display: flex;
   flex-direction: column;
   gap: 20px;
