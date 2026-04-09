@@ -44,4 +44,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  background-color: var(--subcolor);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 18px;
 }
