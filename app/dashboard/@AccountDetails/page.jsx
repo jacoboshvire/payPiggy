@@ -139,7 +139,7 @@ export default function Account() {
                 </div>
                 <div className='account_flex'>
                   <div className='accountDetail_item'>
-                    <p className='accountDetail_label'>Account Number</p>
+                    <p className='accountDetail_label'>Acct No</p>
                     <p className='accountDetail_value'>
                       {account.account_number}
                     </p>
