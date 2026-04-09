@@ -48,7 +48,7 @@ export default function Account() {
   };
 
   const copyAll = async () => {
-    const accountInfo = `First Name: ${account.first_name}\n\t Last Name: ${account.last_name}\n\tAccount Number: ${account.account_number} \n\t Sort Code: ${account.sort_code} \n\t Email: ${user.email}`;
+    const accountInfo = `First Name: ${account.first_name}\nLast Name: ${account.last_name}\nAccount Number: ${account.account_number} \n Sort Code: ${account.sort_code} \nEmail: ${user.email}`;
     await navigator.clipboard.writeText(accountInfo);
     setCopySuccess("All details copied!");
     setTimeout(() => {
