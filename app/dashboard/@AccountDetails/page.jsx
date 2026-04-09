@@ -197,10 +197,7 @@ export default function Account() {
                   <p className='accountDetail_value'>{account.account_type}</p>
                 </div>
 
-                <div
-                  className='accountDetail_item'
-                  onClick={() => copyToClipboard(user?.email)}
-                >
+                <div className='accountDetail_item'>
                   <p className='accountDetail_label'>Email</p>
                   <p className='accountDetail_value'>{user?.email}</p>
                   <div
