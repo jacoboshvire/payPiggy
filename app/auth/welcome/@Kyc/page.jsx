@@ -66,7 +66,7 @@ export default function UpdateProfile() {
 
   return (
     <>
-      {pathname.includes("/auth/welcome") && Kyc && (
+      {pathname.includes("welcome") && Kyc === "true" && (
         <div className='updateName'>
           <form onSubmit={handleSubmit}>
             <div className='inputField'>
