@@ -12,7 +12,7 @@ export default function page() {
       {pathname.includes("/auth/welcome") &&
         searchParams.get("ChooseImage") === "true" && (
           <div>
-            <Link href='/dashboard' className='skipLink'>
+            <Link href='/dashboard?home=true' className='skipLink'>
               skip for now
             </Link>
           </div>
