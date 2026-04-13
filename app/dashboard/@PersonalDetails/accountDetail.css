@@ -1,0 +1,165 @@
+/** @format */
+
+.accountDetail_bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: var(--transparent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.accountDetail {
+  background-color: var(--background);
+  padding: 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: popup 0.3s ease-out;
+  width: 800px;
+}
+
+.accountDetail .title {
+  font-size: 32px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accountDetail .accountDetail_info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.accountDetail_label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.accountDetail_value {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--lighttext);
+}
+
+.accountDetail .accountDetail_info .accountDetail_item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: var(--subcolor);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 18px;
+}
+
+.accountDetail .accountDetail_info .account_flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.accountDetail .accountDetail_info .account_flex .accountDetail_item {
+  width: 48%;
+}
+
+.accountDetail .accountDetail_info .copy {
+  padding: 10px;
+  background-color: var(--border);
+  border-radius: 8px;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.accountDetail .accountDetail_info .copy:hover {
+  background-color: var(--lighttext);
+  color: var(--background);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.accountDetail .accountDetail_info .copy svg {
+  fill: var(--foreground);
+  transition: fill 0.3s ease;
+}
+
+.accountDetail .accountDetail_info .copy:hover svg {
+  fill: var(--background);
+}
+
+.accountDetail .accountDetail_info .copy:active {
+  background-color: var(--gradient);
+  color: var(--background);
+}
+
+.copy_success {
+  position: absolute;
+  top: 20px;
+  background-color: var(--background);
+  color: var(--lighttext);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes popup {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.accountDetail_copyAll {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: var(--subcolor);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  width: fit-content;
+}
+.accountDetail_copyAll p {
+  font-size: 18px;
+  color: var(--lighttext);
+}
+.accountDetail_copyAll .copy {
+  padding: 10px;
+  background-color: var(--border);
+  border-radius: 8px;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+.accountDetail_copyAll .copy:hover {
+  background-color: var(--lighttext);
+  color: var(--background);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.accountDetail_copyAll .copy svg {
+  fill: var(--foreground);
+  transition: fill 0.3s ease;
+}
+.accountDetail_copyAll .copy:hover svg {
+  fill: var(--background);
+}
+.accountDetail_copyAll .copy:active {
+  background-color: var(--gradient);
+  color: var(--background);
+}
