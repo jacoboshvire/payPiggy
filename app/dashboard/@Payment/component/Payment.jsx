@@ -82,25 +82,6 @@ export default function Payment() {
   const [otp, setOtp] = useState("");
   const [showOtp, setShowOtp] = useState(false);
 
-  // Add this inside your form after the amount input
-  if (showOtp) {
-    return (
-      <div className='payment_form_input'>
-        <label htmlFor='otp'>
-          <p>Enter OTP</p>
-        </label>
-        <input
-          type='text'
-          id='otp'
-          placeholder='Enter 5 digit OTP'
-          maxLength={5}
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
-        />
-      </div>
-    );
-  }
-
   return (
     <div className='payment_form'>
       {success && (
@@ -213,6 +194,23 @@ export default function Payment() {
               className={checkEmail ? "err" : ""}
             />
           </div>
+
+          {/* OTP input — shown when age restricted amount detected */}
+          {showOtp && (
+            <div className='payment_form_input'>
+              <label htmlFor='otp'>
+                <p>Enter OTP</p>
+              </label>
+              <input
+                type='text'
+                id='otp'
+                placeholder='Enter 5 digit OTP'
+                maxLength={5}
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+              />
+            </div>
+          )}
         </div>
 
         {error && <p className='error'>{error}</p>}
