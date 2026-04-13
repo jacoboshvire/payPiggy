@@ -25,7 +25,7 @@ const LinkArray = [
         />
       </svg>
     ),
-    link: "#",
+    link: "?account=true&personal_details=true",
   },
   {
     linkName: "Account Details",
