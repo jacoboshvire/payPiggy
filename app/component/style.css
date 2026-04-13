@@ -38,10 +38,11 @@
   font-size: 14px;
   color: var(--lighttext);
   margin: 20px 0;
+  font-size: 300px;
 }
 
 .authLink span {
-  color: var(--gradient);
+  color: #241e77;
   font-weight: 600;
   cursor: pointer;
 }
