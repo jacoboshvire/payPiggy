@@ -83,8 +83,8 @@ export default function Payment() {
   const [showOtp, setShowOtp] = useState(false);
 
   // Add this inside your form after the amount input
-  {
-    showOtp && (
+  if (showOtp) {
+    return (
       <div className='payment_form_input'>
         <label htmlFor='otp'>
           <p>Enter OTP</p>
