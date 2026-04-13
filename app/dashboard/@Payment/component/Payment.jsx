@@ -49,7 +49,10 @@ export default function Payment() {
         toSortCode: sortCode,
         toName: `${firstName} ${lastName}`,
         amount: Number(amount),
-        otp: otp || undefined, /
+        otp: otp || undefined, // Include OTP if required
+        email: email || undefined, // Include email if provided
+      });
+      console.log("Transfer response:", data);
       });
 
       if (data.message === "Transfer successful") {
