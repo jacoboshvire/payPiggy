@@ -10,7 +10,7 @@ export default function UpdateProfile() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const Account = searchParams.get("Account");
+  const Kyc = searchParams.get("Kyc");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [addressLine1, setAddressLine1] = useState("");
   const [addressLine2, setAddressLine2] = useState("");
@@ -66,7 +66,7 @@ export default function UpdateProfile() {
 
   return (
     <>
-      {pathname === "/auth/welcome" && Account && (
+      {pathname === "/auth/welcome" && Kyc && (
         <div className='updateName'>
           <form onSubmit={handleSubmit}>
             <div className='inputField'>
