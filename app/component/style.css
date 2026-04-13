@@ -40,7 +40,7 @@
   margin: 20px 0;
 }
 
-.authLink a {
+.authLink span {
   color: var(--gradient);
   font-weight: 600;
   cursor: pointer;
