@@ -79,6 +79,28 @@ export default function Payment() {
     }
   };
 
+  const [otp, setOtp] = useState("");
+  const [showOtp, setShowOtp] = useState(false);
+
+  // Add this inside your form after the amount input
+  {
+    showOtp && (
+      <div className='payment_form_input'>
+        <label htmlFor='otp'>
+          <p>Enter OTP</p>
+        </label>
+        <input
+          type='text'
+          id='otp'
+          placeholder='Enter 5 digit OTP'
+          maxLength={5}
+          value={otp}
+          onChange={(e) => setOtp(e.target.value)}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className='payment_form'>
       {success && (
