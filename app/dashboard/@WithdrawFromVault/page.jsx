@@ -132,14 +132,13 @@ export default function WithdrawFromVault({ onSuccess }) {
                   <>
                     <div className='title'>
                       <h1>Vault Withdrawal</h1>
-                      <div className='cancel_btu'>
+                      <div className='cancel_btu' onClick={() => router.back()}>
                         <svg
                           width='24'
                           height='24'
                           viewBox='0 0 24 24'
                           fill='none'
                           xmlns='http://www.w3.org/2000/svg'
-                          onClick={() => router.back()}
                         >
                           <line
                             x1='18.364'
