@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import "./style.css";
 import Form from "./form";
-import AuthLink from "../../component/AuthLink";
+import AuthLink from "../../component/authLink";
 
 export default function input() {
   return (
