@@ -4,6 +4,7 @@
   width: 60%;
   height: 50%;
   overflow: hidden;
+  overflow-y: auto;
 }
 
 .inputField {
