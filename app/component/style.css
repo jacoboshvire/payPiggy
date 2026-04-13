@@ -1,4 +1,8 @@
-/* back link style */
+/**
+ * back link style
+ *
+ * @format
+ */
 
 .backLink {
   display: flex;
@@ -26,4 +30,12 @@
 .logo h1 {
   font-size: 24px;
   font-weight: 700;
+}
+
+.authLink {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: var(--lighttext);
+  margin: 20px 0;
 }
