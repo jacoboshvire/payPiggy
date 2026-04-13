@@ -49,7 +49,7 @@ export default function Add() {
       if (data.message === "Deposit successful") {
         setSuccess(true);
         setTimeout(() => {
-          router.push("/dashboard?home=true");
+          router.back();
           setSuccess(false);
         }, 2000);
         return;
