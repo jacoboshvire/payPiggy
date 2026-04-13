@@ -122,9 +122,7 @@ export default function WithdrawFromVault({ onSuccess }) {
                 {success ? (
                   <div>
                     <p className='success'>Withdrawal successful</p>
-                    <button
-                      onClick={() => router.push("/dashboard?payment=true")}
-                    >
+                    <button onClick={() => router.back()}>
                       Back to Dashboard
                     </button>
                   </div>
