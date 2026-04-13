@@ -39,3 +39,9 @@
   color: var(--lighttext);
   margin: 20px 0;
 }
+
+.authLink a {
+  color: var(--gradient);
+  font-weight: 600;
+  cursor: pointer;
+}

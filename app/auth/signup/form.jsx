@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import "./style.css";
 import Input from "./input";
+import AuthLink from "../../component/authLink";
 
 export default function form() {
   return (
@@ -43,6 +44,7 @@ export default function form() {
         </div>
       </div>
       <Input />
+      <AuthLink />
     </div>
   );
 }
