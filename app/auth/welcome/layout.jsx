@@ -5,7 +5,7 @@ import Details from "./component/details";
 import "./style.css";
 import { usePathname, useRouter } from "next/navigation";
 
-export default function layout({ Account, ChooseImage }) {
+export default function layout({ Account, ChooseImage, KYC }) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -19,6 +19,7 @@ export default function layout({ Account, ChooseImage }) {
     <div className='welcome'>
       <Details />
       {Account && Account}
+      {KYC && KYC}
       {ChooseImage && ChooseImage}
     </div>
   );
