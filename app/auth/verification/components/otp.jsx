@@ -85,7 +85,7 @@ export default function Otp({ length = 5 }) {
         Cookies.remove("userId");
         Cookies.remove("isReset");
         Cookies.set("resetToken", data.resetToken, { expires: 1 });
-        router.push("/auth/dashboard");
+        router.push("/auth/reset-password");
       } else {
         // Normal login flow
         const data = await api.post("/api/auth/verify-otp", {
