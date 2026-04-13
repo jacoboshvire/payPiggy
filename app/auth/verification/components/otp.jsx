@@ -111,7 +111,7 @@ export default function Otp({ length = 5 }) {
           Cookies.remove("isNewUser");
           router.push("/auth/welcome");
         } else {
-          router.push("/dashboard");
+          router.push("/dashboard?home=true");
         }
       }
     } catch (err) {
