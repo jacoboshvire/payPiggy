@@ -1,0 +1,89 @@
+.forgotPassword {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: center;
+  height: 100vh;
+}
+
+.forgotPassword_container {
+  width: 100%;
+}
+
+/* input style */
+.form {
+  width: 50%;
+}
+
+form .input {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+form .input input {
+  width: 100%;
+  padding: 15px 15px 15px 50px;
+  border: 1px solid var(--border);
+  background-color: var(--subcolor);
+  border-radius: 10px;
+  outline: none;
+}
+
+form .inputField label {
+  color: var(--foreground);
+  padding-bottom: 20px;
+  font-size: 15px;
+}
+
+form .input input:focus {
+  border-color: 1px solid var(--foreground);
+}
+
+form .input svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  fill: var(--foreground);
+}
+
+form .input .seePassword {
+  /* right: 10px; */
+  position: absolute;
+  left: 92%;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  fill: var(--foreground);
+}
+
+.forgottenPassword {
+  display: flex;
+  justify-content: flex-end;
+  color: #241e77;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+button {
+  background: var(--gradient);
+  color: white;
+  padding: 15px 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  gap: 30px;
+}
+
+/* Details.jsx paragraph style */
+
+.details_paragraph {
+  margin: 2.6% 0;
+  font-size: 18px;
+  font-weight: 300;
+}

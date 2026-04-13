@@ -27,7 +27,7 @@ export default function OtpOptions() {
       const userId = Cookies.get("userId");
 
       if (!userId) {
-        router.push("/login");
+        router.push("/auth/login");
         return;
       }
 

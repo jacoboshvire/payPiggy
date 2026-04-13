@@ -155,7 +155,7 @@ export default function Form() {
         </div>
 
         <div className='forgottenPassword'>
-          <a href='#'>Forgotten Password?</a>
+          <a href='/auth/forgottenpassword'>Forgotten Password?</a>
         </div>
 
         {error && <p className='error'>{error}</p>}

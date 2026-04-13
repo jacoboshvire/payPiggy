@@ -63,40 +63,56 @@ export default function Otp({ length = 5 }) {
 
     try {
       const userId = Cookies.get("userId");
+      const isReset = Cookies.get("isReset");
 
       if (!userId) {
-        router.push("/login");
+        router.push("/auth/login");
         return;
       }
 
-      const data = await api.post("/api/auth/verify-otp", {
-        userId: Number(userId),
-        otp: combinedOTP,
-      });
+      if (isReset) {
+        // Reset password flow
+        const data = await api.post("/api/auth/verify-forgot-otp", {
+          userId: Number(userId),
+          otp: combinedOTP,
+        });
 
-      if (!data.token) {
-        setError(data.message || "Invalid OTP");
-        return;
-      }
+        if (!data.resetToken) {
+          setError(data.message || "Invalid OTP");
+          return;
+        }
 
-      // Save JWT first
-      saveToken(data.token);
-      Cookies.remove("userId");
-
-      // Now fetch account ID (token is saved so request is authenticated)
-      const userData = await api.get("/api/account");
-      if (userData && userData.length > 0) {
-        localStorage.setItem("accountId", userData[0].id);
-      }
-
-      // Redirect based on new user or not
-      const isNewUser = Cookies.get("isNewUser");
-
-      if (isNewUser) {
-        Cookies.remove("isNewUser");
-        router.push("/auth/welcome");
+        Cookies.remove("userId");
+        Cookies.remove("isReset");
+        Cookies.set("resetToken", data.resetToken, { expires: 1 });
+        router.push("/auth/dashboard");
       } else {
-        router.push("/dashboard");
+        // Normal login flow
+        const data = await api.post("/api/auth/verify-otp", {
+          userId: Number(userId),
+          otp: combinedOTP,
+        });
+
+        if (!data.token) {
+          setError(data.message || "Invalid OTP");
+          return;
+        }
+
+        saveToken(data.token);
+        Cookies.remove("userId");
+
+        const userData = await api.get("/api/account");
+        if (userData && userData.length > 0) {
+          localStorage.setItem("accountId", userData[0].id);
+        }
+
+        const isNewUser = Cookies.get("isNewUser");
+        if (isNewUser) {
+          Cookies.remove("isNewUser");
+          router.push("/auth/welcome");
+        } else {
+          router.push("/dashboard");
+        }
       }
     } catch (err) {
       setError("Something went wrong. Please try again.");
@@ -108,10 +124,14 @@ export default function Otp({ length = 5 }) {
   const handleResend = async () => {
     try {
       const userId = Cookies.get("userId");
-      await api.post("/api/auth/send-otp", {
-        userId: Number(userId),
-        channel: "email",
-      });
+      const isReset = Cookies.get("isReset");
+      const channel = Cookies.get("otpChannel") || "email";
+
+      await api.post(
+        isReset ? "/api/auth/forgot-password" : "/api/auth/send-otp",
+        { userId: Number(userId), channel },
+      );
+
       setError("OTP resent successfully");
     } catch (err) {
       setError("Failed to resend OTP");
