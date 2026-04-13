@@ -67,7 +67,7 @@ export default function page() {
                 <Link href='/auth/login'>Login</Link>
               </div>
               <div className='createAccount'>
-                <Link href='/signup'>Create an Account</Link>
+                <Link href='/auth/signup'>Create an Account</Link>
                 <div></div>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function page() {
                 today.
               </p>
               <div className='createAccount'>
-                <Link href='/signup'>Create an Account</Link>
+                <Link href='/auth/signup'>Create an Account</Link>
                 <div></div>
               </div>
             </div>
