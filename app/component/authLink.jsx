@@ -8,7 +8,7 @@ export default function authLink() {
   const router = useRouter();
 
   return (
-    <div>
+    <div className='authLink'>
       {pathname === "/auth/login" && (
         <p>
           Don't have an account?{" "}
