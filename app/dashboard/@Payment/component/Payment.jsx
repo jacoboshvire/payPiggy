@@ -50,10 +50,16 @@ export default function Payment() {
         toName: `${firstName} ${lastName}`,
         amount: Number(amount),
         otp: otp || undefined, // Include OTP if required
-        email: email || undefined, // Include email if provided
       });
-      console.log("Transfer response:", data);
-      });
+
+      if (data.requiresOtp) {
+        // Show OTP input
+        setShowOtp(true);
+        setError(
+          "An OTP has been sent to your email. Please enter it to confirm.",
+        );
+        return;
+      }
 
       if (data.message === "Transfer successful") {
         setSuccess(`Transfer successful. Reference: ${data.reference}`);
