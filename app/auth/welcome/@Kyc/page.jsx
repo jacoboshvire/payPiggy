@@ -53,7 +53,7 @@ export default function UpdateProfile() {
 
       if (data.message === "Account updated") {
         setSuccess(true);
-        router.push("/dashboard");
+        router.push("/auth/welcome?ChooseImage=true");
       } else {
         setError(data.message || "Failed to update. Please try again.");
       }
