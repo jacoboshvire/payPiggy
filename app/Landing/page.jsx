@@ -365,7 +365,7 @@ export default function page() {
                 once: true,
               }}
             >
-              <Link href='/signup'>Create an Account</Link>
+              <Link href='/auth/signup'>Create an Account</Link>
               <div></div>
             </motion.div>
           </div>
@@ -417,7 +417,7 @@ export default function page() {
               once: true,
             }}
           >
-            <Link href='/signup'>Create an Account</Link>
+            <Link href='/auth/signup'>Create an Account</Link>
             <div></div>
           </motion.div>
         </motion.div>
