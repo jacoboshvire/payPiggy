@@ -49,6 +49,7 @@ export default function Payment() {
         toSortCode: sortCode,
         toName: `${firstName} ${lastName}`,
         amount: Number(amount),
+        otp: otp || undefined, /
       });
 
       if (data.message === "Transfer successful") {
