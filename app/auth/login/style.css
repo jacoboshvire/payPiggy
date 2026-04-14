@@ -175,6 +175,7 @@ button {
 
 .suspended-timer {
   position: absolute;
-  top: 0;
+  bottom: 30px;
   left: 0;
+  z-index: 200;
 }
