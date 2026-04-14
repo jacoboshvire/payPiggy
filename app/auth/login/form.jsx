@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { api } from "@/lib/api";
+import { a } from "framer-motion/client";
 
 export default function Form() {
   const router = useRouter();
@@ -194,22 +195,24 @@ export default function Form() {
         </div>
 
         {/* Suspension timer */}
+        {suspended ||
+          (!suspended && attemptsRemaining !== null && (
+            <div className='suspended-timer'>
+              {suspended && (
+                <div className='suspended'>
+                  <p>Account suspended. Try again in</p>
+                  <p className='timer'>{formatTime(timeLeft)}</p>
+                </div>
+              )}
 
-        <div className='suspended-timer'>
-          {suspended && (
-            <div className='suspended'>
-              <p>Account suspended. Try again in</p>
-              <p className='timer'>{formatTime(timeLeft)}</p>
+              {/* Attempts remaining warning */}
+              {!suspended && attemptsRemaining !== null && (
+                <p className='attemptsWarning'>
+                  {attemptsRemaining} attempts remaining before suspension
+                </p>
+              )}
             </div>
-          )}
-
-          {/* Attempts remaining warning */}
-          {!suspended && attemptsRemaining !== null && (
-            <p className='attemptsWarning'>
-              {attemptsRemaining} attempts remaining before suspension
-            </p>
-          )}
-        </div>
+          ))}
 
         {error && <p className='error'>{error}</p>}
 
