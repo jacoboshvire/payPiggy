@@ -194,19 +194,22 @@ export default function Form() {
         </div>
 
         {/* Suspension timer */}
-        {suspended && (
-          <div className='suspended'>
-            <p>Account suspended. Try again in</p>
-            <p className='timer'>{formatTime(timeLeft)}</p>
-          </div>
-        )}
 
-        {/* Attempts remaining warning */}
-        {!suspended && attemptsRemaining !== null && (
-          <p className='attemptsWarning'>
-            {attemptsRemaining} attempts remaining before suspension
-          </p>
-        )}
+        <div className='suspended-timer'>
+          {suspended && (
+            <div className='suspended'>
+              <p>Account suspended. Try again in</p>
+              <p className='timer'>{formatTime(timeLeft)}</p>
+            </div>
+          )}
+
+          {/* Attempts remaining warning */}
+          {!suspended && attemptsRemaining !== null && (
+            <p className='attemptsWarning'>
+              {attemptsRemaining} attempts remaining before suspension
+            </p>
+          )}
+        </div>
 
         {error && <p className='error'>{error}</p>}
 
