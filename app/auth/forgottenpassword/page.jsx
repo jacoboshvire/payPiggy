@@ -1,3 +1,5 @@
+/** @format */
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -6,10 +8,10 @@ import Detail from "./component/Detail";
 import From from "./component/From";
 import "./component/style.css";
 
-export default function page() {
+export default function Page() {
   return (
-    <div className="forgotPassword">
-      <div className="forgotPassword_container">
+    <div className='forgotPassword'>
+      <div className='forgotPassword_container'>
         <Back />
         <Detail />
         <From />

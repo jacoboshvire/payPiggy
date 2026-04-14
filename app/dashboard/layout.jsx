@@ -6,7 +6,7 @@ import Nav from "./component/Nav";
 import { usePathname, useRouter } from "next/navigation";
 import "./style.css";
 
-export default function layout({
+export default function Layout({
   Account,
   Home,
   Payment,
