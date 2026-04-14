@@ -185,7 +185,19 @@ button {
   border: 1px solid var(--border);
 }
 
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .timer {
   font-weight: 600;
   color: #241e77;
+  animation: slideUp 0.6s ease-out;
 }
