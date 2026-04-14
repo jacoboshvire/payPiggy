@@ -1,4 +1,9 @@
-/* main page */
+/**
+ * main page
+ *
+ * @format
+ */
+
 .loginPage {
   display: flex;
   flex-direction: row;
@@ -13,159 +18,176 @@
 * ======================================================
 */
 
-.loginPage .secondContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-    background-image: var(--gradient);
-    overflow: hidden;
-    position: relative;
-    width: 60%;
-    height: 90%;
-    border-radius: 20px;
-    padding: 60px;
-    color: white;
-    text-align: center;
+.loginPage .secondContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  background-image: var(--gradient);
+  overflow: hidden;
+  position: relative;
+  width: 60%;
+  height: 90%;
+  border-radius: 20px;
+  padding: 60px;
+  color: white;
+  text-align: center;
 }
 
-.loginPage .secondContainer .writeUp{
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.loginPage .secondContainer .writeUp {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
-
-.loginPage .secondContainer *{
-    position: relative;
-    z-index: 1;
+.loginPage .secondContainer * {
+  position: relative;
+  z-index: 1;
 }
 
-.loginPage .secondContainer h1{
-    font-size: 30px;
-    font-weight: 900;
+.loginPage .secondContainer h1 {
+  font-size: 30px;
+  font-weight: 900;
 }
 
-.loginPage .secondContainer p{
-    font-size: 18px;
-    font-weight: 200;
-    width: 80%;
+.loginPage .secondContainer p {
+  font-size: 18px;
+  font-weight: 200;
+  width: 80%;
 }
 
-.loginPage .secondContainer .image{
-    position: absolute;
-    bottom: 0px;
-    right: -4px;
-    width: 700px;
-    transform: translateY(0%);
+.loginPage .secondContainer .image {
+  position: absolute;
+  bottom: 0px;
+  right: -4px;
+  width: 700px;
+  transform: translateY(0%);
 }
 
-.loginPage .secondContainer .image img{
-    width: 100%;
-    height: auto;
+.loginPage .secondContainer .image img {
+  width: 100%;
+  height: auto;
 }
 
 /* login form
 * ======================================================
 */
 
-.loginInput{
-    width: 36%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: space-evenly;
+.loginInput {
+  width: 36%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: space-evenly;
 }
 
-.loginInput .titleAndDetails{
-    margin: 5% 0;
+.loginInput .titleAndDetails {
+  margin: 5% 0;
 }
 
-
-.loginInput .titleAndDetails .logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.loginInput .titleAndDetails .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.loginInput .titleAndDetails .logo h1{
-    font-size: 24px;
-    font-weight: 700;
+.loginInput .titleAndDetails .logo h1 {
+  font-size: 24px;
+  font-weight: 700;
 }
 
-.loginInput .titleAndDetails h2{
-    font-size: 30px;
-    font-weight: 900;
+.loginInput .titleAndDetails h2 {
+  font-size: 30px;
+  font-weight: 900;
 }
 
-.loginInput .titleAndDetails p{
-    font-size: 18px;
-    font-weight: 300;
-    margin-top: 5px;
+.loginInput .titleAndDetails p {
+  font-size: 18px;
+  font-weight: 300;
+  margin-top: 5px;
 }
 
-form .input{
-    position: relative;
-    margin-bottom: 25px;
+form .input {
+  position: relative;
+  margin-bottom: 25px;
 }
 
-form .input input{
-    width: 100%;
-    padding: 15px 15px 15px 50px;
-    border: 1px solid var(--border);
-    background-color: var(--subcolor);
-    border-radius: 10px;
-    outline: none;  
+form .input input {
+  width: 100%;
+  padding: 15px 15px 15px 50px;
+  border: 1px solid var(--border);
+  background-color: var(--subcolor);
+  border-radius: 10px;
+  outline: none;
 }
 
-form .inputField label{
-    color: var(--foreground);
-    padding-bottom: 20px;
-    font-size: 15px;
+form .inputField label {
+  color: var(--foreground);
+  padding-bottom: 20px;
+  font-size: 15px;
 }
 
-form .input input:focus{
-    border-color: 1px solid var(--foreground);
+form .input input:focus {
+  border-color: 1px solid var(--foreground);
 }
 
-form .input svg{
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    fill: var(--foreground);
+form .input svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  fill: var(--foreground);
 }
 
-form .input .seePassword{
-    /* right: 10px; */
-    position: absolute;
-    left: 92%;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    fill: var(--foreground);
+form .input .seePassword {
+  /* right: 10px; */
+  position: absolute;
+  left: 92%;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  fill: var(--foreground);
 }
 
-.forgottenPassword{
-    display: flex;
-    justify-content: flex-end;
-    color: #241E77;
-    font-size: 14px;
-    font-weight: 300;
-    margin-top: 10px;
+.forgottenPassword {
+  display: flex;
+  justify-content: flex-end;
+  color: #241e77;
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 10px;
 }
 
-button{
-    background: var(--gradient);
-    color: white;
-    padding: 15px 60px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 300;
+button {
+  background: var(--gradient);
+  color: white;
+  padding: 15px 60px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.suspended {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 900;
+  z-index: 10;
+  text-align: center;
+  padding: 20px;
 }
