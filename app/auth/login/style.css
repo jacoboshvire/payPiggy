@@ -203,7 +203,7 @@ button {
   animation: slideUp 0.6s ease-out;
 }
 
-.suspended {
+.suspended-timer .suspended {
   position: absolute;
   bottom: 30px;
   right: 70px;
