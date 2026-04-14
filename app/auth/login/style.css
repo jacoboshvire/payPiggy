@@ -184,3 +184,8 @@ button {
   border-radius: 10px;
   border: 1px solid var(--border);
 }
+
+.suspended-timer .suspended {
+  font-weight: 600;
+  color: #241e77;
+}
