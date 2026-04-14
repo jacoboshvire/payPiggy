@@ -176,6 +176,8 @@ button {
 .suspended-timer {
   position: absolute;
   bottom: 30px;
-  left: 0;
+  right: 0;
   z-index: 200;
+  background-color: var(--subcolor);
+  color: var(--lighttext);
 }
