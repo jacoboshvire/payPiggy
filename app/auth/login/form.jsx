@@ -1,7 +1,7 @@
 /** @format */
 
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { api } from "@/lib/api";
@@ -13,36 +13,67 @@ export default function Form() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [suspended, setSuspended] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(0);
+  const [attemptsRemaining, setAttemptsRemaining] = useState(null);
+
+  // Countdown timer
+  useEffect(() => {
+    if (!suspended || timeLeft <= 0) return;
+
+    const interval = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev <= 1) {
+          setSuspended(false);
+          clearInterval(interval);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [suspended, timeLeft]);
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
 
   const changeType = () => {
     setSeePassword((prev) => !prev);
   };
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
     try {
-      // Step 1 - Login
       const data = await api.post("/api/auth/login", { email, password });
 
+      // Handle suspension
+      if (data.suspended) {
+        setSuspended(true);
+        const secondsLeft = Math.ceil(
+          (new Date(data.suspended_until) - new Date()) / 1000,
+        );
+        setTimeLeft(secondsLeft);
+        setError(`Account suspended due to too many failed attempts.`);
+        return;
+      }
+
       if (!data.userId) {
+        if (data.attempts_remaining !== undefined) {
+          setAttemptsRemaining(data.attempts_remaining);
+        }
         setError(data.message || "Login failed");
         return;
       }
 
-      // Step 2 - Save userId to cookie
-      Cookies.set("userId", String(data.userId), { expires: 1 });
-
-      // Step 3 - Send OTP
-      await api.post("/api/auth/send-otp", {
-        userId: data.userId,
-        channel: "email",
-      });
-
-      // Step 4 - Redirect to OTP verification
-      // Remove the send-otp call and change redirect
+      // Reset on success
+      setAttemptsRemaining(null);
       Cookies.set("userId", String(data.userId), { expires: 1 });
       router.push("/auth/otp-options");
     } catch (err) {
@@ -79,6 +110,7 @@ export default function Form() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={suspended}
             />
           </div>
         </div>
@@ -107,6 +139,7 @@ export default function Form() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              disabled={suspended}
             />
             {seePassword ? (
               <svg
@@ -158,10 +191,29 @@ export default function Form() {
           <a href='/auth/forgottenpassword'>Forgotten Password?</a>
         </div>
 
+        {/* Suspension timer */}
+        {suspended && (
+          <div className='suspended'>
+            <p>Account suspended. Try again in</p>
+            <p className='timer'>{formatTime(timeLeft)}</p>
+          </div>
+        )}
+
+        {/* Attempts remaining warning */}
+        {!suspended && attemptsRemaining !== null && (
+          <p className='attemptsWarning'>
+            {attemptsRemaining} attempt(s) remaining before suspension
+          </p>
+        )}
+
         {error && <p className='error'>{error}</p>}
 
-        <button type='submit' disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
+        <button type='submit' disabled={loading || suspended}>
+          {loading
+            ? "Logging in..."
+            : suspended
+              ? `Try again in ${formatTime(timeLeft)}`
+              : "Login"}
         </button>
       </form>
     </div>
