@@ -185,7 +185,7 @@ button {
   border: 1px solid var(--border);
 }
 
-.suspended-timer .timer {
+.timer {
   font-weight: 600;
   color: #241e77;
 }
