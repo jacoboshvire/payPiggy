@@ -6,7 +6,7 @@ import "./style.css";
 import Form from "./form";
 import AuthLink from "../../component/authLink";
 
-export default function input() {
+export default function Input() {
   return (
     <div className='loginInput'>
       <div className='titleAndDetails'>
