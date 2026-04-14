@@ -204,7 +204,7 @@ export default function Form() {
         {/* Attempts remaining warning */}
         {!suspended && attemptsRemaining !== null && (
           <p className='attemptsWarning'>
-            {attemptsRemaining} attempt(s) remaining before suspension
+            {attemptsRemaining} attempts remaining before suspension
           </p>
         )}
 
