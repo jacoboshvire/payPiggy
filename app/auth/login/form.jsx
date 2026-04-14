@@ -52,7 +52,9 @@ export default function Form() {
 
     try {
       const data = await api.post("/api/auth/login", { email, password });
-
+      console.log("Login response:", data);
+      console.log("Suspended:", data.suspended);
+      console.log("Attempts remaining:", data.attempts_remaining);
       // Handle suspension
       if (data.suspended) {
         setSuspended(true);
