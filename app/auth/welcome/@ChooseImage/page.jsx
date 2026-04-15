@@ -16,7 +16,11 @@ export default function Page() {
             <Link href='/dashboard?home=true' className='skipLink'>
               skip for now
             </Link>
-            <UpdateAvatar />
+            <UpdateAvatar
+              userId={userId}
+              currentAvatar={avatar}
+              onSuccess={(newAvatar) => setAvatar(newAvatar)}
+            />
           </div>
         )}
     </>
