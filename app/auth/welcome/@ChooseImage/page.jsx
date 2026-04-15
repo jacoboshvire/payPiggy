@@ -1,29 +1,10 @@
 /** @format */
-"use client";
-import React from "react";
-import { useSearchParams, usePathname } from "next/navigation";
-import Link from "next/link";
-
-export default function page() {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  return (
-    <>
-      {pathname.includes("/auth/welcome") &&
-        searchParams.get("ChooseImage") === "true" && (
-          <div>
-            <Link href='/dashboard?home=true' className='skipLink'>
-              skip for now
-            </Link>
-          </div>
-        )}
-    </>
-  );
-}
 
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useSearchParams, usePathname } from "next/navigation";
+import Link from "next/link";
 
 const DEFAULT_AVATARS = [
   "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1/paypiggy/avatars/avatar1",
@@ -42,6 +23,8 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -83,7 +66,7 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
             method: "PUT",
             headers: { Authorization: `Bearer ${token}` },
             body: formData,
-          }
+          },
         );
 
         const data = await res.json();
@@ -105,7 +88,7 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
               Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({ avatar: selected }),
-          }
+          },
         );
 
         const data = await res.json();
@@ -128,87 +111,103 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
     <>
       {pathname.includes("/auth/welcome") &&
         searchParams.get("ChooseImage") === "true" && (
-    <div className="updateAvatar">
-      {/* Tab switcher */}
-      <div className="avatar_tabs">
-        <button
-          type="button"
-          className={tab === "choose" ? "active" : ""}
-          onClick={() => setTab("choose")}
-        >
-          Choose Avatar
-        </button>
-        <button
-          type="button"
-          className={tab === "upload" ? "active" : ""}
-          onClick={() => setTab("upload")}
-        >
-          Upload Photo
-        </button>
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        {/* Choose from defaults */}
-        {tab === "choose" && (
-          <div className="avatar_grid">
-            {DEFAULT_AVATARS.map((url, index) => (
-              <div
-                key={index}
-                className={`avatar_option ${selected === url ? "selected" : ""}`}
-                onClick={() => handleSelectAvatar(url)}
+          <div className='updateAvatar'>
+            <Link href='/dashboard?home=true' className='skipLink'>
+              skip for now
+            </Link>
+            {/* Tab switcher */}
+            <div className='avatar_tabs'>
+              <button
+                type='button'
+                className={tab === "choose" ? "active" : ""}
+                onClick={() => setTab("choose")}
               >
-                <Image
-                  src={url}
-                  alt={`Avatar ${index + 1}`}
-                  width={80}
-                  height={80}
-                />
-                {selected === url && (
-                  <div className="avatar_check">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" clipRule="evenodd" d="M20.707 5.293a1 1 0 010 1.414l-11 11a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L9 15.586 19.293 5.293a1 1 0 011.414 0z" fill="white" />
-                    </svg>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Upload custom image */}
-        {tab === "upload" && (
-          <div className="avatar_upload">
-            {preview && (
-              <div className="avatar_preview">
-                <Image
-                  src={preview}
-                  alt="Preview"
-                  width={100}
-                  height={100}
-                />
-              </div>
-            )}
-            <div className="inputField">
-              <label htmlFor="avatar">Choose an image</label>
-              <input
-                type="file"
-                id="avatar"
-                name="avatar"
-                accept="image/jpg, image/jpeg, image/png, image/webp"
-                onChange={handleFileChange}
-              />
+                Choose Avatar
+              </button>
+              <button
+                type='button'
+                className={tab === "upload" ? "active" : ""}
+                onClick={() => setTab("upload")}
+              >
+                Upload Photo
+              </button>
             </div>
+
+            <form onSubmit={handleSubmit}>
+              {/* Choose from defaults */}
+              {tab === "choose" && (
+                <div className='avatar_grid'>
+                  {DEFAULT_AVATARS.map((url, index) => (
+                    <div
+                      key={index}
+                      className={`avatar_option ${selected === url ? "selected" : ""}`}
+                      onClick={() => handleSelectAvatar(url)}
+                    >
+                      <Image
+                        src={url}
+                        alt={`Avatar ${index + 1}`}
+                        width={80}
+                        height={80}
+                      />
+                      {selected === url && (
+                        <div className='avatar_check'>
+                          <svg
+                            width='16'
+                            height='16'
+                            viewBox='0 0 24 24'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'
+                          >
+                            <path
+                              fillRule='evenodd'
+                              clipRule='evenodd'
+                              d='M20.707 5.293a1 1 0 010 1.414l-11 11a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L9 15.586 19.293 5.293a1 1 0 011.414 0z'
+                              fill='white'
+                            />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Upload custom image */}
+              {tab === "upload" && (
+                <div className='avatar_upload'>
+                  {preview && (
+                    <div className='avatar_preview'>
+                      <Image
+                        src={preview}
+                        alt='Preview'
+                        width={100}
+                        height={100}
+                      />
+                    </div>
+                  )}
+                  <div className='inputField'>
+                    <label htmlFor='avatar'>Choose an image</label>
+                    <input
+                      type='file'
+                      id='avatar'
+                      name='avatar'
+                      accept='image/jpg, image/jpeg, image/png, image/webp'
+                      onChange={handleFileChange}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {error && <p className='error'>{error}</p>}
+              {success && (
+                <p className='success'>Avatar updated successfully</p>
+              )}
+
+              <button type='submit' disabled={loading || (!selected && !file)}>
+                {loading ? "Saving..." : "Save Avatar"}
+              </button>
+            </form>
           </div>
-        )}
-
-        {error && <p className="error">{error}</p>}
-        {success && <p className="success">Avatar updated successfully</p>}
-
-        <button type="submit" disabled={loading || (!selected && !file)}>
-          {loading ? "Saving..." : "Save Avatar"}
-        </button>
-      </form>
-    </div>
         )}
     </>
   );
