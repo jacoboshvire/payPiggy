@@ -9,11 +9,11 @@ export default function Layout({ Account, ChooseImage, Kyc }) {
   const pathname = usePathname();
   const router = useRouter();
 
-  useEffect(() => {
-    if (pathname === "/auth/welcome") {
-      router.push("/auth/welcome?Account=true");
-    }
-  }, [pathname, router]);
+  // useEffect(() => {
+  //   if (pathname === "/auth/welcome") {
+  //     router.push("/auth/welcome?Account=true");
+  //   }
+  // }, [pathname, router]);
 
   return (
     <div className='welcome'>
