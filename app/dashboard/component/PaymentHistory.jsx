@@ -28,9 +28,10 @@ export default function PaymentHistory() {
           txn.other_avatar ||
           "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png",
         name:
-          txn.other_first_name && txn.other_last_name
+          txn.other_name ||
+          (txn.other_first_name && txn.other_last_name
             ? `${txn.other_first_name} ${txn.other_last_name}`
-            : "Unknown",
+            : "Unknown"),
       }));
 
       if (replace) {
