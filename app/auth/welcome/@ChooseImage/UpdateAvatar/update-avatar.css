@@ -33,5 +33,12 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 50%;
-  margin: 0 3%;
+  margin: 3% 0;
+}
+
+.avatar_grid img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
