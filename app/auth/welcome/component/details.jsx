@@ -19,7 +19,7 @@ export default function Details() {
         {pathname.includes("/auth/welcome") && isChooseImage ? (
           <h1>Choose your profile picture</h1>
         ) : (
-          <h1>We'd like to get to know you better</h1>
+          <h1>We’d like to get to know you better</h1>
         )}
         <p>please provide a few more details to create your account.</p>
       </div>
