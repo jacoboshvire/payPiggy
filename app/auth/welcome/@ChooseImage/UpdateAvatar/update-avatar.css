@@ -42,4 +42,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 20px;
+  background-color: var(--subcolor);
+}
+
+.avatar_grid .avatar_option.selected {
+  border-color: var(--gradient);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
