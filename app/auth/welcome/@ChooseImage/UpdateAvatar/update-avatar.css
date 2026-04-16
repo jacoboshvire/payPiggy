@@ -32,7 +32,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  width: 50%;
+  width: fit-content;
   margin: 3% 0;
 }
 
@@ -41,7 +41,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 20px;
+  padding: 40px;
   background-color: var(--subcolor);
   display: flex;
   justify-content: center;
