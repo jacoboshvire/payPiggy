@@ -70,6 +70,7 @@
   padding: 20px;
   border-radius: 10px;
   border: 4px dotted var(--border);
+  cursor: pointer;
 }
 
 .inputField label {
