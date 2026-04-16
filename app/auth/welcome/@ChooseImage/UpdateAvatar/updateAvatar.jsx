@@ -156,7 +156,7 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
                 <Image src={preview} alt='Preview' width={100} height={100} />
               </div>
             )}
-            <div className='inputField'>
+            <div className='inputchoice'>
               <label htmlFor='avatar' className='formLabel'>
                 Choose an image
               </label>
