@@ -79,15 +79,16 @@ export default function PaymentHistory() {
     return () => clearInterval(interval);
   }, [fetchTransactions]);
 
-  // Infinite scroll observer — set up once
+  // Infinite scroll observer — re-attach after transactions update
   useEffect(() => {
+    if (!bottomRef.current || isInitialLoad.current) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (
           entries[0].isIntersecting &&
           hasMoreRef.current &&
-          !loadingMoreRef.current &&
-          !isInitialLoad.current
+          !loadingMoreRef.current
         ) {
           loadingMoreRef.current = true;
           setLoadingMore(true);
@@ -98,12 +99,10 @@ export default function PaymentHistory() {
       { threshold: 0.1 },
     );
 
-    if (bottomRef.current) {
-      observer.observe(bottomRef.current);
-    }
+    observer.observe(bottomRef.current);
 
     return () => observer.disconnect();
-  }, [fetchTransactions]);
+  }, [fetchTransactions, transactions]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
