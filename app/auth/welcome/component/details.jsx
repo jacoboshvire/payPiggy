@@ -13,7 +13,8 @@ export default function Details() {
       <Back />
       <Logo />
       <div className='welcome_title'>
-        {pathname === "/auth/welcome?ChooseImage=true" ? (
+        {pathname.includes("/auth/welcome") &&
+        pathname.includes("ChooseImage=true") ? (
           <h1>Choose your profile picture</h1>
         ) : (
           <h1>We’d like to get to know you better</h1>
