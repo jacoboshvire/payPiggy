@@ -14,6 +14,7 @@ export default function PaymentHistory() {
   const pageRef = useRef(1);
   const loadingMoreRef = useRef(false);
   const hasMoreRef = useRef(true);
+  const isInitialLoad = useRef(true);
   const LIMIT = 5;
 
   const fetchTransactions = useCallback(async (pageNum, replace = false) => {
@@ -50,6 +51,7 @@ export default function PaymentHistory() {
       setLoading(false);
       setLoadingMore(false);
       loadingMoreRef.current = false;
+      isInitialLoad.current = false;
     }
   }, []);
 
@@ -58,25 +60,26 @@ export default function PaymentHistory() {
     fetchTransactions(1, true);
   }, [fetchTransactions]);
 
-  // Refresh every 10 seconds
+  // Refresh every 10 seconds — reset page ref too
   useEffect(() => {
     const interval = setInterval(() => {
       pageRef.current = 1;
+      hasMoreRef.current = true;
+      setHasMore(true);
       fetchTransactions(1, true);
     }, 10000);
     return () => clearInterval(interval);
   }, [fetchTransactions]);
 
-  // Infinite scroll observer — re-observe when transactions change
+  // Infinite scroll observer — set up once
   useEffect(() => {
-    if (!bottomRef.current) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         if (
           entries[0].isIntersecting &&
           hasMoreRef.current &&
-          !loadingMoreRef.current
+          !loadingMoreRef.current &&
+          !isInitialLoad.current
         ) {
           loadingMoreRef.current = true;
           setLoadingMore(true);
@@ -87,10 +90,12 @@ export default function PaymentHistory() {
       { threshold: 0.1 },
     );
 
-    observer.observe(bottomRef.current);
+    if (bottomRef.current) {
+      observer.observe(bottomRef.current);
+    }
 
     return () => observer.disconnect();
-  }, [fetchTransactions, transactions]); // re-run when transactions change
+  }, [fetchTransactions]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
