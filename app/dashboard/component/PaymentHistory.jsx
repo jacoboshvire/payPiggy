@@ -9,11 +9,11 @@ export default function PaymentHistory() {
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState("");
-  const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const observerRef = useRef(null);
   const bottomRef = useRef(null);
   const pageRef = useRef(1);
+  const loadingMoreRef = useRef(false);
+  const hasMoreRef = useRef(true);
   const LIMIT = 5;
 
   const fetchTransactions = useCallback(async (pageNum, replace = false) => {
@@ -41,12 +41,15 @@ export default function PaymentHistory() {
         setTransactions((prev) => [...prev, ...enriched]);
       }
 
-      setHasMore(data.results.length === LIMIT);
+      const more = data.results.length === LIMIT;
+      setHasMore(more);
+      hasMoreRef.current = more;
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
       setLoadingMore(false);
+      loadingMoreRef.current = false;
     }
   }, []);
 
@@ -59,35 +62,28 @@ export default function PaymentHistory() {
   useEffect(() => {
     const interval = setInterval(() => {
       pageRef.current = 1;
-      setPage(1);
       fetchTransactions(1, true);
     }, 10000);
     return () => clearInterval(interval);
   }, [fetchTransactions]);
 
-  // Infinite scroll observer — set up once
+  // Infinite scroll observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          setHasMore((currentHasMore) => {
-            if (!currentHasMore) return currentHasMore;
-            setLoadingMore((currentLoadingMore) => {
-              if (currentLoadingMore) return currentLoadingMore;
-              const nextPage = pageRef.current + 1;
-              pageRef.current = nextPage;
-              setPage(nextPage);
-              fetchTransactions(nextPage);
-              return true;
-            });
-            return currentHasMore;
-          });
+        if (
+          entries[0].isIntersecting &&
+          hasMoreRef.current &&
+          !loadingMoreRef.current
+        ) {
+          loadingMoreRef.current = true;
+          setLoadingMore(true);
+          pageRef.current += 1;
+          fetchTransactions(pageRef.current);
         }
       },
-      { threshold: 0.1 }, // trigger when 10% visible
+      { threshold: 0.1 },
     );
-
-    observerRef.current = observer;
 
     if (bottomRef.current) {
       observer.observe(bottomRef.current);
@@ -135,7 +131,6 @@ export default function PaymentHistory() {
           </div>
         ))}
 
-        {/* Infinite scroll trigger */}
         <div ref={bottomRef} style={{ height: "20px" }} />
 
         {loadingMore && <p>Loading more...</p>}
