@@ -1,5 +1,11 @@
 /** @format */
 
+.avatar_tabs {
+  display: flex;
+  gap: 20px;
+  margin: 0 20px;
+}
+
 .avatar_tabs div {
   margin-top: 20px;
   background-color: var(--subcolor);
