@@ -11,78 +11,56 @@ export default function PaymentHistory() {
   const [error, setError] = useState("");
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [userData, setUserData] = useState(null);
   const observerRef = useRef(null);
   const bottomRef = useRef(null);
   const LIMIT = 5;
 
-  // Fetch user data once
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const accountId = localStorage.getItem("accountId");
-        const accountData = await api.get(`/api/account/${accountId}`);
-        const user = await api.get(`/api/users/${accountData.user_id}`);
-        setUserData(user);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+  const fetchTransactions = useCallback(async (pageNum, replace = false) => {
+    try {
+      const accountId = localStorage.getItem("accountId");
+      const data = await api.get(
+        `/api/transaction/history/${accountId}?limit=${LIMIT}&page=${pageNum}`,
+      );
 
-    fetchUserData();
+      const enriched = (data.results || []).map((txn) => ({
+        ...txn,
+        image:
+          txn.other_avatar ||
+          "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png",
+        name:
+          txn.other_first_name && txn.other_last_name
+            ? `${txn.other_first_name} ${txn.other_last_name}`
+            : "Unknown",
+      }));
+
+      if (replace) {
+        setTransactions(enriched);
+      } else {
+        setTransactions((prev) => [...prev, ...enriched]);
+      }
+
+      setHasMore(data.results.length === LIMIT);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
   }, []);
-
-  // Fetch transactions by page
-  const fetchTransactions = useCallback(
-    async (pageNum, replace = false) => {
-      try {
-        const accountId = localStorage.getItem("accountId");
-        const data = await api.get(
-          `/api/transaction/history/${accountId}?limit=${LIMIT}&page=${pageNum}`,
-        );
-        console.log("Transaction data:", data);
-        const enriched = data.results.map((txn) => ({
-          ...txn,
-          image:
-            userData?.avatar ||
-            "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png",
-          name: userData?.name || "Unknown",
-        }));
-
-        if (replace) {
-          setTransactions(enriched);
-        } else {
-          setTransactions((prev) => [...prev, ...enriched]);
-        }
-
-        // If results less than limit, no more pages
-        setHasMore(data.results.length === LIMIT);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-        setLoadingMore(false);
-      }
-    },
-    [userData],
-  );
 
   // Initial load
   useEffect(() => {
-    if (userData) {
-      fetchTransactions(1, true);
-    }
-  }, [userData, fetchTransactions]);
+    fetchTransactions(1, true);
+  }, [fetchTransactions]);
 
   // Refresh every 10 seconds
   useEffect(() => {
-    if (!userData) return;
     const interval = setInterval(() => {
       fetchTransactions(1, true);
       setPage(1);
     }, 10000);
     return () => clearInterval(interval);
-  }, [userData, fetchTransactions]);
+  }, [fetchTransactions]);
 
   // Infinite scroll observer
   useEffect(() => {
