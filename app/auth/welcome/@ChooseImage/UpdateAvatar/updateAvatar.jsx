@@ -15,8 +15,6 @@ const DEFAULT_AVATARS = [
   "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959206/Avatar-1_lch5gb.png",
 ];
 
-const router = useRouter();
-
 export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
   const [selected, setSelected] = useState(null);
   const [file, setFile] = useState(null);
@@ -25,6 +23,7 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
