@@ -72,6 +72,7 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
 
         if (data.message === "User updated") {
           setSuccess(true);
+          router.push("/dashboard?home=true");
           if (onSuccess) onSuccess(data.avatar);
         } else {
           setError(data.message || "Update failed");
