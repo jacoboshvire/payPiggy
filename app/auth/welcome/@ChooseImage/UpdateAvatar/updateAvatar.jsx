@@ -5,12 +5,12 @@ import { useState } from "react";
 import Image from "next/image";
 
 const DEFAULT_AVATARS = [
-  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1/paypiggy/avatars/avatar1",
-  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1/paypiggy/avatars/avatar2",
-  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1/paypiggy/avatars/avatar3",
-  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1/paypiggy/avatars/avatar4",
-  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1/paypiggy/avatars/avatar5",
-  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1/paypiggy/avatars/avatar6",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Group_1060_hekrbq.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar-4_iewqsl.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar-2_vnsa3e.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959206/Avatar-3_dw2a0i.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959206/Avatar-1_lch5gb.png",
 ];
 
 export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
