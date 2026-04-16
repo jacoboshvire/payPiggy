@@ -41,7 +41,7 @@ export default function PaymentHistory() {
         setTransactions((prev) => [...prev, ...enriched]);
       }
 
-      const more = data.results.length === LIMIT;
+      const more = data.results.length >= LIMIT;
       setHasMore(more);
       hasMoreRef.current = more;
     } catch (err) {
