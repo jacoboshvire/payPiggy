@@ -108,20 +108,20 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
     <div className='updateAvatar'>
       {/* Tab switcher */}
       <div className='avatar_tabs'>
-        <button
+        <div
           type='button'
           className={tab === "choose" ? "active" : ""}
           onClick={() => setTab("choose")}
         >
           Choose Avatar
-        </button>
-        <button
+        </div>
+        <div
           type='button'
           className={tab === "upload" ? "active" : ""}
           onClick={() => setTab("upload")}
         >
           Upload Photo
-        </button>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit}>
