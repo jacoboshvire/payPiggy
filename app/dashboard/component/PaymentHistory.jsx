@@ -23,6 +23,14 @@ export default function PaymentHistory() {
       const data = await api.get(
         `/api/transaction/history/${accountId}?limit=${LIMIT}&page=${pageNum}`,
       );
+      console.log(
+        "Page:",
+        pageNum,
+        "Results:",
+        data.results?.length,
+        "Data:",
+        data,
+      );
 
       const enriched = (data.results || []).map((txn) => ({
         ...txn,
