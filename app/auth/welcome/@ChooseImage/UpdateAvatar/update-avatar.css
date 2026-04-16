@@ -63,3 +63,15 @@
 .avatar_grid .avatar_option:hover {
   transform: translateY(-3px);
 }
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+  width: fit-content;
+  background-color: var(--subcolor);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
