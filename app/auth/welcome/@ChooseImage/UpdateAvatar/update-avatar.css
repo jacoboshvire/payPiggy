@@ -23,7 +23,6 @@
 .skipLink {
   margin-top: 20px;
   color: var(--lighttext);
-  text-decoration: underline;
   cursor: pointer;
   color: #241e77;
 }
