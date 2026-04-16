@@ -67,8 +67,10 @@ export default function PaymentHistory() {
     return () => clearInterval(interval);
   }, [fetchTransactions]);
 
-  // Infinite scroll observer
+  // Infinite scroll observer — re-observe when transactions change
   useEffect(() => {
+    if (!bottomRef.current) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (
@@ -85,12 +87,10 @@ export default function PaymentHistory() {
       { threshold: 0.1 },
     );
 
-    if (bottomRef.current) {
-      observer.observe(bottomRef.current);
-    }
+    observer.observe(bottomRef.current);
 
     return () => observer.disconnect();
-  }, [fetchTransactions]);
+  }, [fetchTransactions, transactions]); // re-run when transactions change
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
