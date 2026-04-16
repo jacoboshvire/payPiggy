@@ -31,5 +31,7 @@
 .avatar_grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 20px;
+  width: 50%;
+  margin: 0 3%;
 }
