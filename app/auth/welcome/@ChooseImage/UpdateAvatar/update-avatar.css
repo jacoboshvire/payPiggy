@@ -36,9 +36,9 @@
   margin: 3% 0;
 }
 
-.avatar_grid img {
-  width: 100%;
+.avatar_grid .avatar_option {
+  border: 2px solid transparent;
   border-radius: 10px;
   cursor: pointer;
-  border: 2px solid transparent;
+  transition: all 0.3s ease;
 }
