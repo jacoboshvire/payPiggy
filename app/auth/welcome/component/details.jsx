@@ -4,6 +4,7 @@ import React from "react";
 import Back from "../../../component/Back";
 import Logo from "../../../component/Logo";
 import "./details.css";
+import { usePathname } from "next/navigation";
 
 export default function details() {
   return (
