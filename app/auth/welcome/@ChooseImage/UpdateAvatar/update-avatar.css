@@ -70,5 +70,11 @@
   background-color: var(--subcolor);
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid var(--border);
+  border: 1px dotted var(--border);
+}
+
+.inputField label {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 10px;
 }
