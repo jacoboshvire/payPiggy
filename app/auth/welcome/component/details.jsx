@@ -13,7 +13,11 @@ export default function Details() {
       <Back />
       <Logo />
       <div className='welcome_title'>
-        <h1>We’d like to get to know you better</h1>
+        {pathname === "/auth/welcome?ChooseImage=true" ? (
+          <h1>Choose your profile picture</h1>
+        ) : (
+          <h1>We’d like to get to know you better</h1>
+        )}
         <p>please provide a few more details to create your account.</p>
       </div>
     </div>
