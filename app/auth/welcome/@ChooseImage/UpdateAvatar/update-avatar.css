@@ -67,7 +67,6 @@
 .inputField {
   margin: 20px 0;
   width: fit-content;
-  background-color: var(--subcolor);
   padding: 20px;
   border-radius: 10px;
   border: 4px dotted var(--border);
@@ -77,4 +76,5 @@
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 10px;
+  bac
 }
