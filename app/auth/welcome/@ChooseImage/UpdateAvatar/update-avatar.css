@@ -27,3 +27,9 @@
   color: #241e77;
   font-size: 18px;
 }
+
+.avatar_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 20px;
+}
