@@ -6,7 +6,8 @@ import Logo from "../../../component/Logo";
 import "./details.css";
 import { usePathname } from "next/navigation";
 
-export default function details() {
+export default function Details() {
+  const pathname = usePathname();
   return (
     <div className='welcome_details'>
       <Back />
