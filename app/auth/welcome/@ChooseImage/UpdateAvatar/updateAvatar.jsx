@@ -157,7 +157,9 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
               </div>
             )}
             <div className='inputField'>
-              <label htmlFor='avatar'>Choose an image</label>
+              <label htmlFor='avatar' className='formLabel'>
+                Choose an image
+              </label>
               <input
                 type='file'
                 id='avatar'
