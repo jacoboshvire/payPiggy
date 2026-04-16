@@ -46,6 +46,6 @@
 }
 
 .avatar_grid .avatar_option.selected {
-  border-color: var(--gradient);
+  border-color: var(--lighttext);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
