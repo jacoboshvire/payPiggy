@@ -3,6 +3,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import "./update-avatar.css";
 
 const DEFAULT_AVATARS = [
@@ -13,6 +14,8 @@ const DEFAULT_AVATARS = [
   "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959206/Avatar-3_dw2a0i.png",
   "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959206/Avatar-1_lch5gb.png",
 ];
+
+const router = useRouter();
 
 export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
   const [selected, setSelected] = useState(null);
@@ -93,6 +96,7 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
         if (data.message === "User updated") {
           setSuccess(true);
           if (onSuccess) onSuccess(selected);
+          router.push("/dashboard?home=true");
         } else {
           setError(data.message || "Update failed");
         }
