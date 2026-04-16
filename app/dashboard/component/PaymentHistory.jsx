@@ -13,6 +13,7 @@ export default function PaymentHistory() {
   const [hasMore, setHasMore] = useState(true);
   const observerRef = useRef(null);
   const bottomRef = useRef(null);
+  const pageRef = useRef(1);
   const LIMIT = 5;
 
   const fetchTransactions = useCallback(async (pageNum, replace = false) => {
@@ -57,38 +58,43 @@ export default function PaymentHistory() {
   // Refresh every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      fetchTransactions(1, true);
+      pageRef.current = 1;
       setPage(1);
+      fetchTransactions(1, true);
     }, 10000);
     return () => clearInterval(interval);
   }, [fetchTransactions]);
 
-  // Infinite scroll observer
+  // Infinite scroll observer — set up once
   useEffect(() => {
-    if (!hasMore || loadingMore) return;
-
-    observerRef.current = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setLoadingMore(true);
-          setPage((prev) => {
-            const nextPage = prev + 1;
-            fetchTransactions(nextPage);
-            return nextPage;
+        if (entries[0].isIntersecting) {
+          setHasMore((currentHasMore) => {
+            if (!currentHasMore) return currentHasMore;
+            setLoadingMore((currentLoadingMore) => {
+              if (currentLoadingMore) return currentLoadingMore;
+              const nextPage = pageRef.current + 1;
+              pageRef.current = nextPage;
+              setPage(nextPage);
+              fetchTransactions(nextPage);
+              return true;
+            });
+            return currentHasMore;
           });
         }
       },
-      { threshold: 1.0 },
+      { threshold: 0.1 }, // trigger when 10% visible
     );
 
+    observerRef.current = observer;
+
     if (bottomRef.current) {
-      observerRef.current.observe(bottomRef.current);
+      observer.observe(bottomRef.current);
     }
 
-    return () => {
-      if (observerRef.current) observerRef.current.disconnect();
-    };
-  }, [hasMore, loadingMore, fetchTransactions]);
+    return () => observer.disconnect();
+  }, [fetchTransactions]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
@@ -130,7 +136,7 @@ export default function PaymentHistory() {
         ))}
 
         {/* Infinite scroll trigger */}
-        <div ref={bottomRef} />
+        <div ref={bottomRef} style={{ height: "20px" }} />
 
         {loadingMore && <p>Loading more...</p>}
         {!hasMore && transactions.length > 0 && (
