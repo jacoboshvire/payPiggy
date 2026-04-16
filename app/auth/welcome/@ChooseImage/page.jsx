@@ -5,6 +5,7 @@ import { useSearchParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { api } from "@/lib/api";
 import UpdateAvatar from "./UpdateAvatar/updateAvatar";
+import "./UpdateAvatar/updateAvatar.css";
 
 export default function Page() {
   const searchParams = useSearchParams();
