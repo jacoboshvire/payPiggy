@@ -43,6 +43,9 @@
   transition: all 0.3s ease;
   padding: 20px;
   background-color: var(--subcolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .avatar_grid .avatar_option.selected {
