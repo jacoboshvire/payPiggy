@@ -78,6 +78,9 @@
   font-weight: 300;
   margin-bottom: 10px;
   cursor: pointer;
+  background-color: var(--subcolor);
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
 #avatar {
