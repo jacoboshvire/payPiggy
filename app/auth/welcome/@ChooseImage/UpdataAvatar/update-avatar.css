@@ -115,11 +115,7 @@
   background-color: var(--subcolor);
   padding: 50px;
   border-radius: 10px;
-  border: 1px solid var(--border);
+  border: 3px dotted var(--border);
   cursor: pointer;
   width: fit-content;
-}
-.avatar_upload:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
