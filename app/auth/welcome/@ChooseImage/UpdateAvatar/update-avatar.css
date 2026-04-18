@@ -88,7 +88,6 @@
   border-radius: 150px;
   width: 150px;
   height: 150px;
-  width: fit-content;
   object-fit: cover;
   margin: 20px 0;
   background-color: var(--subcolor);
