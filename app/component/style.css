@@ -45,3 +45,32 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+.cancel_btu {
+  background-color: var(--subcolor);
+  border: 1px solid var(--border);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.cancel_btu svg {
+  stroke: var(--transparent);
+  transition: stroke 0.3s ease;
+}
+
+.cancel_btu:hover svg {
+  stroke: var(--lighttext);
+}
+
+.cancel_btu:hover {
+  background-color: var(--transparent);
+  transform: scale(1.1);
+}

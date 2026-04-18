@@ -1,9 +1,9 @@
 /** @format */
 
 "use client";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Nav from "./component/Nav";
-import { usePathname, useRouter } from "next/navigation";
+// import { usePathname, useRouter } from "next/navigation";
 import "./style.css";
 
 export default function Layout({
@@ -16,9 +16,10 @@ export default function Layout({
   WithdrawFromVault,
   AccountDetails,
   PersonalDetails,
+  Setting,
 }) {
-  const pathname = usePathname();
-  const router = useRouter();
+  // const pathname = usePathname();
+  // const router = useRouter();
   // useEffect(() => {
   //   if (pathname === "/dashboard") {
   //     router.push("/dashboard?home=true");
@@ -29,6 +30,7 @@ export default function Layout({
       <div className='bashboard_container'>
         <Nav />
         {PersonalDetails && PersonalDetails}
+        {Setting && Setting}
         {WithdrawFromVault && WithdrawFromVault}
         {Add && Add}
         {AddToVault && AddToVault}

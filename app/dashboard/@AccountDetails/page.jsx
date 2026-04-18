@@ -1,10 +1,10 @@
 /** @format */
 "use client";
 import { useEffect, useState } from "react";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import "./accountDetail.css";
 import { api } from "../../../lib/api";
-import Image from "next/image";
+import CancelBtu from "../../component/cancel_btu";
 
 export default function Account() {
   const [account, setAccount] = useState(null);
@@ -14,7 +14,6 @@ export default function Account() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const [copySuccess, setCopySuccess] = useState("");
-  const router = useRouter();
 
   useEffect(() => {
     const fetchAccount = async () => {
@@ -72,33 +71,7 @@ export default function Account() {
               <div className='title'>
                 <h1>Account Details</h1>
 
-                <div className='cancel_btu'>
-                  <svg
-                    width='24'
-                    height='24'
-                    viewBox='0 0 24 24'
-                    fill='none'
-                    xmlns='http://www.w3.org/2000/svg'
-                    onClick={() => router.back()}
-                  >
-                    <line
-                      x1='18.364'
-                      y1='5.63604'
-                      x2='5.63599'
-                      y2='18.364'
-                      strokeWidth='2'
-                      strokeLinecap='round'
-                    />
-                    <line
-                      x1='5.63599'
-                      y1='5.63604'
-                      x2='18.364'
-                      y2='18.364'
-                      strokeWidth='2'
-                      strokeLinecap='round'
-                    />
-                  </svg>
-                </div>
+                <CancelBtu />
               </div>
               <div className='accountDetail_info'>
                 <div className='account_flex'>

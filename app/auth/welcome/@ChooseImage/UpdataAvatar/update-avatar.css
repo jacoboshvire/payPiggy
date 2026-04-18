@@ -78,7 +78,7 @@
   align-items: center;
 }
 
-.inputchoice .formLabel {
+.formLabel {
   font-size: 18px;
   font-weight: 300;
   margin-bottom: 10px;
@@ -118,11 +118,19 @@
   border: 3px dotted var(--border);
   cursor: pointer;
   width: fit-content;
+  font-size: 18px;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .avatar_placeholder svg {
   width: 50px;
   height: 50px;
+  fill: var(--foreground);
 }
 
 .avatar_placeholder {
@@ -132,4 +140,5 @@
   width: 150px;
   height: 150px;
   background-color: var(--border);
+  border-radius: 10px;
 }
