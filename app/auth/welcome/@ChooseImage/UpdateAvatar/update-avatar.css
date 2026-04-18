@@ -85,9 +85,9 @@
 }
 
 .avatar_preview {
-  width: 150px;
-  height: 150px;
   border-radius: 10px;
   object-fit: cover;
   margin: 20px 0;
+  background-color: var(--subcolor);
+  overflow: hidden;
 }
