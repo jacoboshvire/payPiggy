@@ -92,4 +92,13 @@
   margin: 20px 0;
   background-color: var(--subcolor);
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar_preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
