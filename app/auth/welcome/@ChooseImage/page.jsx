@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams, usePathname } from "next/navigation";
 import Link from "next/link";
 import { api } from "@/lib/api";
-import UpdateAvatar from "./UpdateAvatar/updateAvatar";
-import "./UpdateAvatar/update-avatar.css";
+import UpdateAvatar from "./UpdataAvatar/updateAvatar";
+import "./UpdataAvatar/update-avatar.css";
 
 export default function Page() {
   const searchParams = useSearchParams();
