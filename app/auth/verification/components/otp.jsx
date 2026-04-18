@@ -109,7 +109,7 @@ export default function Otp({ length = 5 }) {
         const isNewUser = Cookies.get("isNewUser");
         if (isNewUser) {
           Cookies.remove("isNewUser");
-          router.push("/auth/welcome");
+          router.push("/auth/welcome?account=true");
         } else {
           router.push("/dashboard?home=true");
         }
