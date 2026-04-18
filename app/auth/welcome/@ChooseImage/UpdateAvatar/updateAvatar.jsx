@@ -129,29 +129,28 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
       </div>
 
       <form onSubmit={handleSubmit}>
-        {/* Choose from defaults */}
-        {tab === "choose" && (
-          <div className='avatar_grid'>
-            {DEFAULT_AVATARS.map((url, index) => (
-              <div
-                key={index}
-                className={`avatar_option ${selected === url ? "selected" : ""}`}
-                onClick={() => handleSelectAvatar(url)}
-              >
-                <Image
-                  src={url}
-                  alt={`Avatar ${index + 1}`}
-                  width={80}
-                  height={80}
-                />
-              </div>
-            ))}
-          </div>
-        )}
-
         {/* Upload custom image */}
         {tab === "upload" && (
           <div className='avatar_upload'>
+            {/* Choose from defaults */}
+            {tab === "choose" && (
+              <div className='avatar_grid'>
+                {DEFAULT_AVATARS.map((url, index) => (
+                  <div
+                    key={index}
+                    className={`avatar_option ${selected === url ? "selected" : ""}`}
+                    onClick={() => handleSelectAvatar(url)}
+                  >
+                    <Image
+                      src={url}
+                      alt={`Avatar ${index + 1}`}
+                      width={80}
+                      height={80}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
             {preview && (
               <div className='avatar_preview'>
                 <Image src={preview} alt='Preview' width={100} height={100} />
