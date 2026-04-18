@@ -19,7 +19,7 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
   const [selected, setSelected] = useState(null);
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
-  const [tab, setTab] = useState("choose"); // "choose" | "upload"
+  const [tab, setTab] = useState("choose");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -55,7 +55,6 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
       const token = localStorage.getItem("token");
 
       if (file) {
-        // Upload custom image via multer
         const formData = new FormData();
         formData.append("avatar", file);
 
@@ -72,13 +71,12 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
 
         if (data.message === "User updated") {
           setSuccess(true);
-          router.push("/dashboard?home=true");
           if (onSuccess) onSuccess(data.avatar);
+          router.push("/dashboard?home=true");
         } else {
           setError(data.message || "Update failed");
         }
       } else {
-        // Use selected default avatar URL
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_URL}/api/users/${userId}`,
           {
@@ -113,14 +111,12 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
       {/* Tab switcher */}
       <div className='avatar_tabs'>
         <div
-          type='button'
           className={tab === "choose" ? "active" : ""}
           onClick={() => setTab("choose")}
         >
           Choose Avatar
         </div>
         <div
-          type='button'
           className={tab === "upload" ? "active" : ""}
           onClick={() => setTab("upload")}
         >
@@ -129,46 +125,62 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
       </div>
 
       <form onSubmit={handleSubmit}>
+        {/* Choose from defaults */}
+        {tab === "choose" && (
+          <div className='avatar_grid'>
+            {DEFAULT_AVATARS.map((url, index) => (
+              <div
+                key={index}
+                className={`avatar_option ${selected === url ? "selected" : ""}`}
+                onClick={() => handleSelectAvatar(url)}
+              >
+                <Image
+                  src={url}
+                  alt={`Avatar ${index + 1}`}
+                  width={80}
+                  height={80}
+                />
+                {selected === url && (
+                  <div className='avatar_check'>
+                    <svg
+                      width='16'
+                      height='16'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <path
+                        fillRule='evenodd'
+                        clipRule='evenodd'
+                        d='M20.707 5.293a1 1 0 010 1.414l-11 11a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L9 15.586 19.293 5.293a1 1 0 011.414 0z'
+                        fill='white'
+                      />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Upload custom image */}
         {tab === "upload" && (
           <div className='avatar_upload'>
-            {/* Choose from defaults */}
-
-            <div className='inputchoice'>
-              {preview && (
-                <div className='avatar_preview'>
-                  <Image src={preview} alt='Preview' width={100} height={100} />
-                </div>
-              )}
-              <label htmlFor='avatar' className='formLabel'>
-                Choose an image
-              </label>
-              <input
-                type='file'
-                id='avatar'
-                name='avatar'
-                accept='image/jpg, image/jpeg, image/png, image/webp'
-                onChange={handleFileChange}
-              />
-              {tab === "choose" && (
-                <div className='avatar_grid'>
-                  {DEFAULT_AVATARS.map((url, index) => (
-                    <div
-                      key={index}
-                      className={`avatar_option ${selected === url ? "selected" : ""}`}
-                      onClick={() => handleSelectAvatar(url)}
-                    >
-                      <Image
-                        src={url}
-                        alt={`Avatar ${index + 1}`}
-                        width={80}
-                        height={80}
-                      />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            {preview && (
+              <div className='avatar_preview'>
+                <Image src={preview} alt='Preview' width={100} height={100} />
+              </div>
+            )}
+            <label htmlFor='avatar' className='formLabel'>
+              Choose an image
+            </label>
+            <input
+              type='file'
+              id='avatar'
+              name='avatar'
+              accept='image/jpg, image/jpeg, image/png, image/webp'
+              onChange={handleFileChange}
+            />
           </div>
         )}
 
