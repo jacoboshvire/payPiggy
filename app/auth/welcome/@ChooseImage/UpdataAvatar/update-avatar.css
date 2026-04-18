@@ -113,7 +113,7 @@
 
 .avatar_upload {
   background-color: var(--subcolor);
-  padding: 50px;
+  padding: 30px;
   border-radius: 10px;
   border: 3px dotted var(--border);
   cursor: pointer;
