@@ -133,24 +133,6 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
         {tab === "upload" && (
           <div className='avatar_upload'>
             {/* Choose from defaults */}
-            {tab === "choose" && (
-              <div className='avatar_grid'>
-                {DEFAULT_AVATARS.map((url, index) => (
-                  <div
-                    key={index}
-                    className={`avatar_option ${selected === url ? "selected" : ""}`}
-                    onClick={() => handleSelectAvatar(url)}
-                  >
-                    <Image
-                      src={url}
-                      alt={`Avatar ${index + 1}`}
-                      width={80}
-                      height={80}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
 
             <div className='inputchoice'>
               {preview && (
@@ -168,6 +150,24 @@ export default function UpdateAvatar({ userId, currentAvatar, onSuccess }) {
                 accept='image/jpg, image/jpeg, image/png, image/webp'
                 onChange={handleFileChange}
               />
+              {tab === "choose" && (
+                <div className='avatar_grid'>
+                  {DEFAULT_AVATARS.map((url, index) => (
+                    <div
+                      key={index}
+                      className={`avatar_option ${selected === url ? "selected" : ""}`}
+                      onClick={() => handleSelectAvatar(url)}
+                    >
+                      <Image
+                        src={url}
+                        alt={`Avatar ${index + 1}`}
+                        width={80}
+                        height={80}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         )}
