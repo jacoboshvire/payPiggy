@@ -83,6 +83,10 @@
   cursor: pointer;
 }
 
+.settings_avatar_wrapper:hover .settings_avatar_overlay {
+  opacity: 0.6;
+}
+
 .avatar_container {
   width: 150px;
   height: 150px;
