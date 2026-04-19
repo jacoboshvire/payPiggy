@@ -141,3 +141,7 @@
   fill: var(--foreground);
   margin-right: 20px;
 }
+
+.avatar_modal_title {
+  width: 100%;
+}
