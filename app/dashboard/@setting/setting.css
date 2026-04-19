@@ -162,8 +162,3 @@
 .avatar_close_icon:hover {
   transform: scale(1.2);
 }
-
-.avatar_close_icon svg {
-  fill: var(--foreground);
-  transition: fill 0.3s ease;
-}
