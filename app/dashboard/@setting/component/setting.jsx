@@ -360,16 +360,18 @@ export default function Settings() {
       {/* Avatar Section */}
       <div className='settings_avatar_section'>
         <div className='settings_avatar_wrapper' onClick={handleAvatarClick}>
-          <Image
-            src={
-              currentAvatar ||
-              "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png"
-            }
-            alt='avatar'
-            width={80}
-            height={80}
-            className='settings_avatar'
-          />
+          <div className='avatar_container'>
+            <Image
+              src={
+                currentAvatar ||
+                "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png"
+              }
+              alt='avatar'
+              width={80}
+              height={80}
+              className='settings_avatar'
+            />
+          </div>
           <div className='settings_avatar_overlay'>
             <svg
               width='24'
