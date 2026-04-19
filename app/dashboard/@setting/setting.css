@@ -113,6 +113,8 @@
   background-color: var(--subcolor);
   padding: 5px 10px;
   border-radius: 10px;
+  transition: transform 0.5s ease;
+  transform-origin: center;
 }
 
 .settings_avatar_overlay svg {
