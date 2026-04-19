@@ -76,7 +76,7 @@
   transform: rotate(180deg);
 }
 
-.settings_avatar_overlay {
+.settings_avatar_overlay svg {
   fill: var(--foreground);
 }
 
