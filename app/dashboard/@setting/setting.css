@@ -80,6 +80,7 @@
   position: relative;
   width: fit-content;
   background-color: var(--subcolor);
+  height: fit-content;
 }
 
 .avatar_container {
