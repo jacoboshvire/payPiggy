@@ -406,7 +406,7 @@ export default function Settings() {
         <div className='avatar_modal_bg'>
           <div className='avatar_modal'>
             <div className='avatar_modal_title'>
-              <div className='title'>
+              <div className='avatar_title'>
                 <h2>Change Avatar</h2>
               </div>
               <div
