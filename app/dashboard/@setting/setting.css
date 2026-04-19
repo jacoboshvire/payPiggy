@@ -105,6 +105,9 @@
   position: absolute;
   bottom: 0;
   right: -20px;
+  background-color: var(--subcolor);
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 
 .settings_avatar_overlay svg {
