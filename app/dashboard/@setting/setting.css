@@ -51,3 +51,11 @@
 .setting_icon svg {
   fill: var(--foreground);
 }
+
+.setting_icon {
+  transition: transform 0.3s ease;
+}
+
+.setting_icon.active {
+  transform: rotate(180deg);
+}
