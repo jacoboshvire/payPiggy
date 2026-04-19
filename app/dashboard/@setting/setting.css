@@ -144,9 +144,9 @@
 
 .avatar_modal_title {
   width: 100%;
-  background-color: var(--subcolor);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  marginradius: 10px;
+  margin: 20px 0;
+  border-radius: 10px;
 }
