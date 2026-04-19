@@ -28,6 +28,7 @@
   flex-direction: column;
   gap: 20px;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 .settings_section_header {
