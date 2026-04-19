@@ -11,3 +11,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.settings {
+  background-color: var(--background);
+  padding: 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  animation: popup 0.3s ease-out;
+  width: 700px;
+}
