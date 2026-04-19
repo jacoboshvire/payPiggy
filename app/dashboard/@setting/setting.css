@@ -157,7 +157,9 @@
   cursor: pointer;
   transition: all 0.3s ease;
   background-color: var(--subcolor);
-  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .close_icon:hover {
