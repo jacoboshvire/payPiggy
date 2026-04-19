@@ -409,10 +409,7 @@ export default function Settings() {
               <div className='make_change'>
                 <h2>Change Avatar</h2>
               </div>
-              <div
-                onClick={() => setShowAvatarPicker(false)}
-                style={{ cursor: "pointer" }}
-              >
+              <div onClick={() => setShowAvatarPicker(false)}>
                 <svg
                   width='24'
                   height='24'
