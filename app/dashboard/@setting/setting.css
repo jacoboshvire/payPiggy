@@ -22,3 +22,11 @@
   animation: popup 0.3s ease-out;
   width: 700px;
 }
+
+.settings_section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
