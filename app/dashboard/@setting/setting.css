@@ -29,6 +29,8 @@
   gap: 20px;
   justify-content: space-between;
   cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 30px;
 }
 
 .settings_section_header {
