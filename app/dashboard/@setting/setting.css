@@ -33,6 +33,11 @@
   padding-bottom: 30px;
 }
 
+.settings_section:hover {
+  background-color: var(--subcolor);
+  border: 1px solid var(--border);
+}
+
 .settings_section_header {
   font-size: 18px;
   font-weight: 300;
