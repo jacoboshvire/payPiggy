@@ -79,7 +79,6 @@
 .settings_avatar_wrapper {
   position: relative;
   width: fit-content;
-  background-color: var(--subcolor);
   height: fit-content;
 }
 
