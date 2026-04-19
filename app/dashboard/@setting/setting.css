@@ -150,3 +150,18 @@
   margin: 20px 0;
   border-radius: 10px;
 }
+
+.cancel_btu {
+  background-color: var(--subcolor);
+  border: 1px solid var(--border);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
