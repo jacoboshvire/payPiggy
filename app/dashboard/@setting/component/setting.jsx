@@ -219,6 +219,7 @@ export default function Settings() {
           }}
         >
           <h2>Change Password</h2>
+
           <div className='setting_icon'>
             <svg
               width='24'
@@ -234,6 +235,7 @@ export default function Settings() {
               />
             </svg>
           </div>
+
           <p>{activeSection === "password" ? "▲" : "▼"}</p>
         </div>
 
