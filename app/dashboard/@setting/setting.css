@@ -78,6 +78,8 @@
 
 .settings_avatar_overlay {
   display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .settings_avatar_overlay svg {
