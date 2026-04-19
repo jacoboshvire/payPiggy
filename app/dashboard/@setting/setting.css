@@ -81,9 +81,10 @@
   width: fit-content;
   height: fit-content;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-..settings_avatar_wrapper:hover {
+.settings_avatar_wrapper:hover {
   transform: scale(1.05);
 }
 
