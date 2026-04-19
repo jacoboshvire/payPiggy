@@ -48,6 +48,6 @@
   margin-bottom: 20px;
 }
 
-.setting_icon {
+.setting_icon svg {
   fill: var(--foreground);
 }
