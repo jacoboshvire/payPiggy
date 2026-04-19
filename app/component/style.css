@@ -74,13 +74,3 @@
   background-color: var(--transparent);
   transform: scale(1.1);
 }
-
-.avatar_modal_title {
-  display: flex;
-  align-items: center;
-}
-
-.avatar_modal_title svg {
-  fill: var(--foreground);
-  margin-right: 20px;
-}

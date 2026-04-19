@@ -75,3 +75,17 @@
 .setting_icon.active {
   transform: rotate(180deg);
 }
+
+.settings_avatar_overlay {
+  fill: var(--foreground);
+}
+
+.avatar_modal_title {
+  display: flex;
+  align-items: center;
+}
+
+.avatar_modal_title svg {
+  fill: var(--foreground);
+  margin-right: 20px;
+}
