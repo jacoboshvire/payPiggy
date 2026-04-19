@@ -1,13 +1,34 @@
 /** @format */
 
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { api } from "@/lib/api";
+import Image from "next/image";
 import CancelBtu from "../../../component/cancel_btu";
+
+const DEFAULT_AVATARS = [
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Group_1060_hekrbq.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar-4_iewqsl.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar-2_vnsa3e.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959206/Avatar-3_dw2a0i.png",
+  "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959206/Avatar-1_lch5gb.png",
+];
 
 export default function Settings() {
   const router = useRouter();
+  const fileInputRef = useRef(null);
+
+  // User data
+  const [userId, setUserId] = useState(null);
+  const [currentAvatar, setCurrentAvatar] = useState(null);
+  const [showAvatarPicker, setShowAvatarPicker] = useState(false);
+  const [avatarTab, setAvatarTab] = useState("choose");
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [previewFile, setPreviewFile] = useState(null);
+  const [avatarFile, setAvatarFile] = useState(null);
+  const [avatarLoading, setAvatarLoading] = useState(false);
 
   // OTP state
   const [otpSent, setOtpSent] = useState(false);
@@ -27,12 +48,48 @@ export default function Settings() {
 
   // Profile state
   const [phone, setPhone] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [addressLine1, setAddressLine1] = useState("");
+  const [addressLine2, setAddressLine2] = useState("");
+  const [city, setCity] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [country, setCountry] = useState("United Kingdom");
 
   // UI state
   const [activeSection, setActiveSection] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  // Fetch user data on mount
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const accountId = localStorage.getItem("accountId");
+        const accountData = await api.get(`/api/account/${accountId}`);
+        const userData = await api.get(`/api/users/${accountData.user_id}`);
+        setUserId(accountData.user_id);
+        setCurrentAvatar(userData.avatar);
+        setPhone(userData.phone || "");
+        setDateOfBirth(
+          accountData.date_of_birth
+            ? accountData.date_of_birth.split("T")[0]
+            : "",
+        );
+        setAddressLine1(accountData.address_line1 || "");
+        setAddressLine2(accountData.address_line2 || "");
+        setCity(accountData.city || "");
+        setPostcode(accountData.postcode || "");
+        setCountry(accountData.country || "United Kingdom");
+        setFirstName(accountData.first_name || "");
+        setLastName(accountData.last_name || "");
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   const resetState = () => {
     setOtpSent(false);
@@ -42,6 +99,85 @@ export default function Settings() {
     setSuccess("");
   };
 
+  // Avatar handlers
+  const handleAvatarClick = () => {
+    setShowAvatarPicker(true);
+    setSelectedAvatar(null);
+    setPreviewFile(null);
+    setAvatarFile(null);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setAvatarFile(file);
+    setPreviewFile(URL.createObjectURL(file));
+    setSelectedAvatar(null);
+  };
+
+  const handleSaveAvatar = async () => {
+    if (!selectedAvatar && !avatarFile) {
+      setError("Please choose or upload an avatar");
+      return;
+    }
+
+    setAvatarLoading(true);
+    setError("");
+
+    try {
+      const token = localStorage.getItem("token");
+
+      if (avatarFile) {
+        const formData = new FormData();
+        formData.append("avatar", avatarFile);
+
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/users/${userId}`,
+          {
+            method: "PUT",
+            headers: { Authorization: `Bearer ${token}` },
+            body: formData,
+          },
+        );
+
+        const data = await res.json();
+        if (data.message === "User updated") {
+          setCurrentAvatar(data.avatar);
+          setShowAvatarPicker(false);
+          setSuccess("Avatar updated successfully");
+        } else {
+          setError(data.message || "Update failed");
+        }
+      } else {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/users/${userId}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ avatar: selectedAvatar }),
+          },
+        );
+
+        const data = await res.json();
+        if (data.message === "User updated") {
+          setCurrentAvatar(selectedAvatar);
+          setShowAvatarPicker(false);
+          setSuccess("Avatar updated successfully");
+        } else {
+          setError(data.message || "Update failed");
+        }
+      }
+    } catch (err) {
+      setError("Something went wrong");
+    } finally {
+      setAvatarLoading(false);
+    }
+  };
+
+  // OTP handlers
   const handleRequestOtp = async () => {
     setOtpLoading(true);
     setError("");
@@ -150,9 +286,22 @@ export default function Settings() {
     setLoading(true);
 
     try {
-      const data = await api.put("/api/settings/profile", { phone });
+      const accountId = localStorage.getItem("accountId");
 
-      if (data.message === "Profile updated successfully") {
+      if (phone) {
+        await api.put("/api/settings/profile", { phone });
+      }
+
+      const data = await api.put(`/api/account/${accountId}`, {
+        date_of_birth: dateOfBirth || undefined,
+        address_line1: addressLine1 || undefined,
+        address_line2: addressLine2 || undefined,
+        city: city || undefined,
+        postcode: postcode || undefined,
+        country: country || undefined,
+      });
+
+      if (data.message === "Account updated") {
         setSuccess("Profile updated successfully");
         setActiveSection(null);
       } else {
@@ -165,7 +314,6 @@ export default function Settings() {
     }
   };
 
-  // OTP Component — reused for password and names
   const OtpStep = () => (
     <div className='settings_otp'>
       {!otpSent ? (
@@ -209,6 +357,170 @@ export default function Settings() {
       {error && <p className='error'>{error}</p>}
       {success && <p className='success'>{success}</p>}
 
+      {/* Avatar Section */}
+      <div className='settings_avatar_section'>
+        <div className='settings_avatar_wrapper' onClick={handleAvatarClick}>
+          <Image
+            src={
+              currentAvatar ||
+              "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Avatar_ql2szp.png"
+            }
+            alt='avatar'
+            width={80}
+            height={80}
+            className='settings_avatar'
+          />
+          <div className='settings_avatar_overlay'>
+            <svg
+              width='20'
+              height='20'
+              viewBox='0 0 24 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                d='M21 19V5C21 3.9 20.1 3 19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19ZM8.5 13.5L11 16.51L14.5 12L19 18H5L8.5 13.5Z'
+                fill='white'
+              />
+            </svg>
+            <p>Change</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Avatar Picker Modal */}
+      {showAvatarPicker && (
+        <div className='avatar_modal_bg'>
+          <div className='avatar_modal'>
+            <div className='avatar_modal_title'>
+              <h2>Change Avatar</h2>
+              <div
+                onClick={() => setShowAvatarPicker(false)}
+                style={{ cursor: "pointer" }}
+              >
+                <svg
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <line
+                    x1='18.364'
+                    y1='5.63604'
+                    x2='5.63599'
+                    y2='18.364'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    stroke='black'
+                  />
+                  <line
+                    x1='5.63599'
+                    y1='5.63604'
+                    x2='18.364'
+                    y2='18.364'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    stroke='black'
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div className='avatar_tabs'>
+              <div
+                className={avatarTab === "choose" ? "active" : ""}
+                onClick={() => setAvatarTab("choose")}
+              >
+                Choose Avatar
+              </div>
+              <div
+                className={avatarTab === "upload" ? "active" : ""}
+                onClick={() => setAvatarTab("upload")}
+              >
+                Upload Photo
+              </div>
+            </div>
+
+            {avatarTab === "choose" && (
+              <div className='avatar_grid'>
+                {DEFAULT_AVATARS.map((url, index) => (
+                  <div
+                    key={index}
+                    className={`avatar_option ${selectedAvatar === url ? "selected" : ""}`}
+                    onClick={() => {
+                      setSelectedAvatar(url);
+                      setAvatarFile(null);
+                      setPreviewFile(null);
+                    }}
+                  >
+                    <Image
+                      src={url}
+                      alt={`Avatar ${index + 1}`}
+                      width={80}
+                      height={80}
+                    />
+                    {selectedAvatar === url && (
+                      <div className='avatar_check'>
+                        <svg
+                          width='16'
+                          height='16'
+                          viewBox='0 0 24 24'
+                          fill='none'
+                          xmlns='http://www.w3.org/2000/svg'
+                        >
+                          <path
+                            fillRule='evenodd'
+                            clipRule='evenodd'
+                            d='M20.707 5.293a1 1 0 010 1.414l-11 11a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L9 15.586 19.293 5.293a1 1 0 011.414 0z'
+                            fill='white'
+                          />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {avatarTab === "upload" && (
+              <div className='avatar_upload'>
+                {previewFile && (
+                  <div className='avatar_preview'>
+                    <Image
+                      src={previewFile}
+                      alt='Preview'
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                )}
+                <input
+                  type='file'
+                  ref={fileInputRef}
+                  accept='image/jpg, image/jpeg, image/png, image/webp'
+                  onChange={handleFileChange}
+                  style={{ display: "none" }}
+                />
+                <button
+                  type='button'
+                  onClick={() => fileInputRef.current.click()}
+                >
+                  Choose Image
+                </button>
+              </div>
+            )}
+
+            <button
+              onClick={handleSaveAvatar}
+              disabled={avatarLoading || (!selectedAvatar && !avatarFile)}
+            >
+              {avatarLoading ? "Saving..." : "Save Avatar"}
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Change Password */}
       <div className='settings_section'>
         <div
@@ -219,7 +531,6 @@ export default function Settings() {
           }}
         >
           <h2>Change Password</h2>
-
           <div
             className={
               activeSection === "password"
@@ -350,7 +661,7 @@ export default function Settings() {
         )}
       </div>
 
-      {/* Update Profile — no OTP required */}
+      {/* Update Profile */}
       <div className='settings_section'>
         <div
           className='settings_section_header'
@@ -395,6 +706,66 @@ export default function Settings() {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
+
+              <div className='inputField'>
+                <label>Date of Birth</label>
+                <input
+                  type='date'
+                  value={dateOfBirth}
+                  onChange={(e) => setDateOfBirth(e.target.value)}
+                />
+              </div>
+
+              <div className='inputField'>
+                <label>Address Line 1</label>
+                <input
+                  type='text'
+                  placeholder='123 Main Street'
+                  value={addressLine1}
+                  onChange={(e) => setAddressLine1(e.target.value)}
+                />
+              </div>
+
+              <div className='inputField'>
+                <label>Address Line 2 (Optional)</label>
+                <input
+                  type='text'
+                  placeholder='Apartment, suite, etc.'
+                  value={addressLine2}
+                  onChange={(e) => setAddressLine2(e.target.value)}
+                />
+              </div>
+
+              <div className='inputField'>
+                <label>City</label>
+                <input
+                  type='text'
+                  placeholder='London'
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
+              </div>
+
+              <div className='inputField'>
+                <label>Postcode</label>
+                <input
+                  type='text'
+                  placeholder='SW1A 1AA'
+                  value={postcode}
+                  onChange={(e) => setPostcode(e.target.value)}
+                />
+              </div>
+
+              <div className='inputField'>
+                <label>Country</label>
+                <input
+                  type='text'
+                  placeholder='United Kingdom'
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                />
+              </div>
+
               <button type='submit' disabled={loading}>
                 {loading ? "Updating..." : "Update Profile"}
               </button>
