@@ -76,6 +76,8 @@
   transform: rotate(180deg);
 }
 
+/* avatar modal styles */
+
 .settings_avatar_wrapper {
   position: relative;
   width: fit-content;
