@@ -83,8 +83,7 @@
 }
 
 .avatar_container {
-  width: 150px;
-  height: 150px;
+  width: 100%;
   border-radius: 150px;
   overflow: hidden;
   display: flex;
@@ -98,7 +97,7 @@
   gap: 20px;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: -20px;
 }
 
 .settings_avatar_overlay svg {
