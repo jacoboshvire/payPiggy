@@ -47,3 +47,7 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+
+.setting_icon {
+  fill: var(--foreground);
+}
