@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { api } from "@/lib/api";
+import CancelBtu from "../../../component/cancel_btu";
 
 export default function Settings() {
   const router = useRouter();
@@ -200,6 +201,9 @@ export default function Settings() {
 
   return (
     <div className='settings'>
+      <div className='title'>
+        <h1>Settings</h1>
+      </div>
       <h1>Settings</h1>
 
       {error && <p className='error'>{error}</p>}
