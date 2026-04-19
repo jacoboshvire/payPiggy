@@ -100,10 +100,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .settings_avatar_wrapper:hover .avatar_container {
-  transform: scale(1.05);
+  filter: blur(1.4px);
+  opacity: 0.7;
 }
 
 .avatar_container img {
