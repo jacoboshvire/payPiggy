@@ -147,18 +147,3 @@
   font-size: 18px;
   font-weight: 500;
 }
-
-.avatar_close_icon {
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: var(--subcolor);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  width: fit-content;
-}
-
-.avatar_close_icon:hover {
-  transform: scale(1.2);
-}
