@@ -102,6 +102,10 @@
   align-items: center;
 }
 
+.settings_avatar_wrapper:hover .avatar_container {
+  transform: scale(1.05);
+}
+
 .avatar_container img {
   width: 100%;
   height: 100%;
