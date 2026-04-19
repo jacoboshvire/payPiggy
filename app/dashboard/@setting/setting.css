@@ -21,6 +21,7 @@
   gap: 30px;
   animation: popup 0.3s ease-out;
   width: 700px;
+  max-height: 600px;
 }
 
 .settings_section {
