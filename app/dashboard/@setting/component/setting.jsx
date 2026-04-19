@@ -410,7 +410,28 @@ export default function Settings() {
                 <h2>Change Avatar</h2>
               </div>
               <div onClick={() => setShowAvatarPicker(false)}>
-                <CancelBtu />
+                <svg
+                  width='30'
+                  height='30'
+                  viewBox='0 0 30 30'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    d='M22.5 7.5L7.5 22.5'
+                    stroke='black'
+                    stroke-width='3'
+                    stroke-linecap='square'
+                    stroke-linejoin='round'
+                  />
+                  <path
+                    d='M7.5 7.5L22.5 22.5'
+                    stroke='black'
+                    stroke-width='3'
+                    stroke-linecap='square'
+                    stroke-linejoin='round'
+                  />
+                </svg>
               </div>
             </div>
 
