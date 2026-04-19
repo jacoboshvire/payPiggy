@@ -220,7 +220,13 @@ export default function Settings() {
         >
           <h2>Change Password</h2>
 
-          <div className='setting_icon'>
+          <div
+            className={
+              activeSection === "password"
+                ? "setting_icon active"
+                : "setting_icon"
+            }
+          >
             <svg
               width='24'
               height='24'
@@ -235,8 +241,6 @@ export default function Settings() {
               />
             </svg>
           </div>
-
-          <p>{activeSection === "password" ? "▲" : "▼"}</p>
         </div>
 
         {activeSection === "password" && (
