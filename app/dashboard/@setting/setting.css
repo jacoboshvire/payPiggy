@@ -84,12 +84,19 @@
 }
 
 .avatar_container {
-  width: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 200px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.avatar_container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .settings_avatar_overlay {
