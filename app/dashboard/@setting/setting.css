@@ -156,6 +156,8 @@
 .close_icon {
   cursor: pointer;
   transition: all 0.3s ease;
+  background-color: var(--subcolor);
+  width: fit-content;
 }
 
 .close_icon:hover {
