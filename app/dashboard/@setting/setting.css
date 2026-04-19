@@ -76,10 +76,20 @@
   transform: rotate(180deg);
 }
 
+.settings_avatar_wrapper {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+}
+
 .settings_avatar_overlay {
   display: flex;
   align-items: center;
   gap: 20px;
+  position: absolute;
 }
 
 .settings_avatar_overlay svg {
