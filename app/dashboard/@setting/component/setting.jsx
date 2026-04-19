@@ -411,7 +411,7 @@ export default function Settings() {
               </div>
               <div
                 onClick={() => setShowAvatarPicker(false)}
-                className='close_icon'
+                className='avatar_close_icon'
               >
                 <svg
                   width='20'
