@@ -413,15 +413,7 @@ export default function Settings() {
                 onClick={() => setShowAvatarPicker(false)}
                 className='avatar_close_icon'
               >
-                <svg
-                  width='20'
-                  height='20'
-                  viewBox='0 0 20 20'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path d='M19.2422 2.12109L11.7422 9.62109L19.2422 17.1211L17.1211 19.2422L9.62109 11.7422L2.12109 19.2422L0 17.1211L7.5 9.62109L0 2.12109L2.12109 0L9.62109 7.5L17.1211 0L19.2422 2.12109Z' />
-                </svg>
+                <CancelBtu />
               </div>
             </div>
 
