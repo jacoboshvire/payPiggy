@@ -163,6 +163,6 @@
 }
 
 .close_icon svg {
-  fill: var(--transparent);
+  fill: var(--foreground);
   transition: fill 0.3s ease;
 }
