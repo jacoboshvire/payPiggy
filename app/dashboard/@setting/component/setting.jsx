@@ -203,8 +203,8 @@ export default function Settings() {
     <div className='settings'>
       <div className='title'>
         <h1>Settings</h1>
+        <CancelBtu />
       </div>
-      <h1>Settings</h1>
 
       {error && <p className='error'>{error}</p>}
       {success && <p className='success'>{success}</p>}
