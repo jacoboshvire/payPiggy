@@ -77,12 +77,18 @@
 }
 
 .settings_avatar_wrapper {
+  position: relative;
+  width: fit-content;
+}
+
+.avatar_container {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  width: fit-content;
 }
 
 .settings_avatar_overlay {
