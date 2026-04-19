@@ -409,7 +409,10 @@ export default function Settings() {
               <div className='make_change'>
                 <h2>Change Avatar</h2>
               </div>
-              <div onClick={() => setShowAvatarPicker(false)}>
+              <div
+                onClick={() => setShowAvatarPicker(false)}
+                className='close_icon'
+              >
                 <svg
                   width='20'
                   height='20'
