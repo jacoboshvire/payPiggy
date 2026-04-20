@@ -320,9 +320,9 @@ export default function Settings() {
   };
 
   const OtpStep = () => (
-    <div className='settings_otp'>
+    <>
       {!otpSent ? (
-        <>
+        <div className='settings_otp'>
           <p>An OTP will be sent to verify this change</p>
           <div className='select_otp_options'>
             <select
@@ -354,9 +354,9 @@ export default function Settings() {
           <h3 onClick={() => setOtpSent(false)} className='resend_otp'>
             Resend OTP
           </h3>
-        </>
+        </div>
       ) : null}
-    </div>
+    </>
   );
 
   return (
