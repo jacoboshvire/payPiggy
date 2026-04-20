@@ -324,11 +324,16 @@ export default function Settings() {
       {!otpSent ? (
         <>
           <p>An OTP will be sent to verify this change</p>
-          <select value={channel} onChange={(e) => setChannel(e.target.value)}>
-            <option value='email'>Email</option>
-            <option value='sms'>SMS</option>
-            <option value='push'>Push Notification</option>
-          </select>
+          <div className='select_otp_options'>
+            <select
+              value={channel}
+              onChange={(e) => setChannel(e.target.value)}
+            >
+              <option value='email'>Email</option>
+              <option value='sms'>SMS</option>
+              <option value='push'>Push Notification</option>
+            </select>
+          </div>
           <button onClick={handleRequestOtp} disabled={otpLoading}>
             {otpLoading ? "Sending..." : "Send OTP"}
           </button>
