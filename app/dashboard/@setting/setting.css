@@ -89,16 +89,13 @@
 
 /* avatar modal styles */
 
-.settings_avatar_section {
-  animation: slideDown 0.5s ease-out;
-}
-
 .settings_avatar_wrapper {
   position: relative;
   width: fit-content;
   height: fit-content;
   cursor: pointer;
   transition: transform 0.3s ease;
+  animation: slideDown 0.5s ease-out;
 }
 
 .settings_avatar_wrapper:hover {
