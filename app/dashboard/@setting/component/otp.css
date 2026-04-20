@@ -21,6 +21,6 @@
   padding: 10px;
   border-radius: 5px;
   border: 1px solid var(--border);
-  background-color: transparent;
+  background-color: var(--background);
   color: var(--lighttext);
 }
