@@ -28,6 +28,7 @@
     --background: #181818;
     --foreground: #ededed;
     --subcolor: #1a1a1a;
+    --darkSubcolor: #2a2a2a;
     --border: #333333;
     --linear: linear-gradient(180deg, #f0f0f0 0%, #bebebe 100%);
     --gradient: linear-gradient(45deg, #4337dd, #241e77);
