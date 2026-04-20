@@ -302,8 +302,9 @@ export default function Settings() {
       });
 
       if (data.message === "Account updated") {
+        setSuccess("Profile updated successfully");
         setTimeout(() => {
-          setSuccess("Profile updated successfully");
+          setSuccess("");
         }, 2000);
         setActiveSection(null);
       } else {
