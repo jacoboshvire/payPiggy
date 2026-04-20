@@ -524,7 +524,7 @@ export default function Settings() {
       )}
 
       {/* Change Password */}
-      <div className='settings_section_container'>
+      <div className='settings_section'>
         <div
           className='settings_section_header'
           onClick={() => {
@@ -601,7 +601,7 @@ export default function Settings() {
       </div>
 
       {/* Change Account Names */}
-      <div className='settings_section_container'>
+      <div className='settings_section'>
         <div
           className='settings_section_header'
           onClick={() => {
@@ -664,7 +664,7 @@ export default function Settings() {
       </div>
 
       {/* Update Profile */}
-      <div className='settings_section_container'>
+      <div className='settings_section'>
         <div
           className='settings_section_header'
           onClick={() => {
