@@ -8,6 +8,7 @@ import Image from "next/image";
 import CancelBtu from "../../../component/cancel_btu";
 import "./otp.css";
 import "../setting.css";
+import "./passwordChange.css";
 
 const DEFAULT_AVATARS = [
   "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959207/Group_1060_hekrbq.png",
