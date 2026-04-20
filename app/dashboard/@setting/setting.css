@@ -128,6 +128,7 @@
   border-radius: 10px;
   transition: transform 0.5s ease;
   transform-origin: center;
+  border: 1px solid var(--border);
 }
 
 .settings_avatar_overlay svg {
