@@ -18,7 +18,7 @@
 .otp_input input {
   width: 100%;
   padding: 10px;
-  background-color: transparent;
+  background-color: var(--lightText);
   border: 1px solid var(--border);
   border-radius: 5px;
   font-size: 18px;
