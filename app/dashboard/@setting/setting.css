@@ -1,5 +1,16 @@
 /** @format */
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .setting-page {
   position: fixed;
   top: 0;
@@ -77,6 +88,10 @@
 }
 
 /* avatar modal styles */
+
+.settings_avatar_section {
+  animation: slideDown 0.5s ease-out;
+}
 
 .settings_avatar_wrapper {
   position: relative;
