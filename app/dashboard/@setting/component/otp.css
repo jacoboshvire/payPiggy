@@ -35,6 +35,7 @@
   border: 1px solid var(--border);
   background-color: var(--darkSubcolor);
   color: var(--lighttext);
+  animation: slideDown 0.5s ease-out;
 }
 
 .settings_otp input {
