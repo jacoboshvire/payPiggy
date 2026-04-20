@@ -35,7 +35,7 @@
 }
 
 .settings_otp .resend_otp {
-  color: var(--lighttext);
-  font-size: 14px;
+  color: #241e77;
+  font-size: 15px;
   cursor: pointer;
 }
