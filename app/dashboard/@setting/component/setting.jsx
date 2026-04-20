@@ -337,9 +337,9 @@ export default function Settings() {
           <button onClick={handleRequestOtp} disabled={otpLoading}>
             {otpLoading ? "Sending..." : "Send OTP"}
           </button>
-        </>
+        </div>
       ) : !otpVerified ? (
-        <>
+        <div className='settings_otp'>
           <p>Enter the OTP sent to your {channel}</p>
           <input
             type='text'
