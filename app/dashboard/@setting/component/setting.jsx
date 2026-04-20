@@ -447,8 +447,8 @@ export default function Settings() {
                     <Image
                       src={url}
                       alt={`Avatar ${index + 1}`}
-                      width={80}
-                      height={80}
+                      width={100}
+                      height={100}
                     />
                   </div>
                 ))}
