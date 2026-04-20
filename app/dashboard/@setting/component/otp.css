@@ -11,15 +11,7 @@
   width: 100%;
 }
 
-.otp_input {
-  display: flex;
-  gap: 20px;
-}
-.otp_input input {
-  width: 100%;
-  padding: 10px;
-  background-color: var(--lightText);
-  border: 1px solid var(--border);
-  border-radius: 5px;
+.settings_otp p {
   font-size: 18px;
+  font-weight: 300;
 }
