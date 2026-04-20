@@ -33,3 +33,9 @@
   background-color: var(--darkSubcolor);
   color: var(--lighttext);
 }
+
+.settings_otp .resend_otp {
+  color: var(--lighttext);
+  font-size: 14px;
+  cursor: pointer;
+}
