@@ -172,3 +172,110 @@
 .avatar_tabs div:nth-child(2) {
   color: #241e77;
 }
+
+.avatar_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: fit-content;
+  margin: 3% 0;
+}
+
+.avatar_grid .avatar_option {
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 40px;
+  background-color: var(--subcolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar_grid .avatar_option.selected {
+  border-color: var(--lighttext);
+}
+
+.avatar_grid .avatar_option:hover {
+  transform: translateY(-3px);
+}
+
+.inputchoice {
+  margin: 20px 0;
+  width: fit-content;
+  padding: 20px 20px;
+  border-radius: 10px;
+  border: 4px dotted var(--border);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.formLabel {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: var(--subcolor);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+#avatar {
+  display: none;
+}
+
+.avatar_preview {
+  border-radius: 150px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 20px 0;
+  background-color: var(--subcolor);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar_preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar_upload {
+  background-color: var(--subcolor);
+  padding: 30px;
+  border-radius: 10px;
+  border: 3px dotted var(--border);
+  cursor: pointer;
+  width: fit-content;
+  font-size: 18px;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar_placeholder svg {
+  width: 50px;
+  height: 50px;
+  fill: var(--foreground);
+}
+
+.avatar_placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: var(--border);
+  border-radius: 10px;
+}
