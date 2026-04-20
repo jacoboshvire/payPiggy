@@ -351,7 +351,9 @@ export default function Settings() {
           <button onClick={handleVerifyOtp} disabled={otpLoading}>
             {otpLoading ? "Verifying..." : "Verify OTP"}
           </button>
-          <button onClick={() => setOtpSent(false)}>Resend OTP</button>
+          <h3 onClick={() => setOtpSent(false)} className='resend_otp'>
+            Resend OTP
+          </h3>
         </>
       ) : null}
     </div>
