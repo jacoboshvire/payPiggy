@@ -20,7 +20,6 @@ const DEFAULT_AVATARS = [
 ];
 
 export default function Settings() {
-  const router = useRouter();
   const fileInputRef = useRef(null);
 
   // User data
