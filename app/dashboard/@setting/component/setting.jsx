@@ -492,12 +492,9 @@ export default function Settings() {
                   onChange={handleFileChange}
                   style={{ display: "none" }}
                 />
-                <button
-                  type='button'
-                  onClick={() => fileInputRef.current.click()}
-                >
+                <div type='button' onClick={() => fileInputRef.current.click()}>
                   Choose Image
-                </button>
+                </div>
               </div>
             )}
 
