@@ -97,6 +97,10 @@
   transition: transform 0.3s ease;
 }
 
+.avatar_modal_bg {
+  animation: slideDown 0.5s ease-out;
+}
+
 .settings_avatar_wrapper:hover {
   transform: scale(1.05);
 }
