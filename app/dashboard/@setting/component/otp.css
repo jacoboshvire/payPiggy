@@ -17,10 +17,10 @@
 }
 
 .settings_otp select {
-  width: 100%;
+  width: fit-content;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid var(--lighttext);
+  border: 1px solid var(--border);
   background-color: var(--border);
   color: var(--lighttext);
 }
