@@ -3,6 +3,7 @@
 const LinkArray = [
   {
     linkName: "Personal Details",
+    id: 1,
     linksvg: (
       <svg
         width='24'
@@ -29,6 +30,7 @@ const LinkArray = [
   },
   {
     linkName: "Account Details",
+    id: 2,
     linksvg: (
       <svg
         width='24'
@@ -47,6 +49,7 @@ const LinkArray = [
   },
   {
     linkName: "Settings",
+    id: 3,
     linksvg: (
       <svg
         width='24'
