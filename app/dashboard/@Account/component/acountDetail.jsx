@@ -20,9 +20,9 @@ export default function AccountDetail() {
         <h1>Account</h1>
       </div>
       <div className='Account_Detail_link'>
-        {LinkArray.map((link, index) => {
+        {LinkArray.map((link) => {
           return (
-            <Link href={link.link} key={index}>
+            <Link href={link.link} key={link.linkName}>
               <div className='Account_Detail_LinkDetails'>
                 <div className='Account_Detail_svg'>{link.linksvg}</div>
                 <div className='Account_Detail_linkName'>{link.linkName}</div>
