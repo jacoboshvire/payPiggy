@@ -2,7 +2,7 @@
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://paypiggy-backend-jvyzmc7q1-jacoboshvires-projects.vercel.app";
+  "http://localhost:8000"; /* Fallback to localhost if env variable is not set */
 
 const getToken = () => {
   if (typeof window !== "undefined") {
