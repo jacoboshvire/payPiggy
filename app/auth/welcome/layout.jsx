@@ -1,6 +1,6 @@
 /** @format */
 "use client";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import Details from "./component/details";
 import "./style.css";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,6 +18,7 @@ export default function Layout({ Account, ChooseImage, Kyc }) {
   return (
     <div className='welcome'>
       <Details />
+
       {Account && Account}
       {Kyc && Kyc}
       {ChooseImage && ChooseImage}
