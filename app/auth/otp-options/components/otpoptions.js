@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { api } from "@/lib/api";
 import Details from "./details";
-import channels from "./icon";
+import channels from "../../../component/icon";
 import "../style.css";
 
 export default function OtpOptions() {
