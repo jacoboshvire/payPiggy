@@ -18,8 +18,7 @@ export default function Layout({ Account, ChooseImage, Kyc }) {
   return (
     <div className='welcome'>
       <Details />
-
-      {Account && Account}
+      <Suspense fallback={<div>Loading...</div>}>{Account && Account}</Suspense>
       {Kyc && Kyc}
       {ChooseImage && ChooseImage}
     </div>
