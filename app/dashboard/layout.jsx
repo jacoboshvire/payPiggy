@@ -28,6 +28,7 @@ export default function Layout({
   return (
     <div className='bashboard'>
       <div className='bashboard_container'>
+        {/*pathname.includes("/dashboard") && searchParams.get("home") === "true" && ()*/}
         <Suspense fallback={<div>Loading...</div>}>
           <Nav />
         </Suspense>
