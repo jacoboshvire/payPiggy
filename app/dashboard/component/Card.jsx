@@ -5,7 +5,7 @@ import Image from "next/image";
 import Card from "../../../public/Group.svg";
 import { api } from "@/lib/api";
 
-export default function vault() {
+export default function Vault() {
   const [seeBalance, setSeeBalance] = useState(false);
   const [account, setAccount] = useState(null);
   const [loading, setLoading] = useState(true);
