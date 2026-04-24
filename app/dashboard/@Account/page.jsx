@@ -8,7 +8,7 @@ import AccountLink from "./component/AccountLink";
 import AcountDetail from "./component/acountDetail";
 import "./style.css";
 
-export default function page() {
+export default function Page() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
