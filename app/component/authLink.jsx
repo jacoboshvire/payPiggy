@@ -4,7 +4,7 @@ import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import "./style.css";
 
-export default function authLink() {
+export default function AuthLink() {
   const pathname = usePathname();
   const router = useRouter();
 
