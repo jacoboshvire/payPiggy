@@ -1,8 +1,8 @@
 /** @format */
 
 "use client";
-// import { useEffect } from "react";
 import Nav from "./component/Nav";
+import { Suspense } from "react";
 // import { usePathname, useRouter } from "next/navigation";
 import "./style.css";
 
@@ -29,10 +29,16 @@ export default function Layout({
     <div className='bashboard'>
       <div className='bashboard_container'>
         <Nav />
-        {PersonalDetails && PersonalDetails}
-        {Setting && Setting}
-        {WithdrawFromVault && WithdrawFromVault}
-        {Add && Add}
+        <Suspense fallback={<div>Loading...</div>}>
+          {PersonalDetails && PersonalDetails}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {Setting && Setting}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {WithdrawFromVault && WithdrawFromVault}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>{Add && Add}</Suspense>
         {AddToVault && AddToVault}
         {Home && Home}
         {AccountDetails && AccountDetails}
