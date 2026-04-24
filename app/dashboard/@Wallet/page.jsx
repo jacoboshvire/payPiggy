@@ -8,7 +8,7 @@ import Main from "./component/Main";
 import Title from "./component/Title";
 import "./style.css";
 
-export default function page() {
+export default function WalletPage() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
