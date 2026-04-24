@@ -39,12 +39,27 @@ export default function Layout({
           {WithdrawFromVault && WithdrawFromVault}
         </Suspense>
         <Suspense fallback={<div>Loading...</div>}>{Add && Add}</Suspense>
-        {AddToVault && AddToVault}
-        {Home && Home}
-        {AccountDetails && AccountDetails}
-        {Payment && Payment}
-        {Wallet && Wallet}
-        {Account && Account}
+        <Suspense fallback={<div>Loading...</div>}>
+          {AddToVault && AddToVault}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>{Home && Home}</Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {Account && Account}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {Payment && Payment}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>{Wallet && Wallet}</Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {AccountDetails && AccountDetails}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {Payment && Payment}
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>{Wallet && Wallet}</Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          {AccountDetails && AccountDetails}
+        </Suspense>
       </div>
     </div>
   );
