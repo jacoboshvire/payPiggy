@@ -28,7 +28,9 @@ export default function Layout({
   return (
     <div className='bashboard'>
       <div className='bashboard_container'>
-        <Nav />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Nav />
+        </Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           {PersonalDetails && PersonalDetails}
         </Suspense>
