@@ -56,13 +56,6 @@ export default function Layout({
         <Suspense fallback={<div>Loading...</div>}>
           {AccountDetails && AccountDetails}
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {Payment && Payment}
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>{Wallet && Wallet}</Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {AccountDetails && AccountDetails}
-        </Suspense>
       </div>
     </div>
   );
