@@ -101,7 +101,11 @@ export default function Otp({ length = 5 }) {
         saveToken(data.token);
         Cookies.remove("userId");
 
+        // Add these logs
+        console.log("token saved:", localStorage.getItem("token"));
+
         const userData = await api.get("/api/account");
+        console.log("userData:", userData);
         if (userData && userData.length > 0) {
           localStorage.setItem("accountId", userData[0].id);
         }
