@@ -16,7 +16,7 @@ export default function WelcomeMsg() {
       try {
         const accountId = localStorage.getItem("accountId");
         const data = await api.get(`/api/account/${accountId}`);
-        console.log(data);
+        console.log("account data:", data);
 
         if (data?.user_id) {
           const avatarData = await api.get(`/api/users/${data.user_id}`);
