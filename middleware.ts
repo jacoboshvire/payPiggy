@@ -26,8 +26,7 @@ export function middleware(request: NextRequest) {
   const userId = request.cookies.get("userId")?.value;
   const isNewUser = request.cookies.get("isNewUser")?.value;
   const { pathname } = request.nextUrl;
-  const country =
-    request.geo?.country || request.headers.get("x-vercel-ip-country");
+  const country = request.headers.get("x-vercel-ip-country");
 
   // Don't block the blocked page itself
   if (pathname === "/blocked") {
