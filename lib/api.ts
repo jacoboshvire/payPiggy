@@ -35,7 +35,7 @@ export const api = {
         Authorization: `Bearer ${getToken()}`,
       },
     });
-    return res.json();
+    return handleResponse(res);
   },
 
   post: async (endpoint: string, body: Record<string, unknown>) => {
@@ -47,7 +47,7 @@ export const api = {
       },
       body: JSON.stringify(body),
     });
-    return res.json();
+    return handleResponse(res);
   },
 
   put: async (endpoint: string, body: Record<string, unknown>) => {
@@ -59,6 +59,6 @@ export const api = {
       },
       body: JSON.stringify(body),
     });
-    return res.json();
+    return handleResponse(res);
   },
 };
