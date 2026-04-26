@@ -4,16 +4,6 @@ const BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
   "http://localhost:8080"; /* Fallback to localhost if env variable is not set */
 
-    if (res.status === 403 && data.reason === "This service is only available in the United Kingdom") {
-    if (typeof window !== "undefined") {
-      window.location.href = "/blocked";
-    }
-    return data;
-  }
-  
-  return data;
-};
-
 const getToken = () => {
   if (typeof window !== "undefined") {
     return localStorage.getItem("token");
