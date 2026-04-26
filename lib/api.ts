@@ -11,6 +11,22 @@ const getToken = () => {
   return null;
 };
 
+const handleResponse = async (res: Response) => {
+  const data = await res.json();
+
+  if (
+    res.status === 403 &&
+    data.reason === "This service is only available in the United Kingdom"
+  ) {
+    if (typeof window !== "undefined") {
+      window.location.href = "/blocked";
+    }
+    return data;
+  }
+
+  return data;
+};
+
 export const api = {
   get: async (endpoint: string) => {
     const res = await fetch(`${BASE_URL}${endpoint}`, {
