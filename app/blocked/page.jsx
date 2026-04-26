@@ -1,7 +1,7 @@
 /** @format */
 "use client";
 import { useRouter } from "next/navigation";
-import "blocked.css";
+import "./blocked.css";
 
 export default function Blocked() {
   const router = useRouter();
