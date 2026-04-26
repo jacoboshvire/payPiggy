@@ -26,11 +26,8 @@ export function middleware(request: NextRequest) {
   const userId = request.cookies.get("userId")?.value;
   const isNewUser = request.cookies.get("isNewUser")?.value;
   const { pathname } = request.nextUrl;
-  const country = req.geo?.country || req.headers.get("x-vercel-ip-country");
-
-  const isProtected = protectedRoutes.some((route) =>
-    pathname.startsWith(route),
-  );
+  const country =
+    request.geo?.country || request.headers.get("x-vercel-ip-country");
 
   // Don't block the blocked page itself
   if (pathname === "/blocked") {
@@ -39,13 +36,16 @@ export function middleware(request: NextRequest) {
 
   // Block non-UK users
   if (country && country !== "GB") {
-    return NextResponse.redirect(new URL("/blocked", req.url));
+    return NextResponse.redirect(new URL("/blocked", request.url));
   }
+
+  const isProtected = protectedRoutes.some((route) =>
+    pathname.startsWith(route),
+  );
 
   // Check if token is expired
   if (token && isTokenExpired(token)) {
     const response = NextResponse.redirect(new URL("/", request.url));
-    // Clear expired token cookie
     response.cookies.delete("token");
     return response;
   }
@@ -64,13 +64,6 @@ export function middleware(request: NextRequest) {
   if (pathname === "/auth/verification" && !userId) {
     return NextResponse.redirect(new URL("/auth/login", request.url));
   }
-
-  // Protect welcome — only accessible after signing up
-  // if (pathname.startsWith("/auth/welcome")) {
-  //   if (!token || !isNewUser) {
-  //     return NextResponse.redirect(new URL("/dashboard", request.url));
-  //   }
-  // }
 
   return NextResponse.next();
 }
