@@ -26,10 +26,21 @@ export function middleware(request: NextRequest) {
   const userId = request.cookies.get("userId")?.value;
   const isNewUser = request.cookies.get("isNewUser")?.value;
   const { pathname } = request.nextUrl;
+  const country = req.geo?.country || req.headers.get("x-vercel-ip-country");
 
   const isProtected = protectedRoutes.some((route) =>
     pathname.startsWith(route),
   );
+
+  // Don't block the blocked page itself
+  if (pathname === "/blocked") {
+    return NextResponse.next();
+  }
+
+  // Block non-UK users
+  if (country && country !== "GB") {
+    return NextResponse.redirect(new URL("/blocked", req.url));
+  }
 
   // Check if token is expired
   if (token && isTokenExpired(token)) {
