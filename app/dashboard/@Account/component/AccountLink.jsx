@@ -33,7 +33,7 @@ export default function AccountLink() {
         <Image
           src={
             user?.avatar ||
-            "https://res.cloudinary.com/dhyjebn3i/image/upload/q_auto/f_auto/v1774959019/cld-sample.jpg"
+            "https://res.cloudinary.com/dhyjebn3i/image/upload/v1774959207/Avatar_ql2szp.png"
           }
           alt='profile'
           height={300}
