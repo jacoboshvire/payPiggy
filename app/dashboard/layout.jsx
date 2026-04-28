@@ -17,6 +17,7 @@ export default function Layout({
   AccountDetails,
   PersonalDetails,
   Setting,
+  Notifications,
 }) {
   // const pathname = usePathname();
   // const router = useRouter();
@@ -29,33 +30,22 @@ export default function Layout({
     <div className='bashboard'>
       <div className='bashboard_container'>
         {/*pathname.includes("/dashboard") && searchParams.get("home") === "true" && ()*/}
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense>
           <Nav />
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {PersonalDetails && PersonalDetails}
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {Setting && Setting}
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {WithdrawFromVault && WithdrawFromVault}
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>{Add && Add}</Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {AddToVault && AddToVault}
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>{Home && Home}</Suspense>
+        <Suspense>{PersonalDetails && PersonalDetails}</Suspense>
+        <Suspense>{Notifications && Notifications}</Suspense>
+        <Suspense>{Setting && Setting}</Suspense>
+        <Suspense>{WithdrawFromVault && WithdrawFromVault}</Suspense>
+        <Suspense>{Add && Add}</Suspense>
+        <Suspense>{AddToVault && AddToVault}</Suspense>
+        <Suspense>{Home && Home}</Suspense>
         <Suspense fallback={<div>Loading...</div>}>
           {Account && Account}
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {Payment && Payment}
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>{Wallet && Wallet}</Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          {AccountDetails && AccountDetails}
-        </Suspense>
+        <Suspense>{Payment && Payment}</Suspense>
+        <Suspense>{Wallet && Wallet}</Suspense>
+        <Suspense>{AccountDetails && AccountDetails}</Suspense>
       </div>
     </div>
   );
