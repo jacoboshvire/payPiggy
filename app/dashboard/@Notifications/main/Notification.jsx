@@ -3,6 +3,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { api } from "@/lib/api";
+import "./notifications.css";
 
 export default function Notifications() {
   const [notifications, setNotifications] = useState([]);
@@ -14,7 +15,6 @@ export default function Notifications() {
     fetchNotifications();
     fetchUnreadCount();
 
-    // Poll every 30 seconds
     const interval = setInterval(() => {
       fetchUnreadCount();
     }, 30000);
@@ -54,7 +54,8 @@ export default function Notifications() {
     }
   };
 
-  const handleMarkRead = async (id) => {
+  const handleMarkRead = async (id, read_status) => {
+    if (read_status) return;
     try {
       await api.put(`/api/notifications/${id}/read`, {});
       setNotifications((prev) =>
@@ -66,7 +67,8 @@ export default function Notifications() {
     }
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (e, id) => {
+    e.stopPropagation();
     try {
       await api.delete(`/api/notifications/${id}`);
       setNotifications((prev) => prev.filter((n) => n.id !== id));
@@ -75,9 +77,84 @@ export default function Notifications() {
     }
   };
 
+  const getTypeIcon = (type) => {
+    switch (type) {
+      case "transaction":
+        return (
+          <div className='notification_icon transaction'>
+            <svg
+              width='16'
+              height='16'
+              viewBox='0 0 24 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                clipRule='evenodd'
+                d='M20.5 11.9998C20.5 8.80181 15.023 5.68781 13.925 5.09581C13.438 4.83281 12.832 5.01481 12.57 5.50181C12.309 5.98681 12.489 6.59381 12.976 6.85581C14.807 7.84481 17.23 9.58181 18.135 11.0008H4.5C3.947 11.0008 3.5 11.4478 3.5 12.0008C3.5 12.5528 3.947 13.0008 4.5 13.0008H18.133C17.227 14.4198 14.806 16.1568 12.976 17.1448C12.489 17.4078 12.309 18.0138 12.57 18.4998C12.751 18.8348 13.096 19.0248 13.451 19.0248C13.611 19.0248 13.774 18.9868 13.925 18.9048C15.022 18.3128 20.495 15.2008 20.5 12.0028C20.5 12.0018 20.5 11.9998 20.5 11.9998Z'
+                fill='white'
+              />
+            </svg>
+          </div>
+        );
+      case "security":
+        return (
+          <div className='notification_icon security'>
+            <svg
+              width='16'
+              height='16'
+              viewBox='0 0 24 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                clipRule='evenodd'
+                d='M12 2L4 5V11C4 15.55 7.41 19.74 12 21C16.59 19.74 20 15.55 20 11V5L12 2ZM12 7C13.1 7 14 7.9 14 9C14 10.1 13.1 11 12 11C10.9 11 10 10.1 10 9C10 7.9 10.9 7 12 7ZM12 17C10.33 17 8.86 16.15 8 14.85C8.02 13.52 10.67 12.8 12 12.8C13.32 12.8 15.98 13.52 16 14.85C15.14 16.15 13.67 17 12 17Z'
+                fill='white'
+              />
+            </svg>
+          </div>
+        );
+      default:
+        return (
+          <div className='notification_icon general'>
+            <svg
+              width='16'
+              height='16'
+              viewBox='0 0 24 24'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                fillRule='evenodd'
+                clipRule='evenodd'
+                d='M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 17C11.45 17 11 16.55 11 16V12C11 11.45 11.45 11 12 11C12.55 11 13 11.45 13 12V16C13 16.55 12.55 17 12 17ZM12 9C11.45 9 11 8.55 11 8C11 7.45 11.45 7 12 7C12.55 7 13 7.45 13 8C13 8.55 12.55 9 12 9Z'
+                fill='white'
+              />
+            </svg>
+          </div>
+        );
+    }
+  };
+
+  const formatTime = (date) => {
+    const now = new Date();
+    const diff = now - new Date(date);
+    const mins = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+
+    if (mins < 1) return "Just now";
+    if (mins < 60) return `${mins}m ago`;
+    if (hours < 24) return `${hours}h ago`;
+    return `${days}d ago`;
+  };
+
   return (
     <div className='notifications'>
-      {/* Bell icon with unread count */}
+      {/* Bell icon */}
       <div
         className='notifications_bell'
         onClick={() => {
@@ -95,61 +172,121 @@ export default function Notifications() {
           <path
             fillRule='evenodd'
             clipRule='evenodd'
-            d='M20.8904 17.0882C19.1258 13.207 19.1716 11.7466 19.2529 9.09244C19.2737 8.46533 19.2946 7.78413 19.2946 7.00283C19.2946 0.800664 14.8591 -3.8147e-06 10.0008 -3.8147e-06C5.14254 -3.8147e-06 0.707107 0.800664 0.707107 7.00283C0.707107 7.78199 0.727913 8.46533 0.748718 9.09244C0.830033 11.7466 0.873744 13.207 -0.909926 17.1403C-1.67243 19.107 -1.58077 20.8049 -0.632848 22.1882C1.64215 25.5174 8.22548 25.9757 15.0005 25.9757C21.7755 25.9757 28.3588 25.5174 30.6338 22.1882C31.5838 20.8049 31.6755 19.107 30.8902 17.0882H20.8904Z'
+            d='M20.8904 17.0882C19.1258 13.207 19.1716 11.7466 19.2529 9.09244C19.2946 7.00283 14.8591 2 10.0008 2C5.14254 2 0.707107 7.00283 0.707107 9.09244C0.830033 11.7466 0.873744 13.207 -0.909926 17.1403C-1.67243 19.107 -1.58077 20.8049 -0.632848 22.1882C1.64215 25.5174 8.22548 25.9757 15.0005 25.9757C21.7755 25.9757 28.3588 25.5174 30.6338 22.1882C31.5838 20.8049 31.6755 19.107 30.8902 17.0882H20.8904Z'
             fill='currentColor'
           />
         </svg>
         {unreadCount > 0 && (
-          <span className='notifications_badge'>{unreadCount}</span>
+          <span className='notifications_badge'>
+            {unreadCount > 99 ? "99+" : unreadCount}
+          </span>
         )}
       </div>
 
-      {/* Notifications dropdown */}
+      {/* Overlay */}
+      {open && (
+        <div className='notifications_overlay' onClick={() => setOpen(false)} />
+      )}
+
+      {/* Dropdown */}
       {open && (
         <div className='notifications_dropdown'>
           <div className='notifications_header'>
             <h2>Notifications</h2>
             {unreadCount > 0 && (
-              <button onClick={handleMarkAllRead}>Mark all as read</button>
+              <button
+                className='notifications_markAll'
+                onClick={handleMarkAllRead}
+              >
+                Mark all as read
+              </button>
             )}
           </div>
 
-          {loading ? (
-            <p>Loading...</p>
-          ) : notifications.length === 0 ? (
-            <p className='notifications_empty'>No notifications yet</p>
-          ) : (
-            <div className='notifications_list'>
-              {notifications.map((notification) => (
+          <div className='notifications_list'>
+            {loading ? (
+              <div className='notifications_loading'>
+                <p>Loading...</p>
+              </div>
+            ) : notifications.length === 0 ? (
+              <div className='notifications_empty'>
+                <svg
+                  width='48'
+                  height='48'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                >
+                  <path
+                    fillRule='evenodd'
+                    clipRule='evenodd'
+                    d='M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 17C11.45 17 11 16.55 11 16V12C11 11.45 11.45 11 12 11C12.55 11 13 11.45 13 12V16C13 16.55 12.55 17 12 17ZM12 9C11.45 9 11 8.55 11 8C11 7.45 11.45 7 12 7C12.55 7 13 7.45 13 8C13 8.55 12.55 9 12 9Z'
+                    fill='#ccc'
+                  />
+                </svg>
+                <p>No notifications yet</p>
+              </div>
+            ) : (
+              notifications.map((notification) => (
                 <div
                   key={notification.id}
                   className={`notifications_item ${!notification.read_status ? "unread" : ""}`}
-                  onClick={() => handleMarkRead(notification.id)}
+                  onClick={() =>
+                    handleMarkRead(notification.id, notification.read_status)
+                  }
                 >
+                  {getTypeIcon(notification.type)}
                   <div className='notifications_item_content'>
-                    <p className='notifications_item_title'>
-                      {notification.title}
-                    </p>
+                    <div className='notifications_item_top'>
+                      <p className='notifications_item_title'>
+                        {notification.title}
+                      </p>
+                      <span className='notifications_item_time'>
+                        {formatTime(notification.created_at)}
+                      </span>
+                    </div>
                     <p className='notifications_item_message'>
                       {notification.message}
                     </p>
-                    <p className='notifications_item_time'>
-                      {new Date(notification.created_at).toLocaleDateString()}
-                    </p>
                   </div>
+                  {!notification.read_status && (
+                    <div className='notifications_item_dot' />
+                  )}
                   <button
                     className='notifications_item_delete'
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleDelete(notification.id);
-                    }}
+                    onClick={(e) => handleDelete(e, notification.id)}
                   >
-                    ×
+                    <svg
+                      width='16'
+                      height='16'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      xmlns='http://www.w3.org/2000/svg'
+                    >
+                      <line
+                        x1='18.364'
+                        y1='5.636'
+                        x2='5.636'
+                        y2='18.364'
+                        strokeWidth='2'
+                        strokeLinecap='round'
+                        stroke='currentColor'
+                      />
+                      <line
+                        x1='5.636'
+                        y1='5.636'
+                        x2='18.364'
+                        y2='18.364'
+                        strokeWidth='2'
+                        strokeLinecap='round'
+                        stroke='currentColor'
+                      />
+                    </svg>
                   </button>
                 </div>
-              ))}
-            </div>
-          )}
+              ))
+            )}
+          </div>
         </div>
       )}
     </div>
