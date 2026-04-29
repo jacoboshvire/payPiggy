@@ -2,6 +2,7 @@
 
 "use client";
 import { useSearchParams, usePathname } from "next/navigation";
+import Notifications from "./main/Notification";
 
 export default function Page() {
   const searchParams = useSearchParams();
@@ -10,7 +11,9 @@ export default function Page() {
   return (
     <>
       {pathname.includes("dashboard") && notifications === "true" && (
-        <div className='notification-banner'>You have new notifications!</div>
+        <div className='notification-banner'>
+          <Notifications />
+        </div>
       )}
     </>
   );
