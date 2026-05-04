@@ -15,9 +15,23 @@ export default function Form() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState(false);
 
-  const changeType = () => {
-    setSeePassword((prev) => !prev);
+  const changeType = () => setSeePassword((prev) => !prev);
+
+  const handleResend = async () => {
+    setResendLoading(true);
+    setResendSuccess(false);
+    try {
+      await api.post("/api/auth/resend-verification", { email });
+      setResendSuccess(true);
+    } catch (err) {
+      setError("Failed to resend. Please try again.");
+    } finally {
+      setResendLoading(false);
+    }
   };
 
   const handleRegister = async (e) => {
@@ -40,13 +54,69 @@ export default function Form() {
 
       Cookies.set("userId", String(data.userId), { expires: 1 });
       Cookies.set("isNewUser", "true", { expires: 1 });
-      router.push("/auth/otp-options");
+
+      // Show email verification message instead of redirecting
+      setEmailSent(true);
     } catch (err) {
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+
+  // Show email verification screen after registration
+  if (emailSent) {
+    return (
+      <div className='input'>
+        <div className='email_verify_sent'>
+          <svg
+            width='64'
+            height='64'
+            viewBox='0 0 24 24'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              fillRule='evenodd'
+              clipRule='evenodd'
+              d='M18.1451 9.53C17.7931 9.952 14.6341 13.653 12.0111 13.653C9.39107 13.653 6.20007 9.955 5.84407 9.533C5.57807 9.216 5.61807 8.743 5.93507 8.476C6.25107 8.208 6.72407 8.25 6.99107 8.566C8.16207 9.953 10.5591 12.153 12.0111 12.153C13.4621 12.153 15.8371 9.955 16.9931 8.569C17.2581 8.252 17.7311 8.21 18.0491 8.473C18.3671 8.739 18.4101 9.212 18.1451 9.53ZM12.0001 2.383C4.59907 2.383 1.97607 4.899 1.97607 12C1.97607 19.1 4.59907 21.617 12.0001 21.617C19.4011 21.617 22.0241 19.1 22.0241 12C22.0241 4.899 19.4011 2.383 12.0001 2.383Z'
+              fill='#4F46E5'
+            />
+          </svg>
+          <h2>Verify your email</h2>
+          <p>We sent a verification link to</p>
+          <p className='email_verify_address'>{email}</p>
+          <p className='email_verify_sub'>
+            Please check your inbox and click the link to verify your email
+            before continuing.
+          </p>
+
+          {resendSuccess && (
+            <p className='success'>Verification email resent successfully!</p>
+          )}
+
+          {error && <p className='error'>{error}</p>}
+
+          <button
+            type='button'
+            className='email_verify_resend'
+            onClick={handleResend}
+            disabled={resendLoading}
+          >
+            {resendLoading ? "Sending..." : "Resend verification email"}
+          </button>
+
+          <button
+            type='button'
+            className='email_verify_continue'
+            onClick={() => router.push("/auth/otp-options")}
+          >
+            Continue to OTP verification
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className='input'>
@@ -138,7 +208,6 @@ export default function Form() {
                 d='M15.5259 13.8478C14.5279 14.3338 13.6639 14.7558 11.4169 12.5088C9.17088 10.2618 9.59088 9.3988 10.0779 8.3998C10.7829 6.9518 11.0679 5.6348 7.86588 2.9978C7.10088 2.3728 6.27088 2.1328 5.40388 2.3008C3.57088 2.6438 2.27588 4.6838 2.27788 4.6838C1.46588 5.8198 0.353876 9.2358 7.52088 16.4038C12.2349 21.1188 15.3269 22.2498 17.2029 22.2498C18.1789 22.2498 18.8259 21.9438 19.1999 21.6748C19.2199 21.6628 21.2779 20.3878 21.6259 18.5188C21.7879 17.6498 21.5519 16.8228 20.9259 16.0578C18.2899 12.8588 16.9729 13.1428 15.5259 13.8478Z'
               />
             </svg>
-
             <input
               type='tel'
               id='phone'
