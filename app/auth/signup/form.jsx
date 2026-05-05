@@ -1,7 +1,7 @@
 /** @format */
 
 "use client";
-import { useState, useEffect } from "react";
+
 import "./style.css";
 import Input from "./input";
 import AuthLink from "../../component/authLink";
