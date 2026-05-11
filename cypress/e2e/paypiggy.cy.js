@@ -2,7 +2,7 @@
 
 const BASE_URL = "http://localhost:3000";
 const TEST_EMAIL = "ejirojacob2000@gmail.com";
-const TEST_PASSWORD = "yourpassword";
+const TEST_PASSWORD = "Jac0831#@$";
 
 // ----------------------
 // AUTH FLOWS
