@@ -66,6 +66,7 @@ export default function Form() {
       password,
     });
     if (!result.success) {
+      console.log(result.error);
       setError(result.error?.errors?.[0]?.message || "Validation failed");
       setLoading(false);
       return;
