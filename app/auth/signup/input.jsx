@@ -67,7 +67,7 @@ export default function Form() {
     });
     if (!result.success) {
       console.log(result.error);
-      setError(result.error?.errors?.[0]?.message || "Validation failed");
+      setError(result.error?.[0]?.message || "Validation failed");
       setLoading(false);
       return;
     }
