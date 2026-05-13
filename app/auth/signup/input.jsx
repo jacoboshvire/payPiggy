@@ -5,6 +5,26 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { api } from "@/lib/api";
+import { z } from "zod";
+
+const registerSchema = z.object({
+  fullname: z.string().min(2, "Full name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z
+    .string()
+    .min(7, "Phone number is too short")
+    .regex(/^[+\d\s\-()]+$/, "Invalid phone number"),
+  password: z
+    .string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+    .regex(/[0-9]/, "Password must contain at least one number")
+    .regex(
+      /[^A-Za-z0-9]/,
+      "Password must contain at least one special character",
+    ),
+});
 
 export default function Form() {
   const router = useRouter();
@@ -38,6 +58,18 @@ export default function Form() {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    const result = registerSchema.safeParse({
+      fullname,
+      email,
+      phone,
+      password,
+    });
+    if (!result.success) {
+      setError(result.error.errors[0].message);
+      setLoading(false);
+      return;
+    }
 
     try {
       const data = await api.post("/api/auth/register", {
